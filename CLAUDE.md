@@ -17,12 +17,58 @@ scripts/
   screenshot-url.js  Capture a LIVE URL at device viewports into assets/<slug>/ (GPU forced on for WebGL sites)
   frame-screenshot.js  Frame a screenshot on a social-ready canvas (screenshot-frame.html is its template)
   remove-bg.py     Background removal (requires rembg)
+  make-qr.js       Generate a new QR code PNG into assets/brand/qr/
+  compliance-check.js  Lint a flyer for NMLS/Equal Housing/unverified rate numbers
+  audit-log.js     Record/approve flyers in audit/flyer-log.json
 .claude/commands/
   setup.md         /setup — install dependencies and verify setup
   new-poster.md    /new-poster — generate a poster
   export-poster.md /export-poster — export to PNG/PDF
   remove-bg.md     /remove-bg — remove image background
+templates/
+  flyer-schema.md  Required/optional fields per SHL flyer type — read this before building a new flyer
+audit/
+  flyer-log.json   Audit trail: every flyer logged, its compliance-check result, and approval status
 ```
+
+## Strategic Home Loans (SHL) — this repo's actual use
+
+This fork is Cameron Bartolomea's flyer generator for Strategic Home
+Loans, Inc. (mortgage brokerage, Westlake Village, CA). On top of the
+stock Poster Maker workflow:
+
+- **Brand assets** live in `assets/brand/` and `assets/people/` — see
+  `assets/README.md` for exactly what's there (logos, Equal Housing
+  badge, QR vCards for Cameron and Robert, headshots) and the NMLS/DRE
+  numbers to use in disclosures. Always pull from here instead of
+  asking Cameron to re-send assets already in the repo.
+- **Content model** — before building a new flyer type, read
+  `templates/flyer-schema.md` for the required/optional fields for that
+  flyer type. It also carries the standing compliance rules (below).
+- **Compliance rule (critical):** never put a rate, APR, or payment
+  estimate on a flyer unless it's sourced from that day's actual rate
+  sheet Cameron provides in the conversation — never estimate or guess
+  one, even for a "hypothetical" example. Every flyer needs at least one
+  NMLS number and the Equal Housing Opportunity badge unless it
+  genuinely isn't a loan-product ad. Run
+  `node scripts/compliance-check.js posters/<file>.html` before treating
+  a flyer as finished.
+- **QR codes:** Cameron's and Robert's static vCard QR codes already
+  exist (`assets/brand/qr/qr-cameron-vcard.png`,
+  `qr-robert-vcard.png`) — reuse those for contact info. For anything
+  else (a listing link, an application link), generate a fresh one with
+  `node scripts/make-qr.js "<url>" <name> --color "#c72108"`.
+- **Audit trail:** every flyer that's drafted should get logged —
+  `node scripts/audit-log.js add posters/<file>.html --type <type>
+  --note "..."`. It auto-runs the compliance check and records the
+  result. When Cameron explicitly approves a flyer (for print, for
+  sending, for posting — never assume), log it:
+  `node scripts/audit-log.js approve posters/<file>.html --by "Cameron
+  Bartolomea"`. Nothing in this repo is ever sent, published, or posted
+  on Cameron's behalf — drafts only, always his call.
+- **Draft-only, always:** this whole repo produces drafts. Never send,
+  post, print-and-mail, or otherwise publish a flyer's content outside
+  this conversation without Cameron's explicit go-ahead.
 
 ## Commands
 

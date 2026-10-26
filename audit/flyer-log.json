@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "file": "posters/shl-realtor-partner-flyer.html",
+    "type": "realtor-partner",
+    "content_hash": "5975ce6d8482f94e",
+    "created_at": "2026-10-26T22:17:50.618Z",
+    "status": "draft",
+    "compliance_check": "pass",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "First draft, sent to Cameron for review, not yet approved"
+  }
+]

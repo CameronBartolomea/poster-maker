@@ -208,13 +208,16 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
+    flex: 0 0 auto;
+    max-width: 2.9in;
   }
   .contact-left .name {
     font-family: 'Oswald', sans-serif;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0.2px;
+    white-space: nowrap;
   }
   .contact-left .title {
     font-size: 13.5px;
@@ -232,11 +235,13 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
+    flex: 0 0 auto;
   }
   .contact-right .row {
-    font-size: 14px;
+    font-size: 13px;
     color: #f1f1f1;
     letter-spacing: 0.2px;
+    white-space: nowrap;
   }
   .contact-right .row .lbl {
     color: #c9a39d;
@@ -246,15 +251,47 @@
     margin-right: 8px;
   }
 
+  .contact-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  .contact-qr img {
+    width: 0.85in;
+    height: 0.85in;
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 2px;
+    display: block;
+  }
+  .contact-qr-label {
+    font-size: 9px;
+    color: #b9b9b9;
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+  }
+
   .footer-note {
     position: absolute;
     left: 0.65in;
     right: 0.65in;
-    bottom: 0.32in;
+    bottom: 0.3in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     font-size: 9.5px;
     color: #9a9a9a;
     text-align: center;
     letter-spacing: 0.2px;
+  }
+  .footer-note .eho-badge {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -317,16 +354,23 @@
     <div class="contact-left">
       <div class="name">Cameron Bartolomea</div>
       <div class="title">Loan Officer / Mortgage Broker</div>
-      <div class="nmls">NMLS #2777999 &nbsp;&middot;&nbsp; Strategic Home Loans, Inc. NMLS #340445 &nbsp;&middot;&nbsp; CA DRE #01311775</div>
+      <div class="nmls">NMLS #2777999 &nbsp;&middot;&nbsp; CA DRE #02279518 &nbsp;&middot;&nbsp; Strategic Home Loans, Inc. NMLS #340445 &nbsp;&middot;&nbsp; CA DRE #01311775</div>
     </div>
     <div class="contact-right">
       <div class="row"><span class="lbl">Cell</span>818&nbsp;857&nbsp;9675</div>
       <div class="row"><span class="lbl">Office</span>805&nbsp;496&nbsp;7500&nbsp;x2</div>
       <div class="row"><span class="lbl">Email</span>cameron@strategichomeloans.com</div>
     </div>
+    <div class="contact-qr">
+      <img src="../assets/brand/qr/qr-cameron-vcard.png" alt="Scan to save Cameron's contact">
+      <div class="contact-qr-label">Scan to save<br>my contact</div>
+    </div>
   </div>
 
-  <div class="footer-note">2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &nbsp;&middot;&nbsp; strategichomeloans.com</div>
+  <div class="footer-note">
+    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    <span>2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &nbsp;&middot;&nbsp; strategichomeloans.com</span>
+  </div>
 
   <script>
     (function() {
