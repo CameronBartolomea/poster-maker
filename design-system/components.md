@@ -304,6 +304,69 @@ A visually busy source image (fine detail like soil texture or roots)
 produces a noisier trace with more small stray sub-paths than a
 cleaner source — simpler illustrations trace better.
 
+## 12. Full-Color Vector Illustration Workflow
+
+Tested and working (`design-system/artwork-capability-audit.md`,
+Round 3). The round-2 silhouette trace (#11d) is a single color. This
+is the full-color alternative: `scripts/vectorize-color.py` separates
+a raster illustration's foreground from its background by color
+distance, clusters the foreground into N flat color regions (k-means),
+traces each region separately with potrace, and recombines them into
+one multi-color SVG.
+
+```bash
+python3 scripts/vectorize-color.py assets/path/to/illustration.png assets/path/to/illustration-color.svg \
+  --colors 5 --turdsize 6
+```
+
+Reference it like any other image: `<img src="...-color.svg">`. Do
+NOT hand-edit or inline-paste its path data — reference the file
+directly, or if it must be inlined, do so with a script that copies
+the content verbatim, never by typing or retyping path coordinates.
+(A hand-transcription of this exact SVG content into a poster during
+Round 3 silently truncated and corrupted several of the color layers
+— caught before shipping by a script that diffed the inlined path
+data against the source file byte-for-byte, not by eye. That check is
+cheap and worth re-running any time vector path data is copied by
+hand instead of referenced as a file.)
+
+**Honest trade-off, state every time this is used:** this posterizes
+— a source with smooth gradient shading becomes flat color bands, and
+the resulting colors come from whatever the source image actually
+contains, not from `tokens.css`. It is not a substitute for a real
+illustration set designed in the brand's two colors; it is a tested
+way to get genuine multi-color vector art (not a silhouette) out of a
+flat-style source. Use the silhouette trace (#11d) when a single
+brand-color mark is wanted; use this when the illustration's own
+color is part of what it communicates.
+
+**Scale discipline:** full color does not excuse oversized decoration.
+Round 3 exists specifically because a round-2 hero illustration was
+rejected for being large without communicating anything beyond its
+own size. Cap illustration size to a fraction of the page (see
+`_capability-test-color-feature.html`, capped at 30% of page width)
+and pair it with content that is actually about what it depicts, not
+generic copy next to a picture.
+
+## 13. Artwork Contrast & Brand Checks (automated QA, not a layout component)
+
+Not a visual pattern — a required QA step. `scripts/artwork-
+contrast-check.js` and `scripts/brand-check.js` run automatically as
+part of `scripts/audit-log.js add` (alongside the pre-existing
+compliance/copy/layout checks) and should never be skipped or run in
+isolation as a substitute for that. artwork-contrast-check samples the
+real rendered pixels around every `<img>`/`<svg>` above a minimum size
+and flags artwork that reads as nearly invisible or muddy against its
+background — built specifically because a dark illustration on a dark
+background (round 2) passed every prior check silently. brand-check
+verifies a real logo file is used (not recreated as styled text), its
+rendered proportions match the source, and nothing intrudes on its
+clear space. See `design-system/artwork-capability-audit.md` Round 3
+for what each one actually catches and its honest limitations (both
+are severity signals from a geometric/pixel heuristic, not a
+certification of good design — a human/AI visual read of the actual
+screenshot is still required before anything ships).
+
 ## 11. Watermark / Fill Graphic
 
 Built and tested in `posters/concept-a-split-stack.html`. When a layout
@@ -353,7 +416,28 @@ descriptions):
   dominant scale instead of equal-sized panels; use for anything where
   a single strong visual idea should carry the piece (a hero concept,
   a single key benefit, an educational piece built around one central
-  metaphor) rather than a list of several equal items.
+  metaphor) rather than a list of several equal items. **Caution:**
+  both example files in this family were explicitly rejected by
+  Cameron in round 3 — composition A for oversized art that didn't
+  communicate, composition B for a contrast failure. They remain here
+  as the documented reference for what NOT to do at this scale, not
+  as approved examples to copy. See the color-vector feature column
+  family below for the corrected version of this same idea.
+- **Color-vector editorial list** (`posters/_capability-test-color-
+  editorial.html`) — see component #12. A full-color vector
+  illustration at a fixed, modest size (around 1.1-1.2in) replaces the
+  numeral/bullet for each item in a list, directly integrated with its
+  paragraph rather than floating as separate decoration. Good for a
+  short numbered sequence (stages, steps, benefits) where the art
+  should do real identification work without taking over the page.
+- **Color-vector feature column** (`posters/_capability-test-color-
+  feature.html`) — see component #12. One full-color illustration
+  capped at roughly 30% of page width, paired directly with a callout
+  specifically about what it depicts, plus a small muted strip showing
+  the rest of a sequence for context. This is the corrected version of
+  the hero-scale-asymmetric idea above: real visual presence for one
+  illustration, without either of the two mistakes (no content tied to
+  the art, or insufficient contrast) that got the original rejected.
 
 **Enforcement, not just this list:** `scripts/audit-log.js add` takes
 an optional `--layout-family <name>` flag. When passed, it checks the

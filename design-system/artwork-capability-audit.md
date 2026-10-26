@@ -333,3 +333,262 @@ realtor-partner flyer and the three layout concepts) still recreate
 the logo as text; fixing those specifically wasn't in scope for this
 round but should happen before any of them are treated as a template
 again.
+
+---
+
+## Round 3 (full-color illustration, visual QC, logo verification)
+
+Cameron's round-3 feedback reviewed both round-2 compositions and
+rejected both, specifically:
+
+- **Composition A** ("the very large flat red flower that overwhelms
+  the composition without communicating much additional information")
+  — the hero-scale vector silhouette was large and technically clean,
+  but was decoration, not communication. This directly echoed the
+  round-1 instruction ("the goal isn't ... arranging information into
+  sections" / avoid giant illustrations that don't serve the message)
+  that round 2 didn't sufficiently act on.
+- **Composition B** ("a serious contrast problem... the dark
+  illustration nearly disappears into the background... our
+  quality-control system should identify problems like this") — a
+  real, visible defect that slipped through every existing automated
+  check, because none of them had ever looked at an image or SVG
+  against its background. layout-check.js's contrast pass only
+  compares text color against its own declared CSS background.
+
+Three pieces of work came directly out of that: a full-color
+vectorization pipeline, a real artwork-contrast check, and a
+logo-integrity check — followed by two new capability tests built
+under the new, tighter constraints.
+
+### 1. Full-color vector illustration — tested and working
+
+`scripts/vectorize-color.py` is a new tool: it separates a raster
+illustration's foreground from its background by color distance, runs
+k-means clustering (scikit-learn) to posterize the foreground into N
+flat color regions, traces EACH region separately with potrace, and
+recombines the traced layers into one multi-color SVG (each region as
+its own `<path fill="#...">`, ordered largest-area-first).
+
+Tested on all three source illustrations used so far (seed, sprout,
+bloom). Result: genuine multi-color vector art — 4 to 5 real colors
+per image, not a single silhouette — confirmed by actually rendering
+it (not just inspecting the SVG source) at both a small preview and a
+zoomed 3600px crop meant to simulate true hero-print scale. At that
+zoomed scale the line work stayed perfectly crisp with zero softening,
+confirming this is a true vector output with no resolution ceiling,
+unlike the raster-upscale path tested in round 2.
+
+**Honest limitations, not glossed over:**
+
+- This is posterization, not a replacement for genuine multi-tone
+  illustration. A source with smooth gradient shading becomes flat
+  color bands. The source illustrations used here (flat Canva-
+  generated vector art to start with) happened to already be close to
+  flat-color, which is the best case for this method — a photograph
+  or a heavily-shaded illustration would posterize much more visibly
+  and might need more color clusters or a different approach entirely.
+- Fine texture fragments. A busier image with grain or fine hatching
+  would produce either a noisy trace (low `--turdsize`) or lose that
+  detail entirely (high `--turdsize`). This is a real per-image
+  trade-off, not a solved problem.
+- The clustered colors are whatever k-means finds in the source image,
+  not snapped to the two-brand-color token palette. For a neutral
+  capability test that's fine; for an actual SHL-branded illustration,
+  someone would need to either constrain the source art's palette
+  before vectorizing or accept that illustration colors are a
+  secondary, art-direction-level decision separate from the two brand
+  UI colors. Worth being explicit that `compliance-check.js` does not
+  currently check colors against `tokens.css` at all, despite what the
+  comment at the top of `tokens.css` implies — that's a pre-existing
+  inaccuracy in the documentation, not something introduced this round,
+  and not fixed here (flagging it rather than silently leaving it).
+
+### 2. Artwork contrast check — tested and validated against the known defect
+
+`scripts/artwork-contrast-check.js` is new. It renders the actual
+poster, finds every `<img>`/`<svg>` element above a minimum size,
+samples the REAL COMPOSITED PIXELS from a full-page screenshot (a
+center crop of the element as "foreground," a ring of bands just
+outside its box as "background"), and computes a WCAG-style luminance
+contrast ratio between them. Below 1.5:1 is a FAIL ("likely reads as
+nearly invisible"), below 2.2:1 is a WARN ("likely reads as
+flat/muddy").
+
+This was validated, not just written and assumed to work: run against
+`_capability-test-hero-asymmetric-b.html` (the known-bad composition
+B), it reports the dark hero illustration at **1.21:1 — FAIL**,
+matching Cameron's own description almost exactly. Run against the
+same file's logo and thumbnail images, which look fine, it reports
+2.65:1–7.73:1 with no fail. This is a real, working check, not a
+check that technically exists but has never actually been shown to
+catch the thing it's supposed to catch.
+
+One real bug found and fixed while building it: sharp's `.stats()`
+method, chained directly after `.extract()`, silently returned the
+FULL image's stats instead of the cropped region's (verified by
+comparing against a manual mean computed from the raw decoded pixel
+buffer, which gave correct, different values per region). Worked
+around by computing the mean manually from `.raw().toBuffer()`
+instead of trusting `.stats()`. Noted in the script as a comment so
+it isn't silently reintroduced.
+
+**Honest limitations:** the center-crop/ring-sample heuristic is a
+severity signal, not a certification. It mis-scores small icons that
+have a lot of pale padding around a small colorful subject (both new
+round-3 pieces get WARN, not FAIL, on their logo and smallest
+thumbnails for exactly this reason — the center crop lands partly on
+background-colored padding and dilutes the reading). That's a real
+limitation of a simple geometric heuristic, not a hidden defect in
+those images (visually, in the actual screenshots, they read fine).
+It also does not evaluate whether artwork is tasteful, well-scaled,
+or communicates anything — that judgment still needs an actual look
+at the screenshot, same caveat every other automated check in this
+repo already carries.
+
+### 3. Brand/logo check — tested, and found the gap is repo-wide
+
+`scripts/brand-check.js` is new. For any flyer with logo images, it
+checks: a real `assets/brand/logo/` file is used (not recreated as
+text), the rendered aspect ratio matches the source file's true ratio
+within 1% (catches stretching), and no other visible element intrudes
+into a conservative clear-space margin around it.
+
+Run across every existing SHL poster in the repo, not just the two
+round-2 pieces, for an honest inventory instead of assuming the round-2
+fix generalized:
+
+| File | Logo check |
+|---|---|
+| `shl-realtor-partner-flyer.html` | **FAIL** — still recreates the wordmark as CSS text |
+| `concept-a-split-stack.html` | **FAIL** — same |
+| `concept-b-icon-rail.html` | **FAIL** — same |
+| `concept-c-timeline.html` | **FAIL** — same |
+| `_capability-test-seed-sprout-bloom.html` | FAIL (no logo at all — expected, this round-1 test predates the logo-usage rule) |
+| `_capability-test-hero-asymmetric-a.html` | OK (round 2) |
+| `_capability-test-hero-asymmetric-b.html` | OK (round 2) |
+| `_capability-test-color-editorial.html` | OK (round 3, new) |
+| `_capability-test-color-feature.html` | OK (round 3, new) |
+
+**This is not fixed yet.** The realtor-partner flyer and all three
+round-1 layout concepts still recreate "STRATEGIC HOME LOANS" as
+styled text instead of the real logo file. Retrofitting those four
+files was not done this round — the priority was proving the new
+illustration and QC capabilities on new, neutral work, per the
+instruction to continue developing the production system rather than
+client-facing work. But it is a real, now precisely-measured gap, not
+a vague one, and it should be closed before any of those four files
+are treated as a reusable template again.
+
+The dark-background white-logo technique (`filter: brightness(0)
+invert(1)`, used in round-2 composition B) is flagged by the checker
+as a WARN whenever it's used — it is a derived reversed logo, not an
+authorized one. `assets/brand/logo/` has no actual reversed/white
+logo file. This works today because the logo is a simple solid shape,
+but it is a stopgap, and it's now a visible warning instead of a
+silent assumption. Worth asking Cameron for an authorized reversed
+logo asset if dark-background placements become a real pattern.
+
+Both new checks are wired into `scripts/audit-log.js` alongside the
+three existing checks (compliance, copy, layout) — `add` now runs all
+five and records all five results, and `approve` refuses if any of
+the five failed. Nothing about the existing pipeline's behavior
+changed for the three prior checks.
+
+### 4. Two new capability tests, built under tighter constraints
+
+Both are neutral (non-mortgage) content, both use
+`vectorize-color.py` output, both use the real logo at correct
+proportions, both pass layout/copy/artwork-contrast/brand checks (the
+expected compliance FAIL is the correct result for a non-mortgage
+capability test — no NMLS, no Equal Housing badge, by design).
+
+**`_capability-test-color-editorial.html`** — portrait, a clean
+editorial list. Each of three stages is marked by its own full-color
+illustration at a fixed, modest size (1.15in) instead of a numeral or
+line icon — the illustration does the job a bullet or number would
+normally do, directly integrated with its paragraph rather than
+floating separately.
+
+**`_capability-test-color-feature.html`** — landscape, a feature
+column. One illustration gets real presence (capped at 3.3in, about
+30% of the page width — nowhere near composition A's ~70%), but
+unlike composition A, it sits directly beside a callout that is
+specifically ABOUT that illustrated stage, not generic copy next to a
+decorative picture. The other two stages appear small and muted in a
+sequence strip below, so the featured stage still reads as part of a
+three-step sequence rather than an isolated picture.
+
+Both were deliberately built to avoid both of Cameron's named round-2
+mistakes at once: large scale without content tied to it (A), and
+insufficient contrast (B, guarded against here by using light
+backgrounds throughout and by actually running the new contrast
+checker rather than assuming light-on-light is automatically safe).
+
+### 5. Comparison against professional references — honest, not self-graded
+
+Measuring these two against real editorial/explainer design (the kind
+of one-pager content marketing a fintech or wellness brand would
+publish, which is the closest professional comparison for this
+growth-metaphor subject matter):
+
+**What holds up:** the full-color illustrations themselves are
+genuinely good — clean line work, confident color blocking, no visible
+tracing artifacts at normal viewing size. The feature-column piece's
+core move (one illustration with real presence, paired with content
+that's actually about it, demoted siblings for sequence context) is a
+legitimate professional pattern, not an invented one — it resembles
+how a lot of SaaS/fintech marketing pages handle a hero-plus-support
+layout. Both pieces hold a consistent, restrained type scale and
+don't lean on gratuitous shadows, gradients, or rounded-card clutter.
+
+**What doesn't, yet:**
+
+- The illustration style itself (organic plant/growth linework, warm
+  earthy palette) reads closer to a wellness or sustainability brand
+  than a mortgage brokerage. That's a direct consequence of reusing
+  the same neutral seed-sprout-bloom source material across all three
+  rounds for continuity — it was never meant to be a finished art
+  direction, but it should be named plainly: a real SHL illustration
+  set would need its own subject matter and probably a tighter,
+  more restrained palette closer to the two actual brand colors, not
+  whatever a k-means cluster happens to find in a stock-style
+  illustration.
+- The editorial-list piece is competent but safe — a straightforward
+  icon-plus-paragraph list is a known-good pattern, not a distinctive
+  one. It doesn't yet show the "sophisticated visual flow" round 2
+  asked for; it shows restraint, which is a different, smaller
+  achievement.
+- The feature piece's callout card (white box, red stat label, plain
+  border) is a basic card component, not a refined one — professional
+  work at this level usually gets more typographic distinction between
+  the stat and its supporting line (different weight AND size AND
+  color relationship, not just color), and the border/background
+  treatment is a default choice, not a considered one.
+- Neither piece has been tested with real SHL mortgage content, which
+  is denser and more numerous (NMLS language, multiple contacts,
+  Equal Housing badge, program names) than three short labeled stages.
+  Whether the full-color illustration approach holds up once a page
+  also has to carry that mandatory disclosure content is genuinely
+  untested.
+
+### What round 3 proves and doesn't
+
+**Proves:** full-color (not monochrome) vector illustration is a real,
+tested, working capability now, with honestly documented limits, not
+a claim resting on one good-looking example. A dark-illustration-on-
+dark-background failure of exactly the kind Cameron caught is now
+something the automated pipeline would catch on its own, validated
+against the actual known-bad file, not just asserted. Logo integrity
+is now a measurable, repeatable check, and the repo's real compliance
+state (2 of 9 relevant files, soon to be 4 of 9 counting the new
+pieces) is known precisely instead of estimated.
+
+**Does not prove:** that the illustration style is right for SHL's
+brand (it probably isn't, as-is — see above). That any of this has
+been tried with real, disclosure-heavy mortgage content. That the
+four round-1 files with the recreated-wordmark gap have been fixed —
+they haven't. That the artwork-contrast and brand checks are complete
+quality bars — they catch the specific, named failure modes Cameron
+pointed at, not a general "is this good design" judgment, which still
+needs a human or AI visual read of the actual screenshot every time.

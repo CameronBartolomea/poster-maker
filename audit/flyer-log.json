@@ -280,5 +280,92 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Round 2 capability test. Landscape 11x8.5in (different print dimensions than composition A, deliberately). Oversized ghost numeral bleeds off the top edge intentionally (editorial type-crop technique, not a layout bug) - layout-check correctly flags this as clipping/overlap; noting it here as a deliberate choice rather than suppressing the check. Real SHL logo used, inverted for the dark background. Vector-traced sprout illustration as diagonal hero. NMLS/Equal-Housing failures expected, not a loan-product flyer."
+  },
+  {
+    "id": 13,
+    "file": "posters/_capability-test-hero-asymmetric-b.html",
+    "type": "capability-test",
+    "content_hash": "47a74a5ce92ba6aa",
+    "created_at": "2026-10-26T23:25:14.034Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "fail",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-hero-asymmetric-b.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-hero-asymmetric-b.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-hero-asymmetric-b.html  (1056x816)\n  FAIL [clipping]: <div class=\"ghost-numeral\"> \"3\" extends outside the page bounds (box: 326,-125 403x760; page: 1056x816)\n  FAIL [overlap]: <div> \"3\" overlaps <img> \"\" by 100% of the smaller element's area\n  FAIL [overlap]: <div> \"3\" overlaps <div> \"Bloom\" by 100% of the smaller element's area\n  WARN [overlap]: <div> \"CAPABILITY TEST · NOT A CLIENT DELIVERAB\" overlaps <div> \"3\" by 38% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <div> \"Composition Test · Diagonal Flow\" by 30% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <h1> \"Every stage earnsits own weight.\" by 30% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <p> \"Landscape format, oversized ghost numera\" by 18% of the smaller element's area",
+      "artwork_contrast": "posters/_capability-test-hero-asymmetric-b.html  (1056x816)\n  FAIL [artwork-contrast]: <svg> at 416,-6 (607x607) — #121212 vs #262423 — 1.21:1\n  info [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 58,678 (202x90) — #5f5f5f vs #1c1c1c — 2.65:1\n  WARN [artwork-contrast]: <svg> at 58,413 (413x307) — #4d4a47 vs #2b2b2b — 1.61:1\n  info [artwork-contrast]: <img src=\"01-seed.png\"> at 58,422 (96x96) — #b7b298 vs #1f1f1f — 7.73:1\n  info [artwork-contrast]: <img src=\"02-sprout.png\"> at 221,538 (96x96) — #979684 vs #212120 — 5.43:1\n  info [artwork-contrast]: <img src=\"03-bloom.png\"> at 355,413 (96x96) — #8e6d5a vs #272727 — 3.20:1",
+      "brand": "posters/_capability-test-hero-asymmetric-b.html  (1056x816)\n  WARN [brand]: Logo \"shl-logo-full-color.png\" has CSS filter \"brightness(0) invert(1)\" applied (likely a dark-background reversal via brightness/invert). This is a derived white version, not an authorized reversed logo asset — acceptable as a documented stopgap, but Cameron should confirm this matches the brand guideline before it's used client-facing."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "re-run with round-3 QC checks (retroactive validation, not a new entry for new work)"
+  },
+  {
+    "id": 14,
+    "file": "posters/_capability-test-color-editorial.html",
+    "type": "capability-test",
+    "content_hash": "59420253afbbb647",
+    "created_at": "2026-10-26T23:32:25.919Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-color-editorial.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-color-editorial.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-color-editorial.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-color-editorial.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 62,67 (202x90) — #dfb7b9 vs #faf7f2 — 1.69:1\n  WARN [artwork-contrast]: <img src=\"01-seed-color.svg\"> at 62,437 (110x110) — #babda4 vs #faf7f2 — 1.80:1\n  info [artwork-contrast]: <img src=\"02-sprout-color.svg\"> at 62,607 (110x110) — #9fa195 vs #faf7f2 — 2.45:1\n  info [artwork-contrast]: <img src=\"03-bloom-color.svg\"> at 62,777 (110x110) — #9a7f6e vs #faf7f2 — 3.49:1",
+      "brand": "posters/_capability-test-color-editorial.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "color-vector-editorial-list",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3: full-color vector illustration (scripts/vectorize-color.py) at restrained scale, integrated as row markers, real logo. Neutral content, not client-facing."
+  },
+  {
+    "id": 15,
+    "file": "posters/_capability-test-color-feature.html",
+    "type": "capability-test",
+    "content_hash": "7851d6afeefd79dc",
+    "created_at": "2026-10-26T23:32:30.463Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-color-feature.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-color-feature.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-color-feature.html  (1056x816)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-color-feature.html  (1056x816)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 62,58 (182x81) — #dfb7b9 vs #faf7f2 — 1.69:1\n  info [artwork-contrast]: <img src=\"03-bloom-color.svg\"> at 62,192 (317x317) — #977c6b vs #fbf9f5 — 3.69:1\n  WARN [artwork-contrast]: <img src=\"01-seed-color.svg\"> at 427,689 (60x60) — #c5c8b2 vs #f8f5f0 — 1.57:1\n  WARN [artwork-contrast]: <img src=\"02-sprout-color.svg\"> at 685,689 (60x60) — #aeafa4 vs #f8f5f0 — 2.05:1",
+      "brand": "posters/_capability-test-color-feature.html  (1056x816)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "color-vector-feature-column",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3: full-color vector hero capped at ~30% page width, paired with a direct callout about that specific stage, plus a muted sequence strip. Neutral content, not client-facing."
   }
 ]

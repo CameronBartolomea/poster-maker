@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — not a client deliverable — Full-Color Feature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST, not a flyer, not for any client. Round 3, second
+     neutral proof. Different structure from
+     _capability-test-color-editorial.html (that one is an inline list;
+     this one is a feature column + callout) and a deliberate correction
+     of round 2's hero-asymmetric mistakes:
+       - Concept A (round 2) had a hero illustration scaled to ~70% of
+         the page with nothing tying it to specific content next to it.
+         Here the hero art is capped at 3.3in (about 30% of page width)
+         and sits directly beside a callout that is ABOUT that specific
+         illustration, not generic copy next to a big picture.
+       - Concept B (round 2) put a dark illustration on a near-dark
+         background and nothing caught it. This piece uses full color
+         art on a light background specifically so there is no
+         dark-on-dark risk, and scripts/artwork-contrast-check.js is
+         run on it as part of the QA pass regardless.
+     See design-system/artwork-capability-audit.md for the full writeup. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 11in 8.5in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 11in; height: 8.5in; position: relative;
+    background: #faf7f2; font-family: 'Outfit', sans-serif; color: #1c1c1c;
+    overflow: hidden;
+  }
+  .testbanner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.3in; z-index: 10;
+    background: #1c1c1c; color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  }
+
+  .logo { position: absolute; top: 0.6in; left: 0.65in; width: 1.9in; }
+  .logo img { width: 100%; display: block; }
+
+  /* Feature column: a single moderate-scale illustration, held to a
+     fixed cap, with a direct callout about it right below — the
+     artwork and the sentence next to it are about the same thing,
+     not a decorative picture next to unrelated copy. */
+  .feature { position: absolute; top: 2.0in; left: 0.65in; width: 3.3in; }
+  .feature .art { width: 3.3in; height: 3.3in; }
+  .feature .art img { width: 100%; height: 100%; display: block; }
+  .feature .callout {
+    margin-top: 0.1in; padding: 0.22in 0.26in; background: #ffffff; border: 1px solid #e3e1df;
+  }
+  .feature .callout .stat { font-size: 30px; font-weight: 800; color: #c72108; line-height: 1; }
+  .feature .callout .stat-label { font-size: 12px; color: #5a5a5a; margin-top: 6px; line-height: 1.4; }
+
+  .main { position: absolute; top: 2.0in; left: 4.45in; width: 5.9in; }
+  .main .eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c72108; font-weight: 600; margin-bottom: 10px;
+  }
+  .main h1 {
+    font-weight: 800; font-size: 38px; line-height: 1.05; letter-spacing: -0.5px; max-width: 5.5in;
+  }
+  .main p.lede {
+    margin-top: 0.2in; font-size: 14px; line-height: 1.6; color: #5a5a5a; max-width: 5.3in;
+  }
+
+  /* The sequence strip: the other two stages, shown small and muted,
+     to give the one featured stage its place in a sequence without
+     repeating the same scale three times. */
+  .sequence { position: absolute; left: 4.45in; bottom: 0.7in; display: flex; gap: 0.5in; }
+  .seq-item { display: flex; align-items: center; gap: 0.16in; opacity: 0.85; }
+  .seq-item .thumb { width: 0.62in; height: 0.62in; }
+  .seq-item .thumb img { width: 100%; height: 100%; display: block; }
+  .seq-item .seq-label { font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: #9a9a9a; font-weight: 700; }
+  .seq-item .seq-name { font-size: 14px; font-weight: 600; color: #1c1c1c; }
+  .seq-arrow { align-self: center; color: #c9a39d; font-size: 18px; }
+
+  .footer {
+    position: absolute; left: 0.65in; bottom: 0.4in; width: 3.3in;
+    font-size: 8.5px; color: #9a9a9a;
+  }
+</style>
+</head>
+<body>
+  <div class="testbanner">CAPABILITY TEST &middot; NOT A CLIENT DELIVERABLE &middot; NOT APPROVED &middot; NOT FOR USE</div>
+
+  <div class="logo"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></div>
+
+  <div class="feature">
+    <div class="art"><img src="../assets/_capability-test/seed-sprout-bloom-color/03-bloom-color.svg" alt="Bloom stage illustration"></div>
+    <div class="callout">
+      <div class="stat">Stage three</div>
+      <div class="stat-label">The result of two earlier, less visible stages. What gets shown is never the whole story.</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="eyebrow">Composition Test &middot; Full-Color Feature</div>
+    <h1>One stage gets the room. The other two still get named.</h1>
+    <p class="lede">A single full-color illustration, capped at about a third of the page, paired with a callout about that specific stage. Round two's mistake was a hero image with no real content tied to it. This one is not that.</p>
+  </div>
+
+  <div class="sequence">
+    <div class="seq-item">
+      <div class="thumb"><img src="../assets/_capability-test/seed-sprout-bloom-color/01-seed-color.svg" alt="Seed stage illustration"></div>
+      <div>
+        <div class="seq-label">Stage One</div>
+        <div class="seq-name">Seed</div>
+      </div>
+    </div>
+    <div class="seq-arrow">&rarr;</div>
+    <div class="seq-item">
+      <div class="thumb"><img src="../assets/_capability-test/seed-sprout-bloom-color/02-sprout-color.svg" alt="Sprout stage illustration"></div>
+      <div>
+        <div class="seq-label">Stage Two</div>
+        <div class="seq-name">Growth</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Capability proof of concept, round 3 &middot; see design-system/artwork-capability-audit.md</div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

@@ -24,8 +24,20 @@
 //   node scripts/audit-log.js report [--file <posters/file.html>]   (human-readable QA report, latest entry)
 //
 // Log lives at audit/flyer-log.json (array, newest entries appended).
-// "add" runs compliance-check, copy-lint, and layout-check and records
-// every result — it does not hand-wave a pass.
+// "add" runs compliance-check, copy-lint, layout-check, artwork-contrast-
+// check, and brand-check, and records every result — it does not
+// hand-wave a pass.
+//
+// artwork-contrast-check and brand-check were added in round 3, directly
+// in response to Cameron catching a real defect (a dark illustration
+// nearly invisible against a dark background) that none of the prior
+// checks could see — they only ever looked at text-on-declared-background
+// contrast and never looked at images/SVGs or the logo at all. See
+// scripts/artwork-contrast-check.js and scripts/brand-check.js for what
+// each one actually measures.
+//
+// Pass --no-logo-expected on "add" for a flyer that legitimately has no
+// logo (brand-check otherwise fails on a missing logo by design).
 
 const fs = require("fs");
 const path = require("path");
@@ -54,9 +66,9 @@ function flagArg(args, flag) {
   return i !== -1 ? args[i + 1] : undefined;
 }
 
-function runCheck(script, file) {
+function runCheck(script, file, extraArgs = []) {
   try {
-    const out = execFileSync("node", [script, file], { encoding: "utf-8" });
+    const out = execFileSync("node", [script, file, ...extraArgs], { encoding: "utf-8" });
     return { status: "pass", output: out.trim() };
   } catch (e) {
     const out = (e.stdout || "").toString();
@@ -76,11 +88,14 @@ function cmdAdd(args) {
   const variants = flagArg(args, "--variants") || null;
   const evaluation = flagArg(args, "--evaluation") || null;
   const layoutFamily = flagArg(args, "--layout-family") || null;
+  const noLogoExpected = args.includes("--no-logo-expected");
 
   console.log(`Running QA checks on ${file}...`);
   const compliance = runCheck("scripts/compliance-check.js", file);
   const copy = runCheck("scripts/copy-lint.js", file);
   const layout = runCheck("scripts/layout-check.js", file);
+  const artworkContrast = runCheck("scripts/artwork-contrast-check.js", file);
+  const brand = runCheck("scripts/brand-check.js", file, noLogoExpected ? ["--no-logo-expected"] : []);
 
   const entries = loadLog();
   const entry = {
@@ -94,11 +109,15 @@ function cmdAdd(args) {
       compliance: compliance.status,
       copy: copy.status,
       layout: layout.status,
+      artwork_contrast: artworkContrast.status,
+      brand: brand.status,
     },
     qa_detail: {
       compliance: compliance.output,
       copy: copy.output,
       layout: layout.output,
+      artwork_contrast: artworkContrast.output,
+      brand: brand.output,
     },
     creative_variants_considered: variants ? variants.split(";").map((s) => s.trim()) : null,
     evaluation_notes: evaluation,
@@ -112,9 +131,9 @@ function cmdAdd(args) {
   saveLog(entries);
 
   console.log(`\nLogged entry #${entry.id} for ${file}`);
-  console.log(`  compliance: ${compliance.status}  |  copy: ${copy.status}  |  layout: ${layout.status}`);
+  console.log(`  compliance: ${compliance.status}  |  copy: ${copy.status}  |  layout: ${layout.status}  |  artwork_contrast: ${artworkContrast.status}  |  brand: ${brand.status}`);
   console.log(`  visual_review: pending_human_review (automated checks cannot certify this — look at the screenshot)`);
-  if (compliance.status === "fail" || copy.status === "fail" || layout.status === "fail") {
+  if (compliance.status === "fail" || copy.status === "fail" || layout.status === "fail" || artworkContrast.status === "fail" || brand.status === "fail") {
     console.log(`\n  At least one check FAILED. Fix before requesting approval. Run with --file to see full detail via "report".`);
   }
 
@@ -157,8 +176,17 @@ function cmdApprove(args) {
     console.error(`File has changed since it was logged (hash mismatch). Run "add" again before approving.`);
     process.exit(1);
   }
-  if (latest.qa && (latest.qa.compliance === "fail" || latest.qa.copy === "fail" || latest.qa.layout === "fail")) {
-    console.error(`Refusing to approve: this entry has a FAILED automated check (compliance:${latest.qa.compliance} copy:${latest.qa.copy} layout:${latest.qa.layout}). Fix and re-run "add" first.`);
+  if (
+    latest.qa &&
+    (latest.qa.compliance === "fail" ||
+      latest.qa.copy === "fail" ||
+      latest.qa.layout === "fail" ||
+      latest.qa.artwork_contrast === "fail" ||
+      latest.qa.brand === "fail")
+  ) {
+    console.error(
+      `Refusing to approve: this entry has a FAILED automated check (compliance:${latest.qa.compliance} copy:${latest.qa.copy} layout:${latest.qa.layout} artwork_contrast:${latest.qa.artwork_contrast} brand:${latest.qa.brand}). Fix and re-run "add" first.`
+    );
     process.exit(1);
   }
   latest.status = "approved";
@@ -189,7 +217,9 @@ function cmdList(args) {
     return;
   }
   for (const e of entries) {
-    const qa = e.qa ? `compliance:${e.qa.compliance} copy:${e.qa.copy} layout:${e.qa.layout}` : `compliance:${e.compliance_check || "n/a"}`;
+    const qa = e.qa
+      ? `compliance:${e.qa.compliance} copy:${e.qa.copy} layout:${e.qa.layout} artwork_contrast:${e.qa.artwork_contrast || "n/a"} brand:${e.qa.brand || "n/a"}`
+      : `compliance:${e.compliance_check || "n/a"}`;
     console.log(
       `#${e.id}  ${e.file}  [${e.type}]  ${e.status.toUpperCase()}  ${qa}  visual:${e.visual_review || "n/a"}  created:${e.created_at}${
         e.approved_by ? `  approved_by:${e.approved_by}@${e.approved_at}` : ""
@@ -215,6 +245,8 @@ function cmdReport(args) {
   console.log(`\n--- Compliance check (${e.qa?.compliance}) ---\n${e.qa_detail?.compliance || "n/a"}`);
   console.log(`\n--- Copy lint (${e.qa?.copy}) ---\n${e.qa_detail?.copy || "n/a"}`);
   console.log(`\n--- Layout check (${e.qa?.layout}) ---\n${e.qa_detail?.layout || "n/a"}`);
+  console.log(`\n--- Artwork contrast check (${e.qa?.artwork_contrast || "n/a"}) ---\n${e.qa_detail?.artwork_contrast || "n/a"}`);
+  console.log(`\n--- Brand check (${e.qa?.brand || "n/a"}) ---\n${e.qa_detail?.brand || "n/a"}`);
   console.log(`\n--- Visual review ---\n${e.visual_review} (automated tooling cannot certify design quality or legal compliance — a human/AI reviewer must look at the actual rendered page)`);
   if (e.creative_variants_considered) {
     console.log(`\n--- Creative variants considered ---`);

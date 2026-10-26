@@ -97,11 +97,23 @@ this before calling something finished:
 4. **Run the automated checks**: `node scripts/audit-log.js add
    posters/<file>.html --type <type> --variants "..." --evaluation
    "..." --layout-family "<family-name>"` — this runs compliance, copy,
-   and layout checks together, records everything, and warns if this
-   flyer's family matches the last approved flyer of the same type
-   (family-diversity enforcement, see `design-system/components.md`).
+   layout, artwork-contrast, and brand checks together (five, as of
+   round 3 — see `design-system/artwork-capability-audit.md`),
+   records everything, and warns if this flyer's family matches the
+   last approved flyer of the same type (family-diversity enforcement,
+   see `design-system/components.md`). If the flyer has illustration
+   or photo content, artwork-contrast-check flags artwork that reads
+   as nearly invisible or muddy against its background. If it should
+   carry the SHL logo, brand-check verifies the real asset is used
+   (not a recreated text wordmark) at correct proportions — pass
+   `--no-logo-expected` on `add` for the rare flyer that genuinely
+   carries no logo.
 5. **Visually review the actual rendered screenshot** — a passing
    automated check is not a design review. Read the PNG. Check
-   hierarchy at full size and at a shrunk preview size.
+   hierarchy at full size and at a shrunk preview size. The automated
+   contrast and brand checks catch specific, named failure modes
+   (invisible artwork, a missing or recreated logo) — they are not a
+   general design-quality judgment, so this step still matters exactly
+   as much as it did before those checks existed.
 6. **Fix and re-run** until clean, then present to Cameron. Nothing is
    "approved" until he says so — see `scripts/audit-log.js approve`.
