@@ -24,6 +24,15 @@ scripts/
   visual-diff.js   Pixel-diff current render against the last-approved baseline
   save-baseline.js Overwrite the visual-regression baseline (called by audit-log.js on approve)
   audit-log.js     Record/approve flyers; orchestrates all checks above into audit/flyer-log.json
+  artwork-contrast-check.js  Pixel-samples image/SVG artwork against its actual background, flags low contrast
+  brand-check.js   Verifies the real logo asset is used (not recreated as text), correct proportions, clear space
+  vectorize-color.py  Full-color vector illustration: color-cluster + per-layer potrace trace, not a monochrome silhouette
+  profiles.js      Loader for data/people.json — the single source for Cameron's and Robert's verified info
+  validate-profiles.js  Cross-checks data/people.json against design-system/business-rules.md and the filesystem
+  render-person-flyer.js  Renders a {{person.field}} template into a final per-person flyer (see data/people.json)
+  profile-pair-check.js   Checks a rendered Cameron/Robert pair for cross-contaminated fields
+data/
+  people.json      Verified Cameron/Robert profiles (contact, NMLS/DRE, headshot, QR) — see scripts/profiles.js
 .claude/commands/
   setup.md         /setup — install dependencies and verify setup
   new-poster.md    /new-poster — generate a poster

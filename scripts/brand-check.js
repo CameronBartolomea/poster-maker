@@ -77,8 +77,8 @@ async function main() {
 
   const data = await page.evaluate(() => {
     const pageRect = document.body.getBoundingClientRect();
+    const logoEls = [];
     const logos = [];
-    const others = [];
     const imgs = Array.from(document.body.querySelectorAll("img"));
     for (const el of imgs) {
       const style = window.getComputedStyle(el);
@@ -86,12 +86,41 @@ async function main() {
       const rect = el.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) continue;
       const src = el.getAttribute("src") || "";
-      const entry = { src, filename: src.split("/").pop(), rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom }, filter: style.filter };
-      if (/brand\/logo\//.test(src)) logos.push(entry);
+      if (!/brand\/logo\//.test(src)) continue;
+      // The "logo unit" that clear-space intrusion is judged against is
+      // the logo's own small wrapper (its parent), not the bare <img> —
+      // a caption/tagline sibling sitting directly under the logo inside
+      // the same wrapper (e.g. "Westlake Village, CA") is part of the
+      // lockup, not an intrusion into it. Walking up one level is a
+      // reasonable default; if a template nests the logo deeper, widen
+      // this on a per-case basis rather than loosening it globally.
+      let unitEl = el.parentElement || el;
+      // A logo wrapped in a padded "chip" (class contains "logo-chip",
+      // the convention used for a logo placed on a light chip over a
+      // dark background — see design-system/components.md #11b) has its
+      // caption/tagline as a SIBLING of the chip, one level further up,
+      // not a descendant of the chip itself. Climb one more level so
+      // that caption is still recognized as part of the same lockup.
+      if (unitEl.className && /logo-chip/.test(String(unitEl.className)) && unitEl.parentElement) {
+        unitEl = unitEl.parentElement;
+      }
+      logoEls.push(unitEl);
+      logos.push({
+        src,
+        filename: src.split("/").pop(),
+        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom },
+        filter: style.filter,
+        _unitIndex: logoEls.length - 1,
+      });
     }
+
     // All other visible content boxes (for clear-space check), same
-    // definition as layout-check.js: own text or an <img>.
+    // definition as layout-check.js: own text or an <img>. Exclude
+    // anything inside (or equal to) a logo's own unit wrapper, using a
+    // live DOM contains() check — only possible here, inside the
+    // browser context, before these elements get serialized away.
     const allEls = Array.from(document.body.querySelectorAll("*"));
+    const others = [];
     for (const el of allEls) {
       const style = window.getComputedStyle(el);
       if (style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity) === 0) continue;
@@ -104,17 +133,18 @@ async function main() {
       if (!ownText && !isImg) continue;
       const rect = el.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) continue;
-      others.push({ el, tag: el.tagName, text: ownText.slice(0, 30), rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom } });
+      const insideSomeLogoUnit = logoEls.some((unitEl) => unitEl.contains(el));
+      if (insideSomeLogoUnit) continue;
+      others.push({ tag: el.tagName, text: ownText.slice(0, 30), rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom } });
     }
+
     // Also flag any text node whose content looks like a recreated wordmark.
     const bodyText = document.body.innerText || "";
     const suspiciousWordmark = /STRATEGIC\s+HOME\s+LOANS/i.test(bodyText);
 
-    const resultOthers = others
-      .filter((o) => !logos.some((l) => l.rect.x === o.rect.x && l.rect.y === o.rect.y)) // crude self-exclude
-      .map(({ el, ...rest }) => rest);
+    const resultLogos = logos.map(({ _unitIndex, ...rest }) => rest);
 
-    return { pageRect: { width: pageRect.width, height: pageRect.height }, logos, others: resultOthers, suspiciousWordmark };
+    return { pageRect: { width: pageRect.width, height: pageRect.height }, logos: resultLogos, others, suspiciousWordmark };
   });
 
   await browser.close();

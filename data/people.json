@@ -1,0 +1,47 @@
+{
+  "_comment": "Single source of truth for verified loan-officer profile data. Every value here must match design-system/business-rules.md exactly — scripts/validate-profiles.js checks that automatically, do not let this file and that table drift apart. Never edit a value here from a guess; if a field is wrong or missing, ask Cameron and update business-rules.md and this file together.",
+  "_schema_version": 1,
+  "profiles": {
+    "cameron": {
+      "id": "cameron",
+      "full_name": "Cameron Bartolomea",
+      "title": "Mortgage Loan Officer",
+      "nmls": "2777999",
+      "dre": "02279518",
+      "cell": "818.857.9675",
+      "office": "805.496.7500",
+      "email": "cameron@strategichomeloans.com",
+      "headshot": {
+        "cutout": "assets/people/cameron/cameron-headshot-1.png",
+        "plain": "assets/people/cameron/cameron-headshot-2.jpg"
+      },
+      "qr": "assets/brand/qr/qr-cameron-vcard.png",
+      "role_note": "Day-to-day loan origination and processing — the point of contact for loan-officer-facing material."
+    },
+    "robert": {
+      "id": "robert",
+      "full_name": "Robert Bartolomea",
+      "title": "President | Mortgage Consultant",
+      "nmls": "275047",
+      "dre": "00987918",
+      "cell": "818.917.5839",
+      "office": "805.496.7500",
+      "email": "robert@strategichomeloans.com",
+      "headshot": {
+        "casual": "assets/people/robert/robert-headshot-1.png",
+        "cutout": "assets/people/robert/robert-headshot-2-transparent.png",
+        "studio": "assets/people/robert/robert-headshot-3.png"
+      },
+      "qr": "assets/brand/qr/qr-robert-vcard.png",
+      "role_note": "Brokerage leadership, partnership terms, anything \"ask the broker\" — the point of contact for that material."
+    }
+  },
+  "company": {
+    "legal_name": "Strategic Home Loans, Inc.",
+    "nmls": "340445",
+    "dre": "01311775",
+    "office_address": "2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361",
+    "web": "strategichomeloans.com",
+    "main_line": "805.496.7500"
+  }
+}

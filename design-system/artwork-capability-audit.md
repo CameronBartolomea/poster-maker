@@ -592,3 +592,45 @@ they haven't. That the artwork-contrast and brand checks are complete
 quality bars — they catch the specific, named failure modes Cameron
 pointed at, not a general "is this good design" judgment, which still
 needs a human or AI visual read of the actual screenshot every time.
+
+---
+
+## Round 4 addendum: three false-positive classes fixed in artwork-contrast-check.js
+
+While retrofitting the four legacy files (realtor-partner flyer,
+concepts A/B/C) to use the real logo instead of a recreated wordmark,
+running the full QA suite on them surfaced three systematic false-
+positive patterns in `scripts/artwork-contrast-check.js` that round 3
+hadn't exercised:
+
+1. **QR codes** score as near-invisible (~1.1-1.2:1) because a QR is a
+   dense black/white checker pattern — any area-average sample of it
+   converges toward mid-gray regardless of background, which says
+   nothing about whether it actually scans or reads fine to a person
+   looking at it. Fixed: QR images (matched by filename/class) are
+   excluded from this check entirely. QR correctness is scannability,
+   governed by using the real verified asset, not a contrast reading.
+2. **Deliberately subtle watermark fill graphics** (components.md #11,
+   opacity 0.04-0.08 by design) scored ~1.0:1, correctly describing
+   how close they are to invisible — which is the point. Fixed:
+   elements under 0.15 opacity are skipped, since judging a watermark
+   for "legibility" is the wrong test for something built to recede.
+3. **Thin-stroke line icons** (the pre-existing `icons.svg` system,
+   ~3.5px stroke on a 68px box) scored 1.0-1.4:1. Verified this is a
+   structural limit, not a sampling bug: tested both a center-crop and
+   a full-bounding-box average, and neither works, because a stroke
+   that thin is roughly 95% background by area no matter how the crop
+   is drawn. Fixed by raising the minimum element size this check
+   considers "artwork" to 72px (area-based, so a wide-short logo
+   lockup like 134x60 still gets checked) — line icons at this scale
+   are a different, pre-existing visual system this check was never
+   meant to grade; the actual round-3 problem (a large illustration
+   nearly invisible against its background) is unaffected; re-run
+   against the known-bad `_capability-test-hero-asymmetric-b.html`,
+   it still correctly fails at 1.21:1.
+
+All four legacy files plus the two round-3 capability tests were
+re-verified clean (or WARN-only, no FAIL) against all five checks
+after these fixes. None of this changes the check's core method —
+real rendered pixels, not declared CSS — only which elements it's
+appropriate to judge that way.

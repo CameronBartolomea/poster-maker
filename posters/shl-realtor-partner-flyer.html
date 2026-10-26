@@ -68,18 +68,27 @@
   .brand-mark {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 0.14in;
     z-index: 1;
   }
-  .brand-mark .wordmark {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    font-size: 30px;
-    color: #ffffff;
-    text-transform: uppercase;
+  /* Real logo asset has a black house icon + black "Financing that fits
+     perfectly" tagline — those would read poorly on this header's dark
+     charcoal background, so it sits on a small white chip rather than a
+     derived CSS color filter (which would lose the logo's own red, not
+     preserve it). See design-system/components.md #11b. Padding lives
+     on this wrapper, NOT on the <img> itself — padding directly on an
+     img inflates its measured bounding box unevenly and distorts the
+     apparent aspect ratio (caught by scripts/brand-check.js). */
+  .brand-mark .logo-chip {
+    display: inline-block;
+    background: #ffffff;
+    padding: 0.08in 0.14in;
+    border-radius: var(--shl-radius-md, 3px);
   }
-  .brand-mark .wordmark span { color: #e8503a; }
+  .brand-mark .logo-img {
+    width: 2.1in;
+    display: block;
+  }
   .brand-mark .tagline {
     font-size: 13px;
     letter-spacing: 3px;
@@ -301,7 +310,7 @@
 
   <div class="header">
     <div class="brand-mark">
-      <div class="wordmark">STRATEGIC <span>HOME LOANS</span></div>
+      <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans" class="logo-img"></span>
       <div class="tagline">Westlake Village, California</div>
     </div>
     <div class="header-accent"></div>

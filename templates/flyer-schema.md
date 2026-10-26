@@ -8,6 +8,13 @@ This is what keeps output consistent across dozens of flyers and what
 Use this as the brief when asking for a new flyer: give the fields, not
 just a vibe, and generation is faster and the result is predictable.
 
+**Individual-branded material always ships as two versions** (Cameron
+and Robert), built from one template via `scripts/render-person-
+flyer.js` — see `design-system/business-rules.md` "Standing rule:
+individual-branded material always ships as two versions" for the full
+mechanism. Author the poster as a `{{person.field}}` template, not two
+hand-duplicated files.
+
 ---
 
 ## 1. Realtor Partner / Referral Handout

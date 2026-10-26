@@ -367,5 +367,237 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Round 3: full-color vector hero capped at ~30% page width, paired with a direct callout about that specific stage, plus a muted sequence strip. Neutral content, not client-facing."
+  },
+  {
+    "id": 16,
+    "file": "posters/shl-realtor-partner-flyer.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "2e04d97f012b7efd",
+    "created_at": "2026-10-26T23:47:35.147Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/shl-realtor-partner-flyer.html\n  OK — no issues found.",
+      "copy": "posters/shl-realtor-partner-flyer.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 76,15 (202x90) — #e0bbc0 vs #777777 — 2.57:1\n  FAIL [artwork-contrast]: <img src=\"qr-cameron-vcard.png\"> at 701,858 (82x82) — #7c7c7c vs #868686 — 1.15:1",
+      "brand": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix: replaced recreated text wordmark with real shl-logo-full-color.png asset (CLAUDE.md/business-rules.md standing rule). No content changes."
+  },
+  {
+    "id": 17,
+    "file": "posters/concept-a-split-stack.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "019bf3e0a96017ad",
+    "created_at": "2026-10-26T23:47:39.616Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-a-split-stack.html\n  OK — no issues found.",
+      "copy": "posters/concept-a-split-stack.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-a-split-stack.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-a-split-stack.html  (816x1056)\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 64,55 (168x75) — #e4bfc5 vs #4d4d4d — 5.09:1\n  FAIL [artwork-contrast]: <svg class=\"markwrap\"> at 470,489 (317x317) — #fcf6f5 vs #f7f7f7 — 1.00:1\n  info [artwork-contrast]: <img src=\"qr-cameron-vcard.png\"> at 701,924 (58x58) — #7c7c7c vs #fefefe — 4.15:1",
+      "brand": "posters/concept-a-split-stack.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix: replaced recreated text wordmark with real shl-logo-full-color.png asset (CLAUDE.md/business-rules.md standing rule). No content changes."
+  },
+  {
+    "id": 18,
+    "file": "posters/concept-b-icon-rail.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "12a82c45bd432a72",
+    "created_at": "2026-10-26T23:47:43.990Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-b-icon-rail.html\n  OK — no issues found.",
+      "copy": "posters/concept-b-icon-rail.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-b-icon-rail.html  (816x1056)\n  FAIL [artwork-contrast]: <svg class=\"icon\"> at 48,226 (68x68) — #f6ddd9 vs #efefef — 1.12:1\n  FAIL [artwork-contrast]: <svg class=\"icon\"> at 336,226 (68x68) — #f5d6d1 vs #f0f0f0 — 1.20:1\n  FAIL [artwork-contrast]: <svg class=\"icon\"> at 48,403 (68x68) — #f7deda vs #f0f0f0 — 1.13:1\n  FAIL [artwork-contrast]: <svg class=\"icon\"> at 336,403 (68x68) — #f0c4bd vs #efefef — 1.37:1\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 634,54 (134x60) — #e2bec3 vs #333333 — 7.46:1\n  info [artwork-contrast]: <img src=\"qr-cameron-vcard.png\"> at 624,946 (72x72) — #7b7b7b vs #272727 — 3.50:1",
+      "brand": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix: replaced recreated text wordmark with real shl-logo-full-color.png asset (CLAUDE.md/business-rules.md standing rule). No content changes."
+  },
+  {
+    "id": 19,
+    "file": "posters/concept-c-timeline.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "14a5897e1392cfe0",
+    "created_at": "2026-10-26T23:47:48.320Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-c-timeline.html\n  OK — no issues found.",
+      "copy": "posters/concept-c-timeline.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-c-timeline.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-c-timeline.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,43 (163x73) — #e1bbc1 vs #fefefe — 1.72:1\n  info [artwork-contrast]: <img src=\"qr-cameron-vcard.png\"> at 660,665 (65x65) — #797979 vs #323232 — 2.98:1",
+      "brand": "posters/concept-c-timeline.html  (816x1056)\n  WARN [brand]: <div> \"For Our Real Estate Partners\" intrudes into the logo's clear-space margin (18px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix: replaced recreated text wordmark with real shl-logo-full-color.png asset (CLAUDE.md/business-rules.md standing rule). No content changes."
+  },
+  {
+    "id": 20,
+    "file": "posters/shl-realtor-partner-flyer.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "2e04d97f012b7efd",
+    "created_at": "2026-10-26T23:50:41.742Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/shl-realtor-partner-flyer.html\n  OK — no issues found.",
+      "copy": "posters/shl-realtor-partner-flyer.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 76,15 (202x90) — #e0bbc0 vs #777777 — 2.57:1",
+      "brand": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix (re-logged after fixing 3 false-positive classes in artwork-contrast-check.js: QR dense-pattern averaging, intentional low-opacity watermarks, thin-stroke line icons under 72px)."
+  },
+  {
+    "id": 21,
+    "file": "posters/concept-a-split-stack.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "019bf3e0a96017ad",
+    "created_at": "2026-10-26T23:50:46.157Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-a-split-stack.html\n  OK — no issues found.",
+      "copy": "posters/concept-a-split-stack.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-a-split-stack.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-a-split-stack.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 64,55 (168x75) — #e4bfc5 vs #4d4d4d — 5.09:1",
+      "brand": "posters/concept-a-split-stack.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix (re-logged after fixing 3 false-positive classes in artwork-contrast-check.js: QR dense-pattern averaging, intentional low-opacity watermarks, thin-stroke line icons under 72px)."
+  },
+  {
+    "id": 22,
+    "file": "posters/concept-b-icon-rail.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "12a82c45bd432a72",
+    "created_at": "2026-10-26T23:50:50.839Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-b-icon-rail.html\n  OK — no issues found.",
+      "copy": "posters/concept-b-icon-rail.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 634,54 (134x60) — #e2bec3 vs #333333 — 7.46:1",
+      "brand": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix (re-logged after fixing 3 false-positive classes in artwork-contrast-check.js: QR dense-pattern averaging, intentional low-opacity watermarks, thin-stroke line icons under 72px)."
+  },
+  {
+    "id": 23,
+    "file": "posters/concept-c-timeline.html",
+    "type": "realtor-partner-flyer",
+    "content_hash": "14a5897e1392cfe0",
+    "created_at": "2026-10-26T23:50:55.139Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-c-timeline.html\n  OK — no issues found.",
+      "copy": "posters/concept-c-timeline.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-c-timeline.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/concept-c-timeline.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,43 (163x73) — #e1bbc1 vs #fefefe — 1.72:1",
+      "brand": "posters/concept-c-timeline.html  (816x1056)\n  WARN [brand]: <div> \"For Our Real Estate Partners\" intrudes into the logo's clear-space margin (18px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Logo fix (re-logged after fixing 3 false-positive classes in artwork-contrast-check.js: QR dense-pattern averaging, intentional low-opacity watermarks, thin-stroke line icons under 72px)."
   }
 ]

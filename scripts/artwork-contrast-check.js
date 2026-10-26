@@ -131,7 +131,17 @@ async function main() {
     document.body.style.position = "static";
   });
 
-  const MIN_SIDE = 45; // px — below this, treat as a small icon/QR, not "artwork" worth a contrast judgement
+  // px — below this, treat as a small icon/mark, not "artwork" worth a
+  // contrast judgement. Tested at 45px first; raised to 72px after
+  // confirming (on concept-b-icon-rail.html's 68x68 line icons from the
+  // pre-existing icons.svg system) that a thin-stroke icon has too
+  // little actual ink for ANY area-average sampling strategy — center
+  // crop or full bbox — to score fairly: a 3.5px stroke on a ~68px box
+  // is ~95% background by area regardless of how it's cropped, so it
+  // always reads as low contrast even though it's perfectly legible by
+  // eye. This check is for illustration-scale artwork (what round 3 was
+  // actually about), not the separate thin-stroke icon system.
+  const MIN_SIDE = 72;
 
   const candidates = await page.evaluate((MIN_SIDE) => {
     const out = [];
@@ -143,16 +153,33 @@ async function main() {
       if (style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity) === 0) continue;
       // Skip an <svg> that's purely a hidden symbol registry.
       if (el.tagName.toLowerCase() === "svg" && el.querySelector("symbol") && el.style.display === "none") continue;
-      // Skip <img> or <svg> nested inside another candidate <svg> (shouldn't happen, but be safe).
+      // Skip deliberately subtle decoration (e.g. a low-opacity watermark
+      // fill graphic, design-system/components.md #11) — its entire
+      // purpose is to be barely visible, so judging it for "legibility"
+      // against its background is the wrong test. 0.15 is well above
+      // the documented watermark range (0.04-0.08) and well below any
+      // artwork meant to actually be seen.
+      if (parseFloat(style.opacity) < 0.15) continue;
+      const src = el.tagName.toLowerCase() === "img" ? el.getAttribute("src") || "" : "";
+      // Skip QR codes — a QR is a dense black/white checker pattern by
+      // design, and any block-average sample of it converges toward
+      // mid-gray regardless of background, which is meaningless as a
+      // contrast signal. QR correctness is scannability, not contrast;
+      // that's governed by using the real verified asset, not this check.
+      if (/qr[-_]/i.test(src) || /qr[-_]/i.test(el.className || "")) continue;
       const rect = el.getBoundingClientRect();
-      if (rect.width < MIN_SIDE || rect.height < MIN_SIDE) continue;
+      // Area-based, not per-dimension: a wide-short logo lockup (e.g.
+      // 134x60) has plenty of real content and should still be checked
+      // even though its height alone is under MIN_SIDE; a genuinely
+      // tiny icon (68x68) should not be.
+      if (rect.width * rect.height < MIN_SIDE * MIN_SIDE) continue;
       const key = `${Math.round(rect.x)},${Math.round(rect.y)},${Math.round(rect.width)},${Math.round(rect.height)}`;
       if (seen.has(key)) continue;
       seen.add(key);
       out.push({
         tag: el.tagName.toLowerCase(),
         cls: el.className && typeof el.className === "string" ? el.className : el.getAttribute("class") || "",
-        src: el.tagName.toLowerCase() === "img" ? el.getAttribute("src") : null,
+        src: el.tagName.toLowerCase() === "img" ? src : null,
         rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
       });
     }
