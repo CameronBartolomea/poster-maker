@@ -205,5 +205,30 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Test/diagnostic only."
+  },
+  {
+    "id": 10,
+    "file": "posters/_capability-test-seed-sprout-bloom.html",
+    "type": "capability-test",
+    "content_hash": "8b36dfe9dcbbb88d",
+    "created_at": "2026-10-26T22:56:36.833Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seed-sprout-bloom.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-seed-sprout-bloom.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seed-sprout-bloom.html  (1056x816)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "capability-test-not-a-flyer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Neutral 3-step (seed/growth/bloom) proof of concept testing AI-illustration (Canva generate-image) composited into the existing HTML/CSS poster system. Not a flyer, no loan-product content, so NMLS/Equal-Housing compliance failures below are expected and correct, not a defect. See design-system/artwork-capability-audit.md for full writeup."
   }
 ]

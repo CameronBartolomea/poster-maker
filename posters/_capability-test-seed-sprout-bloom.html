@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — not a client deliverable — Seed to Bloom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST, not a flyer, not for any client. Neutral 3-step
+     brief ("seed, sprout, bloom") used specifically because it has
+     nothing to do with mortgage/SHL content — this file exists only to
+     test whether AI-illustration (Canva generate-image) plus editorial
+     composition can replace paragraph text + generic line icons with
+     real visual storytelling. See
+     design-system/artwork-capability-audit.md for the honest writeup
+     of what this does and doesn't prove. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 11in 8.5in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 11in; height: 8.5in; position: relative;
+    background: #faf7f2; font-family: 'Outfit', sans-serif; color: #1c1c1c;
+    overflow: hidden;
+  }
+
+  .testbanner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.3in;
+    background: #1c1c1c; color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  }
+
+  .head { padding: 0.55in 0.7in 0.1in; }
+  .head .eyebrow {
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c72108; font-weight: 600; margin-bottom: 8px;
+  }
+  .head h1 {
+    font-weight: 800; font-size: 38px; letter-spacing: -1px; line-height: 1.02;
+  }
+
+  .flow {
+    position: absolute; left: 0; right: 0; top: 1.35in; bottom: 0.7in;
+    display: flex; align-items: center; justify-content: center; gap: 0;
+    padding: 0 0.6in;
+  }
+  .panel {
+    display: flex; flex-direction: column; align-items: center; gap: 0.1in;
+    width: 3.05in; position: relative;
+  }
+  .panel .numeral {
+    position: absolute; top: -0.3in; left: 50%; transform: translateX(-50%);
+    font-weight: 900; font-size: 15px; letter-spacing: 3px; color: #c9c0b8;
+  }
+  .panel .imgwrap {
+    width: 3.05in; height: 3.05in; border-radius: 4px; overflow: hidden;
+    background: #faf7f2; display: flex; align-items: center; justify-content: center;
+  }
+  .panel img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .panel .label {
+    font-weight: 700; font-size: 22px; letter-spacing: -0.3px; margin-top: 0.05in;
+  }
+
+  .arrow { flex-shrink: 0; width: 0.75in; display: flex; align-items: center; justify-content: center; margin-top: -0.3in; }
+  .arrow svg { width: 100%; height: 28px; }
+
+  .footer {
+    position: absolute; left: 0.7in; right: 0.7in; bottom: 0.28in;
+    font-size: 9px; color: #9a9a9a; letter-spacing: 0.2px;
+  }
+</style>
+</head>
+<body>
+  <div class="testbanner">VISUAL CAPABILITY TEST &middot; NOT A CLIENT DELIVERABLE &middot; NOT APPROVED &middot; NOT FOR USE</div>
+
+  <div class="head">
+    <div class="eyebrow">Design System Capability Test</div>
+    <h1>From seed to bloom.</h1>
+  </div>
+
+  <div class="flow">
+    <div class="panel">
+      <div class="numeral">01</div>
+      <div class="imgwrap"><img src="../assets/_capability-test/seed-sprout-bloom/01-seed.png" alt="Illustration of a seedling sprout"></div>
+      <div class="label">Seed</div>
+    </div>
+    <div class="arrow">
+      <svg viewBox="0 0 100 28" fill="none"><path d="M2 14 H90" stroke="#c72108" stroke-width="2.5" stroke-linecap="round"/><path d="M78 4 L92 14 L78 24" stroke="#c72108" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+    <div class="panel">
+      <div class="numeral">02</div>
+      <div class="imgwrap"><img src="../assets/_capability-test/seed-sprout-bloom/02-sprout.png" alt="Illustration of a young potted sprout with roots"></div>
+      <div class="label">Growth</div>
+    </div>
+    <div class="arrow">
+      <svg viewBox="0 0 100 28" fill="none"><path d="M2 14 H90" stroke="#c72108" stroke-width="2.5" stroke-linecap="round"/><path d="M78 4 L92 14 L78 24" stroke="#c72108" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+    <div class="panel">
+      <div class="numeral">03</div>
+      <div class="imgwrap"><img src="../assets/_capability-test/seed-sprout-bloom/03-bloom.png" alt="Illustration of a blooming flower"></div>
+      <div class="label">Bloom</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Capability proof of concept &middot; artwork generated via Canva AI illustration, composed in the poster-maker layout system &middot; see design-system/artwork-capability-audit.md
+  </div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>
