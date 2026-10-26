@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — not a client deliverable — Hero Asymmetric A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST, not a flyer, not for any client. Round 2: tests
+     (a) a hero-scale asymmetric composition instead of equal boxes +
+     arrows, (b) the real SHL logo asset used correctly (not recreated
+     as CSS text), (c) a generated illustration used within the tested
+     safe upscale range (~2.7in at 300dpi from a 200px source) for
+     supporting art, with the hero image left at native/moderate scale
+     rather than blown up past the tested quality ceiling.
+     See design-system/artwork-capability-audit.md for the full writeup. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 8.5in 11in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 8.5in; height: 11in; position: relative;
+    background: #faf7f2; font-family: 'Outfit', sans-serif; color: #1c1c1c;
+    overflow: hidden;
+  }
+  .testbanner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.3in; z-index: 10;
+    background: #1c1c1c; color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  }
+
+  /* Hero art bleeds off the right and bottom edges, dominating ~62% of
+     the page height. This is the opposite move from "three equal
+     boxes": one illustration gets real scale and the rest of the
+     composition responds to it.
+
+     IMPORTANT: this is a vector trace (potrace) of the generated bloom
+     illustration, not the raster PNG blown up. Testing confirmed the
+     raw 200px-source raster goes visibly soft above roughly 2.7in at
+     300dpi — too small for true hero scale. A silhouette vector trace
+     has no resolution ceiling at all, at the cost of full color (it's
+     a single-color mark, not the original illustration's palette).
+     That trade is made deliberately and documented, not hidden. */
+  .hero {
+    position: absolute; right: -0.5in; bottom: -0.3in;
+    width: 6.2in; height: 6.2in; color: #c72108;
+  }
+  .hero svg { width: 100%; height: 100%; }
+
+  .logo {
+    position: absolute; top: 0.55in; left: 0.65in; width: 2.3in;
+  }
+  .logo img { width: 100%; display: block; }
+
+  .head {
+    position: absolute; top: 2.05in; left: 0.65in; width: 4.1in;
+  }
+  .head .eyebrow {
+    font-size: 11.5px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c72108; font-weight: 600; margin-bottom: 10px;
+  }
+  .head h1 {
+    font-weight: 900; font-size: 52px; line-height: 0.98; letter-spacing: -1.5px;
+  }
+  .head p {
+    margin-top: 0.22in; font-size: 14px; line-height: 1.55; color: #5a5a5a; max-width: 3.7in;
+  }
+
+  /* The receding sequence: NOT equal-sized panels. Scale itself tells
+     the story — small, then a little larger, then the full hero image
+     carries the ending. This is the asymmetric alternative to three
+     identical boxes. */
+  .sequence {
+    position: absolute; left: 0.65in; bottom: 0.75in;
+    display: flex; align-items: flex-end; gap: 0.3in;
+  }
+  .seq-item { display: flex; flex-direction: column; align-items: flex-start; gap: 0.08in; }
+  .seq-item .tag { font-size: 10px; letter-spacing: 2px; color: #9a9a9a; font-weight: 700; }
+  .seq-item.s1 img { width: 0.95in; height: 0.95in; object-fit: contain; }
+  .seq-item.s2 img { width: 1.45in; height: 1.45in; object-fit: contain; }
+  .seq-item img { display: block; }
+  .seq-item .lbl { font-size: 13px; font-weight: 700; }
+
+  .arrow-to-hero {
+    position: absolute; left: 3.35in; bottom: 1.55in; width: 1in;
+  }
+  .arrow-to-hero svg { width: 100%; height: 20px; }
+
+  .footer {
+    position: absolute; left: 0.65in; bottom: 0.28in; font-size: 8.5px; color: #9a9a9a; z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="testbanner">CAPABILITY TEST &middot; NOT A CLIENT DELIVERABLE &middot; NOT APPROVED &middot; NOT FOR USE</div>
+
+  <div class="logo"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></div>
+
+  <div class="head">
+    <div class="eyebrow">Composition Test &middot; Asymmetric Hero</div>
+    <h1>Growth takes<br>its own shape.</h1>
+    <p>A hero-scale illustration carries the ending. The sequence that leads to it is shown small and increasing, not three identical boxes in a row.</p>
+  </div>
+
+  <div class="sequence">
+    <div class="seq-item s1">
+      <div class="tag">STAGE ONE</div>
+      <img src="../assets/_capability-test/seed-sprout-bloom/01-seed.png" alt="Seed illustration">
+      <div class="lbl">Seed</div>
+    </div>
+    <div class="seq-item s2">
+      <div class="tag">STAGE TWO</div>
+      <img src="../assets/_capability-test/seed-sprout-bloom/02-sprout.png" alt="Sprout illustration">
+      <div class="lbl">Growth</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <svg viewBox="0 0 200 200" fill="currentColor" aria-label="Bloom illustration, vector-traced for hero scale">
+      <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" stroke="none">
+      <path d="M903 1915 c-30 -9 -55 -10 -83 -4 -78 18 -125 -34 -125 -136 l0 -50
+-44 23 c-54 27 -67 27 -125 2 -46 -19 -74 -59 -60 -82 4 -5 -4 -32 -16 -58
+-29 -62 -22 -89 35 -135 l44 -37 -34 -33 c-19 -18 -35 -37 -35 -42 0 -22 42
+-62 70 -68 16 -4 40 -20 52 -37 53 -70 76 -88 111 -88 66 0 97 -11 113 -41 8
+-16 26 -32 40 -35 14 -4 30 -17 35 -31 12 -31 12 -333 0 -333 -9 0 -25 62 -36
+138 -11 81 -60 149 -134 187 -19 9 -70 23 -115 30 -45 7 -93 16 -108 20 -16 4
+-28 4 -28 1 0 -19 52 -181 69 -214 37 -72 98 -111 205 -131 75 -14 100 -30
+128 -84 20 -38 23 -60 28 -250 3 -114 2 -207 -2 -207 -12 0 -27 63 -38 154
+-12 114 -31 169 -78 231 -52 69 -138 112 -252 126 -47 6 -109 14 -137 18 -29
+4 -55 6 -57 4 -2 -3 7 -23 20 -46 13 -23 36 -80 50 -127 33 -107 46 -131 97
+-187 51 -55 115 -89 207 -108 39 -8 84 -22 99 -30 40 -20 71 -74 84 -145 l12
+-60 41 0 41 0 7 47 c9 64 40 125 75 146 22 13 52 17 118 17 76 0 96 4 148 29
+78 37 133 97 189 209 34 68 59 102 101 140 66 58 64 61 -43 82 -153 30 -339
+-41 -434 -166 -21 -27 -51 -86 -68 -131 -16 -45 -44 -111 -62 -145 l-33 -63
+-3 115 c-4 138 14 210 65 270 29 34 48 44 121 66 111 34 134 46 195 102 49 46
+82 103 127 217 14 33 42 79 63 103 l40 42 -90 0 c-103 0 -178 -17 -264 -60
+-133 -68 -189 -150 -213 -316 -8 -55 -24 -123 -34 -150 l-20 -49 -7 37 c-11
+57 1 358 15 400 22 63 43 78 109 78 47 0 61 4 79 23 12 13 22 29 22 36 0 10 9
+11 38 5 73 -16 103 -10 136 27 17 19 43 42 58 52 43 27 53 53 32 84 -16 25
+-16 27 2 40 10 7 28 13 41 13 12 0 37 13 54 28 27 24 33 37 35 78 2 27 6 72 9
+99 9 68 -14 90 -91 89 -48 0 -54 2 -54 20 0 25 -28 106 -42 123 -5 7 -26 15
+-47 19 -20 4 -49 17 -64 30 -53 44 -140 27 -190 -37 l-24 -31 -11 44 c-20 80
+-88 124 -159 103z"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="footer">Capability proof of concept, round 2 &middot; see design-system/artwork-capability-audit.md</div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

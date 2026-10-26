@@ -205,6 +205,105 @@ instead. (This is a real bug `layout-check.js` caught during the
 concept-a/b/c build: a contact component reused at its original width
 inside a narrower column pushed the QR code off the page.)
 
+## 11b. Real Logo Mark (use instead of recreating the wordmark)
+
+**This supersedes every earlier instance of typing "STRATEGIC HOME
+LOANS" as styled text.** An audit of every flyer built in this repo so
+far (the realtor-partner flyer and all three round-1 concepts) found
+that none of them use the actual logo file — all of them recreate the
+wordmark in CSS, which means none of them show the real house+puzzle-
+piece icon or the "Financing that fits perfectly" tagline at all. Use
+the real asset:
+
+```html
+<img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+```
+
+- `shl-logo-full-color.png` (1248x556px) — default, light backgrounds.
+- `shl-logo-compact.png` (306x306px) — square icon+wordmark, small
+  placements.
+- `shl-logo-wordmark-red.png` — text-only, when the house icon is
+  already present elsewhere on the page.
+- On a dark background, `filter: brightness(0) invert(1)` renders it
+  white — tested and works for this logo (it's a solid black/red
+  shape with no internal gradient), but check visually before assuming
+  the same trick holds for a different asset.
+- Never recreate the wordmark, icon, or tagline in CSS text. If a
+  placement genuinely needs just text (e.g. it's too small for the
+  icon to read), use `shl-logo-wordmark-red.png`, not hand-typed text.
+
+## 11c. Hero-Scale Asymmetric Composition
+
+Built and tested in `posters/_capability-test-hero-asymmetric-a.html`
+(portrait) and `_capability-test-hero-asymmetric-b.html` (landscape —
+a genuinely different print dimension, not the same page rotated).
+The alternative to "three equal boxes": one illustration is given real
+dominant scale (bleeding off one or more edges), and everything else
+in the composition is sized in relation to it rather than matched to
+it.
+
+**Core moves, each tested:**
+- **Scale as narrative.** A sequence doesn't have to be three equal
+  panels — showing it as small-then-larger-then-hero-scale (concept A)
+  makes scale itself carry the "building toward something" idea.
+- **Diagonal placement.** Rotating/offsetting the hero art off the
+  page's horizontal-vertical grid (concept B, -8deg) reads as more
+  art-directed than anything squared to the frame.
+- **Typography as a graphic layer, not just a label.** An oversized
+  numeral or word, rendered at several hundred px and placed behind
+  the artwork (not beside it, not small), does real visual work.
+  Letting it bleed off a page edge is a legitimate intentional crop,
+  not a bug — but note it explicitly wherever it's used, because
+  `layout-check.js` will correctly flag it as clipping and someone
+  reviewing the audit log needs to know it's deliberate.
+- **Curved/diagonal connective paths** instead of a straight arrowed
+  row, when showing a sequence (concept B's dashed arc).
+
+**Rule: hero art at this scale must be vector, not the raw raster
+illustration.** Testing (see
+`design-system/artwork-capability-audit.md`, Round 2) found a
+Canva-generated illustration (200x200px source) visibly softens above
+roughly 2.5-3in at 300dpi. For anything larger, trace it to a vector
+silhouette first (see the vectorization workflow below) rather than
+stretching the raster.
+
+## 11d. AI-Illustration-to-Vector Workflow (for hero-scale artwork)
+
+Tested and working (`design-system/artwork-capability-audit.md`,
+Round 2). Converts a Canva-generated raster illustration into a
+resolution-independent vector silhouette, for any placement larger
+than the raster's safe size (~2.5-3in at 300dpi from a 200px source).
+
+```bash
+# 1. Generate the illustration (mcp__Canva__generate-image), save the
+#    real file to assets/ — confirm it's a real file, not just a preview.
+# 2. Threshold to pure black/white:
+convert assets/path/to/illustration.png -colorspace gray -threshold 50% /tmp/trace-input.pbm
+# 3. Trace to true vector SVG:
+potrace /tmp/trace-input.pbm -s -o /tmp/traced.svg
+# 4. Copy the <g transform=...>...</g> block (NOT the whole file) into
+#    the poster's own inline <svg viewBox="0 0 200 200">, recolored
+#    with `color: var(--shl-red)` (or charcoal) via `fill="currentColor"`.
+```
+
+**Hard rule: never hand-edit the path's numeric coordinates.** A
+mistake made building concept B (documented in the audit doc) came
+from manually multiplying path coordinates to rescale them into a
+different viewBox — a transcription error that silently produces
+garbled artwork. Copy the `<g>` block verbatim and change the `viewBox`
+to match its native `0 0 200 200` coordinate space; scale the artwork
+with CSS (`width`/`height` on the wrapping `<svg>`), never by rewriting
+numbers inside the path data. If a different coordinate space is
+genuinely needed, do the transform with a script, not by hand.
+
+**Trade-off to state every time this is used:** the trace is a single-
+color silhouette, not the illustration's original flat-color palette.
+Use the raster illustration (at safe size) when color detail matters;
+use the vector trace when scale and crispness matter more than color.
+A visually busy source image (fine detail like soil texture or roots)
+produces a noisier trace with more small stray sub-paths than a
+cleaner source — simpler illustrations trace better.
+
 ## 11. Watermark / Fill Graphic
 
 Built and tested in `posters/concept-a-split-stack.html`. When a layout
@@ -248,6 +347,13 @@ descriptions):
   component #8. Good for "how it works" / process / "what happens
   when you refer a client" content, and for Realtor education pieces
   per the infographic-first rule in `templates/flyer-schema.md`.
+- **Hero-scale asymmetric** (`posters/_capability-test-hero-asymmetric-
+  a.html` portrait, `_capability-test-hero-asymmetric-b.html`
+  landscape) — see components #11c/#11d. One illustration given real
+  dominant scale instead of equal-sized panels; use for anything where
+  a single strong visual idea should carry the piece (a hero concept,
+  a single key benefit, an educational piece built around one central
+  metaphor) rather than a list of several equal items.
 
 **Enforcement, not just this list:** `scripts/audit-log.js add` takes
 an optional `--layout-family <name>` flag. When passed, it checks the

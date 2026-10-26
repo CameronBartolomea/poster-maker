@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — not a client deliverable — Hero Asymmetric B (landscape)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST, not a flyer, not for any client. Round 2,
+     composition B: landscape orientation (different print dimensions
+     than composition A), a diagonal hero placement instead of a
+     corner-bled square, an oversized typographic numeral used as a
+     graphic element layered with the artwork (not just a small label),
+     and a curved/diagonal path connecting the sequence instead of a
+     straight row. Vector-traced artwork again (see composition A's
+     comment for why: raster source is capped around 2.7in at 300dpi
+     before softening). -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 11in 8.5in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 11in; height: 8.5in; position: relative;
+    background: #1c1c1c; font-family: 'Outfit', sans-serif; color: #faf7f2;
+    overflow: hidden;
+  }
+  .testbanner {
+    position: absolute; top: 0; left: 0; right: 0; height: 0.28in; z-index: 10;
+    background: #000; color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  }
+
+  /* Oversized ghost numeral, layered BEHIND the hero art, used as a
+     graphic/texture element rather than a small label. */
+  .ghost-numeral {
+    position: absolute; left: 3.4in; top: -1.3in;
+    font-weight: 900; font-size: 760px; line-height: 1; color: #2a2a2a;
+    letter-spacing: -20px; z-index: 0; user-select: none;
+  }
+
+  /* Hero art runs on the diagonal instead of bleeding square off one
+     corner, rotated and offset to cut across the page. */
+  .hero {
+    position: absolute; left: 4.7in; top: 0.3in; width: 5.6in; height: 5.6in;
+    color: #faf7f2; transform: rotate(-8deg); z-index: 1;
+  }
+  .hero svg { width: 100%; height: 100%; }
+
+  .logo {
+    position: absolute; left: 0.6in; bottom: 0.5in; width: 2.1in; z-index: 2;
+  }
+  .logo img { width: 100%; display: block; filter: brightness(0) invert(1); }
+
+  .head {
+    position: absolute; left: 0.6in; top: 1.1in; width: 4in; z-index: 2;
+  }
+  .head .eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: #e8503a; font-weight: 600; margin-bottom: 10px;
+  }
+  .head h1 {
+    font-weight: 900; font-size: 46px; line-height: 0.98; letter-spacing: -1.5px;
+    color: #faf7f2;
+  }
+  .head p {
+    margin-top: 0.2in; font-size: 13px; line-height: 1.55; color: #b9b9b9; max-width: 3.4in;
+  }
+
+  /* Sequence runs along a curved/diagonal path instead of a straight
+     row of equal boxes. */
+  .path-track {
+    position: absolute; left: 0.6in; top: 4.3in; width: 4.3in; height: 3.2in; z-index: 2;
+  }
+  .path-track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .path-item {
+    position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .path-item img { width: 1in; height: 1in; object-fit: contain; border-radius: 50%; background: #faf7f2; padding: 6px; }
+  .path-item .lbl { font-size: 11.5px; font-weight: 700; color: #faf7f2; }
+  .path-item.p1 { left: 0; top: 0.1in; }
+  .path-item.p2 { left: 1.7in; top: 1.3in; }
+  .path-item.p3 { left: 3.1in; top: 0in; }
+
+  .footer {
+    position: absolute; right: 0.6in; bottom: 0.3in; font-size: 8px; color: #6a6a6a; z-index: 2; text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="testbanner">CAPABILITY TEST &middot; NOT A CLIENT DELIVERABLE &middot; NOT APPROVED &middot; NOT FOR USE</div>
+
+  <div class="ghost-numeral">3</div>
+
+  <div class="hero">
+    <svg viewBox="0 0 200 200" fill="currentColor" aria-label="Sprout illustration, vector-traced, diagonal hero placement">
+      <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M971 1835 c-126 -133 -134 -280 -22 -400 l37 -40 -6 -82 -5 -82 -30
+37 c-17 20 -37 57 -44 80 -19 67 -82 129 -150 149 -47 14 -66 14 -124 4 -37
+-6 -84 -18 -103 -26 l-35 -14 23 -42 c32 -57 105 -131 153 -154 58 -27 136
+-31 191 -10 41 16 47 16 63 1 10 -9 21 -13 26 -9 4 5 5 3 2 -3 -4 -7 0 -25 8
+-40 10 -20 15 -60 15 -126 l0 -98 -262 -2 -263 -3 0 -63 c0 -49 4 -67 18 -77
+22 -16 22 -25 0 -25 -34 0 -123 -49 -172 -95 -135 -126 -146 -349 -25 -484
+l46 -51 -81 0 c-47 0 -81 -4 -81 -10 0 -7 290 -10 850 -10 560 0 850 3 850 10
+0 6 -10 10 -23 10 -12 0 -28 9 -35 20 -7 12 -23 20 -38 20 -17 0 -28 -7 -31
+-20 -3 -11 -9 -20 -14 -20 -5 0 -6 7 -3 15 9 22 -15 83 -39 100 -12 8 -40 15
+-63 15 -50 0 -101 -41 -110 -89 -7 -34 -24 -52 -24 -26 0 27 38 91 63 108 14
+9 37 19 51 23 21 5 26 12 26 36 0 37 -23 82 -52 102 -12 9 -42 16 -65 16 -28
+0 -43 4 -43 13 0 6 10 82 21 167 16 115 26 159 39 170 21 18 35 117 19 137 -9
+10 -66 13 -260 13 l-249 0 0 90 c0 97 10 128 52 168 24 21 26 22 61 7 82 -34
+198 -5 263 66 31 34 74 93 74 102 0 2 -26 16 -59 31 -67 30 -160 35 -214 12
+-44 -18 -94 -77 -108 -128 -7 -24 -28 -60 -46 -81 l-33 -37 0 94 0 93 39 27
+c75 52 119 148 106 232 -8 54 -55 147 -99 196 l-33 38 -52 -55z m92 -13 c53
+-71 77 -128 77 -193 0 -70 -36 -146 -91 -190 l-39 -31 0 24 c0 15 15 39 40 63
+48 47 53 68 8 29 -53 -43 -48 -4 6 58 54 62 52 77 -4 23 l-40 -39 0 36 c0 27
+9 47 35 78 20 24 33 45 30 49 -4 3 -19 -10 -35 -29 l-28 -34 5 72 c3 48 1 72
+-6 72 -6 0 -11 -15 -11 -34 0 -18 -3 -47 -6 -64 l-6 -31 -24 27 c-31 36 -31
+15 1 -28 17 -23 25 -47 25 -74 l-1 -41 -39 45 c-51 58 -52 40 -1 -24 25 -32
+37 -55 33 -68 -4 -18 -7 -17 -33 8 -38 36 -37 21 1 -23 17 -19 30 -45 30 -60
+l0 -27 -31 30 c-73 69 -94 181 -52 274 20 45 99 150 112 150 4 0 23 -22 44
+-48z m-277 -356 c55 -26 89 -69 101 -127 l6 -34 -22 19 c-12 11 -30 39 -41 63
+-10 24 -24 43 -30 43 -6 0 -1 -18 10 -40 l21 -41 -28 15 c-16 8 -43 35 -62 61
+-18 25 -36 44 -39 40 -3 -3 4 -19 16 -35 12 -16 22 -32 22 -34 0 -10 -55 17
+-67 33 -7 8 -13 11 -13 6 0 -4 -10 0 -22 11 -18 16 -20 16 -15 2 5 -14 1 -15
+-24 -8 -51 15 -31 -8 24 -26 l52 -18 -37 -9 c-21 -5 -38 -13 -38 -18 0 -9 55
+-1 82 12 17 9 68 -7 68 -21 0 -4 -18 -12 -40 -19 -22 -6 -40 -16 -40 -21 0
+-13 -2 -13 62 9 45 16 58 17 78 6 23 -12 23 -12 -13 -24 -21 -7 -37 -17 -37
+-22 0 -12 1 -12 45 7 31 13 43 13 64 3 l26 -12 -35 -15 c-76 -32 -166 -16
+-246 44 -29 22 -110 131 -102 139 1 2 26 10 53 18 77 24 161 21 221 -7z m618
+-34 l48 -22 -17 -27 c-55 -87 -134 -137 -215 -138 -30 0 -70 6 -88 14 -31 13
+-32 14 -13 27 16 12 25 11 55 -1 41 -17 46 -18 46 -7 0 5 -12 14 -27 21 -24
+11 -26 14 -11 22 13 7 32 3 68 -12 63 -27 77 -18 18 12 l-43 22 28 10 c20 6
+39 5 67 -7 22 -9 40 -12 40 -7 0 5 -9 13 -20 16 -28 9 -17 21 25 29 19 4 35
+11 35 16 0 10 -31 6 -113 -15 l-48 -12 27 28 c15 16 25 31 22 34 -3 3 -21 -12
+-41 -34 -34 -37 -77 -69 -77 -56 0 3 7 19 15 35 9 17 11 30 5 30 -5 0 -21 -22
+-34 -49 -14 -27 -32 -51 -41 -54 -33 -13 -7 59 37 100 60 57 159 66 252 25z
+m-406 -217 c-3 -25 -3 -45 1 -45 3 0 5 -63 3 -140 -2 -77 -7 -140 -12 -140 -4
+0 -7 71 -5 158 2 86 4 169 5 185 0 15 3 27 6 27 4 0 4 -20 2 -45z m-28 -294
+c0 -25 -4 -30 -37 -35 -61 -11 -216 -14 -240 -5 -14 5 -34 4 -50 -2 -20 -7
+-36 -6 -66 6 -21 9 -48 13 -58 10 -13 -4 -19 -2 -19 9 0 8 -3 21 -6 30 -6 14
+19 16 235 16 l241 0 0 -29z m508 2 c-2 -23 -8 -28 -33 -29 -16 -1 -41 -5 -55
+-11 -14 -5 -68 -8 -120 -7 -52 1 -104 -2 -115 -6 -13 -5 -34 -2 -54 6 -18 8
+-44 14 -57 14 -20 0 -24 5 -24 30 l0 30 231 0 230 0 -3 -27z m-458 -82 c8 -20
+27 -37 58 -51 25 -12 54 -32 64 -45 16 -20 108 -53 130 -47 5 1 7 -3 5 -10 -1
+-6 10 -17 24 -24 14 -8 34 -23 45 -35 18 -22 18 -21 -13 1 -38 27 -51 21 -34
+-16 6 -15 10 -29 7 -31 -2 -2 -12 17 -22 43 -18 48 -37 61 -108 78 l-29 7 18
+-28 c10 -15 12 -23 5 -16 -7 7 -22 29 -34 49 -15 27 -36 43 -73 60 l-53 23 0
+-35 c0 -52 13 -68 89 -118 38 -24 72 -49 75 -55 4 -6 22 -12 39 -12 24 -1 26
+-3 10 -6 -31 -6 -17 -30 35 -62 25 -15 38 -30 35 -38 -4 -11 -9 -9 -20 6 -8
+12 -23 26 -34 32 -19 10 -20 8 -15 -30 3 -23 1 -41 -5 -41 -5 0 -9 20 -9 44 0
+47 -20 80 -70 116 l-30 21 6 -33 c3 -18 15 -45 25 -60 10 -15 19 -31 19 -35 0
+-4 -7 3 -16 15 -18 27 -31 28 -38 5 -2 -10 -2 -1 1 20 7 52 -12 92 -63 127
+l-44 29 0 -41 c0 -25 7 -50 18 -62 16 -20 16 -20 0 -7 -16 12 -18 10 -18 -19
+0 -32 21 -58 102 -125 13 -11 16 -14 6 -6 -24 19 -31 10 -19 -23 6 -14 7 -26
+2 -26 -5 0 -11 13 -14 29 -4 16 -21 43 -39 60 l-33 31 -3 -37 c-5 -54 3 -75
+50 -129 23 -27 32 -40 20 -30 -22 19 -22 19 -23 -10 -1 -26 -2 -25 -8 8 -8 40
+-28 71 -42 63 -4 -3 -8 -31 -8 -61 1 -31 -3 -60 -7 -64 -5 -5 -8 14 -6 43 l3
+52 -25 -27 c-37 -42 -42 -34 -7 11 30 37 31 43 31 137 l0 97 -26 -24 c-40 -37
+-57 -77 -50 -118 4 -26 3 -32 -4 -21 -9 13 -12 13 -23 0 -6 -8 -21 -22 -32
+-30 -18 -13 -17 -11 2 10 21 24 43 71 43 91 0 14 -57 -18 -70 -38 -8 -12 -10
+-13 -7 -3 2 8 19 25 38 37 19 13 53 42 76 65 41 41 43 46 43 104 l0 62 -50
+-27 c-53 -28 -84 -72 -77 -113 2 -13 2 -17 0 -10 -7 18 -19 15 -37 -10 -9 -13
+-14 -16 -10 -8 4 8 12 22 19 30 15 18 36 80 28 80 -3 0 -20 -9 -38 -20 -39
+-24 -65 -61 -65 -92 0 -18 -2 -20 -10 -8 -7 12 -12 12 -29 -4 -35 -32 -23 -12
+19 33 44 46 48 57 23 64 -13 3 -11 5 6 6 34 2 189 80 206 105 8 11 15 35 15
+52 l0 32 -52 -19 c-35 -13 -68 -36 -98 -67 -25 -27 -37 -38 -27 -27 23 29 22
+33 -10 28 -60 -9 -73 -14 -105 -40 l-33 -28 25 32 c26 32 47 43 90 43 14 0 41
+10 60 22 l35 22 -25 7 c-23 6 -22 7 10 8 54 2 118 35 126 65 9 36 38 33 54 -3z
+m-301 -244 c-2 -1 -13 -9 -24 -17 -19 -14 -19 -14 -6 3 7 9 18 17 24 17 6 0 8
+-1 6 -3z"/>
+<path d="M1306 1414 c-5 -14 -4 -15 9 -4 17 14 19 20 6 20 -5 0 -12 -7 -15
+-16z"/>
+<path d="M1592 1141 c4 -13 18 -16 19 -4 0 4 -5 9 -11 12 -7 2 -11 -2 -8 -8z"/>
+<path d="M1670 1140 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0
+-10 -4 -10 -10z"/>
+<path d="M1742 1139 c2 -6 8 -10 13 -10 5 0 11 4 13 10 2 6 -4 11 -13 11 -9 0
+-15 -5 -13 -11z"/>
+<path d="M1590 1065 c0 -9 5 -15 11 -13 6 2 11 8 11 13 0 5 -5 11 -11 13 -6 2
+-11 -4 -11 -13z"/>
+<path d="M1667 1074 c-8 -8 1 -24 14 -24 5 0 9 7 9 15 0 15 -12 20 -23 9z"/>
+<path d="M1747 1074 c-8 -8 1 -24 14 -24 5 0 9 7 9 15 0 15 -12 20 -23 9z"/>
+<path d="M1595 999 c-10 -15 3 -25 16 -12 7 7 7 13 1 17 -6 3 -14 1 -17 -5z"/>
+<path d="M1746 1003 c-11 -11 -6 -23 9 -23 8 0 15 4 15 9 0 13 -16 22 -24 14z"/>
+<path d="M1670 990 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0
+-10 -4 -10 -10z"/>
+<path d="M1673 768 c-20 -26 -23 -52 -12 -86 l12 -35 18 34 c22 41 24 73 5 88
+-10 8 -16 8 -23 -1z"/>
+<path d="M1574 675 c-8 -20 23 -66 47 -72 23 -6 34 -43 24 -80 -12 -44 -16
+-74 -19 -136 -2 -52 0 -60 19 -67 22 -8 70 -59 77 -81 8 -25 28 4 28 41 0 50
+-38 97 -85 106 -32 6 -34 8 -28 38 7 40 30 66 57 66 30 0 66 28 66 51 0 10 -4
+19 -10 19 -22 0 -59 -24 -71 -46 -18 -35 -29 -29 -22 14 7 47 16 58 53 65 41
+9 75 44 60 62 -17 20 -61 -4 -80 -42 l-13 -28 -8 30 -7 30 -1 -28 c-1 -30 -21
+-28 -21 2 0 21 -36 71 -51 71 -5 0 -12 -7 -15 -15z"/>
+<path d="M1556 583 c-20 -20 13 -71 57 -86 21 -8 21 -6 3 38 -14 33 -47 60
+-60 48z"/>
+</g>
+        </svg>
+  </div>
+
+  <div class="logo"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></div>
+
+  <div class="head">
+    <div class="eyebrow">Composition Test &middot; Diagonal Flow</div>
+    <h1>Every stage earns<br>its own weight.</h1>
+    <p>Landscape format, oversized ghost numeral layered behind a rotated hero illustration, and a curved sequence path instead of a straight row. A different print dimension and a different composition logic from the portrait version.</p>
+  </div>
+
+  <div class="path-track">
+    <svg viewBox="0 0 310 230" fill="none">
+      <path d="M48 42 Q140 125 223 20" stroke="#474747" stroke-width="2" stroke-dasharray="3 6" stroke-linecap="round"/>
+    </svg>
+    <div class="path-item p1"><img src="../assets/_capability-test/seed-sprout-bloom/01-seed.png" alt="Seed"><div class="lbl">Seed</div></div>
+    <div class="path-item p2"><img src="../assets/_capability-test/seed-sprout-bloom/02-sprout.png" alt="Growth"><div class="lbl">Growth</div></div>
+    <div class="path-item p3"><img src="../assets/_capability-test/seed-sprout-bloom/03-bloom.png" alt="Bloom"><div class="lbl">Bloom</div></div>
+  </div>
+
+  <div class="footer">Capability proof of concept, round 2<br>see design-system/artwork-capability-audit.md</div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

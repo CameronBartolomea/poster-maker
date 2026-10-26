@@ -181,3 +181,155 @@ confirmed working), or that composition itself has reached the
 "couldn't be any other brand's flyer" bar — that's a design-direction
 problem, not a tooling problem, and swapping in better artwork doesn't
 automatically solve it.
+
+---
+
+## Round 2: print resolution, composition, and asset integration
+
+Direct follow-up after review: the round-1 proof of concept was fair
+to call "still a corporate flyer with basic icons and unused space."
+This round targets exactly the two things named plus a third that
+needed independent verification.
+
+### 1. Print-resolution artwork — tested several paths, found a real one
+
+**Canva export-design, tested, mixed result.** `create-design` with
+`asset_ids` pointing at a `generate-image` result **fails consistently
+(2/2 attempts, `internal_error`)** — a generated illustration cannot
+currently be placed into an editable Canva design this way.
+`create-design` with no asset reference works fine (confirmed — built
+a plain design successfully), which isolates the failure to that
+specific combination, not the tool in general. Separately,
+`export-design` on a design that does exist **does accept and
+fulfill a true print-resolution request** (asked for 2550x2550px,
+8.5in square at 300dpi, got back `"status":"success"` with a download
+URL) — so Canva's export pipeline itself is not the bottleneck.
+**But the exported file could not be retrieved into this environment**:
+direct `curl` to Canva's hosts is blocked by this session's egress
+allowlist, and `WebFetch` rejected the signed download URL for
+exceeding its maximum URL length. Net finding: Canva *can* produce
+print-resolution output, but there is currently no path from here to
+actually pull that file into the repo. A human with the Canva link
+(Cameron, via his own account) could download it manually; the
+automated pipeline cannot right now.
+
+**Direct upload to Canva from this sandbox: tested, blocked.**
+`create-upload-url` returns a working upload URL, but POSTing to it
+from this environment's shell is refused by the egress proxy
+(`www.canva.com` is not reachable by direct HTTP request here, only
+through the MCP tool's own server-side calls). So "upload our own
+local illustration/photo to Canva for a higher-res round-trip" is not
+currently possible from this session either.
+
+**Local upscaling (`sharp`, lanczos3), tested, gives real numbers
+instead of a guess.** Upscaled the 200px seed illustration to 800px
+(4x, ~2.7in at 300dpi) and inspected it at full size: clean, no visible
+softening, usable. Upscaled the same source to 2550px (12.75x, full
+8.5in hero size at 300dpi) and inspected a native-resolution crop:
+visibly soft, blurred linework, not print-acceptable at that size.
+**Conclusion, tested not assumed: a 200px Canva-generated illustration
+is safe up to roughly 2.5–3in at 300dpi (supporting-element scale);
+anything larger needs a different source.**
+
+**Vector tracing (`potrace`), tested, works, with an honest trade-off.**
+Installed `potrace` (available via `apt`, not previously in this repo's
+toolchain). Thresholded a generated illustration to pure black/white
+and traced it to true SVG path data — confirmed by actually rendering
+the resulting SVG (not just checking that a file was produced) at
+full page size: **clean, crisp, no resolution ceiling at all**, because
+it's real vector geometry, same category as the hand-drawn `icons.svg`
+marks. The trade-off is real too: tracing collapses the illustration
+to a single color (a silhouette/mark), not the original's full flat-
+color palette, and on a visually busier source (tested on the sprout
+illustration, which has fine root/soil detail) the trace picks up a
+lot of small stray sub-paths from that detail — usable, but messier
+than the cleaner seed/bloom traces. **This is the one tested path that
+actually solves print resolution today**, at the cost of color: use
+AI-generated illustration at native/safe-upscale size for color detail
+work, and a vector trace of the same illustration when something needs
+to be large and perfectly crisp (see the two compositions below, both
+of which use this).
+
+### 2. Composition beyond "three boxes and arrows" — built and tested
+
+Two new compositions, built from the same three illustrations as
+round 1 but with deliberately different composition logic, both
+rendered at true print dimensions and logged through the full QA
+pipeline:
+
+- **`posters/_capability-test-hero-asymmetric-a.html`** (portrait,
+  8.5x11in): one illustration (the bloom, vector-traced) given real
+  hero scale, bleeding off two edges, dominating roughly 60% of the
+  page. The sequence that leads to it is NOT three equal panels — it's
+  two small, differently-sized thumbnails (scale itself carries the
+  "building toward something" idea) that hand off to the hero image
+  instead of matching it.
+- **`posters/_capability-test-hero-asymmetric-b.html`** (landscape,
+  11x8.5in — a genuinely different print dimension, not just the same
+  page rotated): the hero illustration (sprout, vector-traced) runs on
+  a diagonal rather than squared to the frame, a single oversized
+  typographic numeral sits behind it as a graphic/texture element
+  (deliberately bleeding off the top edge — an intentional type-crop,
+  not a bug, see the note in its audit log entry), and the sequence
+  follows a curved dashed path instead of a straight row.
+
+Both pass copy-lint. Both correctly fail compliance-check (no loan
+content, so no NMLS/Equal Housing — expected, noted in the audit log,
+not a defect). Composition A passes layout-check cleanly; composition
+B's layout-check flags are the intentional numeral bleed, explained
+above and in its audit log entry rather than suppressed.
+
+**A mistake worth naming, not hiding:** while building composition B,
+I tried to reuse a potrace-traced path by manually multiplying its
+coordinates by 10 in my head to rescale it into a different viewBox.
+That is exactly the kind of error-prone hand-edit of vector data that
+produces silent garbage, and it was the wrong move the moment I made
+it. Caught it before it reached a screenshot (the path data looked
+transcribed, not computed, which doesn't survive inspection) and
+replaced it with a script that copies the verbatim potrace output into
+the correct viewBox with no manual arithmetic. Flagging this because
+the fix matters less than the lesson: vector path data gets handled
+programmatically from here on, never retyped or rescaled by hand.
+
+### 3. Real SHL asset integration — audited, found a real gap, fixed going forward
+
+Checked every poster built in this repo against `assets/brand/`:
+**the Equal Housing badge and the per-person QR vCards are correctly
+pulled from the real asset files in every flyer that has them.
+The actual SHL logo file (`assets/brand/logo/shl-logo-full-color.png`,
+a proper 1248x556px asset) has never been used anywhere.** Every flyer
+to date, including all three round-1 layout concepts, recreates
+"STRATEGIC HOME LOANS" as styled CSS text instead of embedding the
+real logo graphic — which also means none of them reflect the logo's
+actual house+puzzle-piece icon or its "Financing that fits perfectly"
+tagline at all. Both round-2 compositions use the real logo file
+correctly (composition A at natural scale; composition B with a CSS
+`filter: brightness(0) invert(1)` to render it in white against its
+dark background, which works cleanly for a solid-shape logo like this
+one but would need checking against a logo with internal color detail
+before assuming it always holds up). This needs to become the
+standing rule for every future flyer, not just these two tests — see
+the components.md update below. The headshot assets
+(`assets/people/`) remain correctly unused so far because nothing
+built yet has called for a headshot; that's not a gap, just noting it
+for completeness.
+
+### What round 2 proves and doesn't
+
+**Proves:** a tested, working path to genuinely large, crisp artwork
+(vector tracing) that doesn't depend on network access or resolution
+limits; two compositions that are structurally distinct from each
+other, from round 1, and from the original equal-box template, at two
+different real print dimensions; and a real, previously-invisible gap
+in brand-asset usage, now named and fixed in new work.
+
+**Does not prove:** that this is production-ready. The two
+compositions are still capability tests on neutral content, not SHL
+flyers. Full-color vector tracing (keeping the illustration's palette
+instead of collapsing to a silhouette) hasn't been attempted — it
+would need a color-separation step before tracing, which is a real
+next piece of work, not a small one. And the round-1 flyers (the
+realtor-partner flyer and the three layout concepts) still recreate
+the logo as text; fixing those specifically wasn't in scope for this
+round but should happen before any of them are treated as a template
+again.

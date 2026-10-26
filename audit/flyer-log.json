@@ -230,5 +230,55 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Neutral 3-step (seed/growth/bloom) proof of concept testing AI-illustration (Canva generate-image) composited into the existing HTML/CSS poster system. Not a flyer, no loan-product content, so NMLS/Equal-Housing compliance failures below are expected and correct, not a defect. See design-system/artwork-capability-audit.md for full writeup."
+  },
+  {
+    "id": 11,
+    "file": "posters/_capability-test-hero-asymmetric-a.html",
+    "type": "capability-test",
+    "content_hash": "e69584c62fa6fe44",
+    "created_at": "2026-10-26T23:11:09.150Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-hero-asymmetric-a.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-hero-asymmetric-a.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-hero-asymmetric-a.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "hero-asymmetric-corner-bleed",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 2 capability test. Portrait 8.5x11in. Real SHL logo asset used correctly (not recreated as text) - first time in this repo. Hero art is a potrace vector trace of the generated bloom illustration, not the raster PNG, because testing confirmed raster source softens above ~2.7in at 300dpi. NMLS/Equal-Housing compliance failures expected and correct: neutral educational content, not a loan-product flyer."
+  },
+  {
+    "id": 12,
+    "file": "posters/_capability-test-hero-asymmetric-b.html",
+    "type": "capability-test",
+    "content_hash": "47a74a5ce92ba6aa",
+    "created_at": "2026-10-26T23:11:10.661Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "fail"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-hero-asymmetric-b.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "posters/_capability-test-hero-asymmetric-b.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-hero-asymmetric-b.html  (1056x816)\n  FAIL [clipping]: <div class=\"ghost-numeral\"> \"3\" extends outside the page bounds (box: 326,-125 403x760; page: 1056x816)\n  FAIL [overlap]: <div> \"3\" overlaps <img> \"\" by 100% of the smaller element's area\n  FAIL [overlap]: <div> \"3\" overlaps <div> \"Bloom\" by 100% of the smaller element's area\n  WARN [overlap]: <div> \"CAPABILITY TEST · NOT A CLIENT DELIVERAB\" overlaps <div> \"3\" by 38% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <div> \"Composition Test · Diagonal Flow\" by 30% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <h1> \"Every stage earnsits own weight.\" by 30% of the smaller element's area\n  WARN [overlap]: <div> \"3\" overlaps <p> \"Landscape format, oversized ghost numera\" by 18% of the smaller element's area"
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "hero-asymmetric-diagonal",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 2 capability test. Landscape 11x8.5in (different print dimensions than composition A, deliberately). Oversized ghost numeral bleeds off the top edge intentionally (editorial type-crop technique, not a layout bug) - layout-check correctly flags this as clipping/overlap; noting it here as a deliberate choice rather than suppressing the check. Real SHL logo used, inverted for the dark background. Vector-traced sprout illustration as diagonal hero. NMLS/Equal-Housing failures expected, not a loan-product flyer."
   }
 ]
