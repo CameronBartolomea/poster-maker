@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CONCEPT C (diagnostic test, not approved) — Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- DIAGNOSTIC TEST PIECE — not an approved design, not the Three Cs flyer.
+     Layout family: single-column vertical connecting-line timeline, icon
+     nodes, contact styled as the timeline's final stop rather than a
+     separate bar. Same content brief as shl-realtor-partner-flyer.html. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 8.5in 11in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 8.5in; height: 11in; position: relative;
+    background: #ffffff; font-family: 'Outfit', sans-serif; color: #2a2a2a;
+    overflow: hidden;
+  }
+
+  .wordmark {
+    position: absolute; top: 0.45in; right: 0.65in; text-align: right;
+    font-weight: 800; font-size: 15px; letter-spacing: 0.3px; color: #474747;
+    text-transform: uppercase; line-height: 1.3;
+  }
+  .wordmark span { color: #c72108; }
+  .wordmark .tag { font-size: 9px; letter-spacing: 2px; color: #9a9a9a; font-weight: 500; margin-top: 2px; }
+
+  .headband { padding: 0.5in 1.7in 0.15in 0.65in; }
+  .headband .eyebrow {
+    font-size: 12.5px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c72108; font-weight: 600; margin-bottom: 10px;
+  }
+  .headband h1 {
+    font-weight: 800; font-size: 34px; line-height: 1.08; color: #1c1c1c;
+    letter-spacing: -0.6px; max-width: 5in;
+  }
+  .headband h1 em { font-style: normal; color: #c72108; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; margin: 0.25in 0.65in 0; }
+  .timeline::before {
+    content: ""; position: absolute; left: 34px; top: 10px; bottom: 10px;
+    width: 2px; background: #e3e1df;
+  }
+  .node { position: relative; display: flex; gap: 0.28in; padding: 0.18in 0; align-items: flex-start; }
+  .node .dot {
+    flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%;
+    background: #fff; border: 2.5px solid #c72108; color: #c72108;
+    display: flex; align-items: center; justify-content: center; z-index: 1;
+  }
+  .node .dot svg.icon { width: 36px; height: 36px; }
+  .node .ntxt { padding-top: 10px; }
+  .node .ntxt h3 { font-size: 16.5px; font-weight: 700; color: #1c1c1c; margin-bottom: 4px; }
+  .node .ntxt p { font-size: 12.5px; line-height: 1.5; color: #5a5a5a; max-width: 5in; }
+
+  /* final node = contact, styled differently to read as the destination */
+  .node.final .dot { background: #262626; border-color: #262626; color: #fff; }
+  .node.final .ntxt { width: 100%; }
+  .node.final .contact-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.3in;
+    background: #262626; border-radius: 3px; padding: 0.22in 0.3in; margin-top: 4px;
+  }
+  .node.final .cleft .name { font-size: 18px; font-weight: 700; color: #fff; }
+  .node.final .cleft .title { font-size: 11.5px; color: #d9b8b2; margin-top: 2px; }
+  .node.final .cleft .nmls { font-size: 8.5px; color: #9a9a9a; margin-top: 8px; max-width: 3.4in; line-height: 1.4; }
+  .node.final .cright { text-align: right; flex-shrink: 0; }
+  .node.final .cright .r { font-size: 10.5px; color: #e3e1df; margin-bottom: 4px; }
+  .node.final .cright .r .lbl { color: #c9a39d; font-size: 8.5px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; }
+  .node.final .cqr { flex-shrink: 0; margin-left: 0.15in; }
+  .node.final .cqr img { width: 0.68in; height: 0.68in; }
+
+  .programs-strip {
+    margin: 0.1in 0.65in 0; padding-left: 102px;
+  }
+  .programs-strip .label { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: #8a8a8a; font-weight: 600; margin-bottom: 8px; }
+  .programs-strip .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .programs-strip .chip { font-size: 11.5px; font-weight: 500; color: #474747; background: #f4f2f1; border: 1px solid #e3e1df; padding: 5px 11px; border-radius: 2px; }
+
+  .footer-note {
+    position: absolute; left: 0.65in; right: 0.65in; bottom: 0.28in;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 8.8px; color: #9a9a9a; text-align: center;
+  }
+  .footer-note .eho-badge { width: 17px; height: 17px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-direct-line" viewBox="0 0 64 64">
+      <circle cx="12" cy="48" r="5" fill="currentColor" stroke="none"/>
+      <circle cx="52" cy="16" r="5" fill="currentColor" stroke="none"/>
+      <line x1="16.5" y1="44" x2="47.5" y2="20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-under-roof" viewBox="0 0 64 64">
+      <polyline points="8,30 32,10 56,30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="14" y1="30" x2="14" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="50" y1="30" x2="50" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="10" y1="48" x2="54" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <polyline points="23,39 29,45 42,32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-verified-shield" viewBox="0 0 64 64">
+      <path d="M32 7 L54 15 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V15 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="21,31 29,39 44,22" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-local-pin" viewBox="0 0 64 64">
+      <circle cx="32" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+      <path d="M32 10 C22 10 15 17 15 26 C15 38 32 54 32 54 C32 54 49 38 49 26 C49 17 42 10 32 10 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <circle cx="32" cy="26" r="6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-partnership" viewBox="0 0 64 64">
+      <circle cx="24" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <circle cx="40" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <path d="M32 16.6 C36.6 20.8 39.4 26.1 39.4 32 C39.4 37.9 36.6 43.2 32 47.4 C27.4 43.2 24.6 37.9 24.6 32 C24.6 26.1 27.4 20.8 32 16.6 Z" fill="currentColor" stroke="none"/>
+    </symbol>
+  </svg>
+
+  <div class="wordmark">STRATEGIC <span>HOME LOANS</span><div class="tag">Westlake Village, CA</div></div>
+
+  <div class="headband">
+    <div class="eyebrow">For Our Real Estate Partners</div>
+    <h1>What happens when you <em>refer a client</em> to us.</h1>
+  </div>
+
+  <div class="timeline">
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-direct-line"/></svg></div>
+      <div class="ntxt"><h3>Same-Day Communication</h3><p>Calls and texts returned the same day, including weekends during escrow.</p></div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-under-roof"/></svg></div>
+      <div class="ntxt"><h3>In-House Processing</h3><p>Officer and processor work your file together, start to close.</p></div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-verified-shield"/></svg></div>
+      <div class="ntxt"><h3>Accurate Pre-Approvals</h3><p>We underwrite before we issue a letter, so your offer holds up.</p></div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-local-pin"/></svg></div>
+      <div class="ntxt"><h3>Local Market Knowledge</h3><p>Based in Westlake Village, working Ventura and LA County daily.</p></div>
+    </div>
+    <div class="node final">
+      <div class="dot"><svg class="icon"><use href="#icon-partnership"/></svg></div>
+      <div class="ntxt">
+        <h3>Your direct contact</h3>
+        <div class="contact-row">
+          <div class="cleft">
+            <div class="name">Cameron Bartolomea</div>
+            <div class="title">Loan Officer / Mortgage Broker</div>
+            <div class="nmls">NMLS #2777999 &middot; CA DRE #02279518 &middot; SHL Inc. NMLS #340445 &middot; CA DRE #01311775</div>
+          </div>
+          <div class="cright">
+            <div class="r"><span class="lbl">Cell</span>818 857 9675</div>
+            <div class="r"><span class="lbl">Office</span>805 496 7500 x2</div>
+            <div class="r"><span class="lbl">Email</span>cameron@strategichomeloans.com</div>
+          </div>
+          <div class="cqr"><img src="../assets/brand/qr/qr-cameron-vcard.png" alt="Scan to save Cameron's contact"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="programs-strip">
+    <div class="label">Loan Programs We Offer</div>
+    <div class="chips">
+      <div class="chip">Conventional</div>
+      <div class="chip">FHA</div>
+      <div class="chip">VA</div>
+      <div class="chip">Jumbo</div>
+      <div class="chip">First-Time Buyer</div>
+      <div class="chip">Refinance</div>
+      <div class="chip">Investment Property</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    <span>2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &middot; strategichomeloans.com</span>
+  </div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

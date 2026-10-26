@@ -129,22 +129,133 @@ three columns, row labels on the left, brand-red highlight on the
 recommended/featured column. Build on first real use, then promote the
 pattern here.
 
-## 8. Process / Timeline (not yet built — planned)
+## 8. Vertical Timeline / Process Flow
 
-For "how it works" or "steps to close" educational flyers. Horizontal
-numbered steps with connecting line, or vertical for narrower formats.
-Build on first real use, then promote the pattern here.
+Built and tested in `posters/concept-c-timeline.html`. A single
+continuous connecting line runs down the page; each step is an icon in
+a circular node sitting on the line, with its heading/body to the
+right. The final node can be styled as the call-to-action/contact
+block (dark fill) rather than bolting a separate contact card onto the
+bottom — the contact becomes the timeline's last stop, not an
+afterthought.
+
+```html
+<div class="timeline">
+  <div class="node">
+    <div class="dot"><svg class="icon"><use href="#icon-name"/></svg></div>
+    <div class="ntxt"><h3>Step title</h3><p>One sentence.</p></div>
+  </div>
+  <!-- repeat, last node can use .node.final for a dark CTA/contact style -->
+</div>
+```
+```css
+.timeline { position: relative; }
+.timeline::before { content: ""; position: absolute; left: 34px; top: 10px; bottom: 10px; width: 2px; background: var(--shl-charcoal-tint-3); }
+.node { position: relative; display: flex; gap: 0.28in; padding: 0.18in 0; align-items: flex-start; }
+.node .dot { flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%; background: #fff; border: 2.5px solid var(--shl-red); color: var(--shl-red); display: flex; align-items: center; justify-content: center; z-index: 1; }
+.node .dot svg.icon { width: 36px; height: 36px; }
+```
+**Rule:** the dot size (≥60px) and icon size (≥32px) inside it must stay
+large enough to read as the real visual anchor of each row, not a small
+bullet. Use for "how it works," "what happens when you refer a client,"
+and other sequential/process content.
+
+## 9. Icon-Driven Grid
+
+Built and tested in `posters/concept-b-icon-rail.html`. Large (56px+)
+hand-drawn icons from `design-system/icons.svg` are the primary visual
+element of each grid cell — the icon sits above the heading, not beside
+it as a small accent. Pair with a full-height sidebar rail (see below)
+rather than a horizontal content band, so the page reads as two real
+zones instead of stacked stripes.
+
+```html
+<div class="icongrid">
+  <div class="icard">
+    <svg class="icon"><use href="#icon-name"/></svg>
+    <h3>Benefit title</h3>
+    <p>One sentence.</p>
+  </div>
+  <!-- repeat -->
+</div>
+```
+```css
+.icongrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35in 0.4in; }
+.icard svg.icon { width: 68px; height: 68px; color: var(--shl-red); }
+```
+**Rule:** this component only exists because `design-system/icons.svg`
+exists — don't fall back to a colored-border bullet (component #2)
+just because it's faster to copy. If a flyer's content is genuinely
+icon-able (a short, concrete benefit), use the icon; component #2 is
+for when it isn't.
+
+## 10. Full-Height Sidebar Rail
+
+Built and tested in `posters/concept-b-icon-rail.html`. A dark column
+running the full height of the page (not a band at top or bottom)
+holding secondary content — loan programs list, contact block, QR —
+so the main content area isn't forced into horizontal stripes. This is
+the direct alternative to component #4 + #3 stacked at the page bottom.
+
+**Rule:** when using this, the contact block inside the rail must be
+sized for the rail's actual width (usually 2–2.5in) — don't copy
+component #4's three-column flex layout at full size into a narrower
+column; stack name/title, then phone/email rows, then QR vertically
+instead. (This is a real bug `layout-check.js` caught during the
+concept-a/b/c build: a contact component reused at its original width
+inside a narrower column pushed the QR code off the page.)
+
+## 11. Watermark / Fill Graphic
+
+Built and tested in `posters/concept-a-split-stack.html`. When a layout
+has a real empty zone that composition and copy don't naturally fill
+(not decorative padding — an actual structural gap), a single icon from
+`icons.svg` enlarged to 3in+ at low opacity (0.04–0.08, brand color) can
+fill it intentionally. This is a last resort, not a default: the first
+choice is always to fix the underlying proportions (more generous type,
+rebalanced columns, added real content) rather than paper over empty
+space with decoration.
+
+```css
+.markwrap { width: 3.3in; height: 3.3in; opacity: 0.055; color: var(--shl-red); }
+```
+**Rule:** never use this to avoid rethinking a layout that's genuinely
+unbalanced — it's for the rare case where whitespace is structurally
+unavoidable and would otherwise look like a bug, not a design choice.
 
 ---
 
 ## Layout families
 
 Don't reuse the same single-column stacked layout for every flyer type.
-At minimum, vary by:
-- **Stacked editorial** (what's built so far — header band, headline,
-  grid, footer) — good for value-prop / partner flyers.
-- **Split hero** — large image or stat on one side, copy on the other —
-  good for listing/open-house flyers with a property photo.
-- **Infographic grid** — the whole page is the visual (numbered steps,
-  icons, big numbers) with minimal paragraph text — good for Realtor
-  education pieces per the infographic-first rule.
+Four families now exist with real built-and-QA'd examples (not just
+descriptions):
+
+- **Stacked editorial** (`posters/shl-realtor-partner-flyer.html`) —
+  header band, headline, grid, footer, all horizontal stripes. Good for
+  a quick value-prop flyer, but this was the ONLY family that existed
+  before this diagnostic pass, and it's the weakest of the four for
+  anything meant to look art-directed rather than templated — see
+  `critique-v1-realtor-flyer.md`.
+- **Split diagonal / stat-stack** (`posters/concept-a-split-stack.html`)
+  — asymmetric non-rectangular column split, oversized numerals doing
+  hierarchy work. Good when there's a clean 4-part breakdown and you
+  want a geometric, editorial feel.
+- **Icon grid + full-height rail** (`posters/concept-b-icon-rail.html`)
+  — see components #9 and #10. Good for value-prop / partner flyers
+  where the icon system should be the dominant visual, not text.
+- **Vertical timeline** (`posters/concept-c-timeline.html`) — see
+  component #8. Good for "how it works" / process / "what happens
+  when you refer a client" content, and for Realtor education pieces
+  per the infographic-first rule in `templates/flyer-schema.md`.
+
+**Enforcement, not just this list:** `scripts/audit-log.js add` takes
+an optional `--layout-family <name>` flag. When passed, it checks the
+new flyer's family against the most recently APPROVED flyer of the
+same `--type` and prints a visible warning if they match — a nudge to
+confirm the reuse is a deliberate choice, not the default fallback to
+whichever layout is fastest to copy-paste. It's a flag, not a block
+(consistent with how `compliance-check.js` flags rather than
+certifies) — see `scripts/audit-log.js` usage comment for details. Pass
+`--layout-family` on every `add` going forward so this has data to
+check against.

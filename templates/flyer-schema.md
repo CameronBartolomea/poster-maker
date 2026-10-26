@@ -80,19 +80,26 @@ For anything beyond a trivial tweak to an existing flyer, work through
 this before calling something finished:
 
 1. **Draft 2-3 materially different concepts** (not three nearly
-   identical templates) — vary information architecture, layout family,
-   or typographic hierarchy, not just color. For a simple, well-defined
-   request (e.g. "update the phone number"), skip this — it's for
-   substantial new pieces.
+   identical templates) — pull from genuinely different entries under
+   "Layout families" in `design-system/components.md`, not the same
+   family with a different color. For a simple, well-defined request
+   (e.g. "update the phone number"), skip this — it's for substantial
+   new pieces. This step was written once before and skipped on the
+   first real flyer — see `design-system/critique-v1-realtor-flyer.md`
+   finding #5 — so treat it as load-bearing, not optional boilerplate.
 2. **Evaluate them** against: visual quality, clarity, audience fit,
    brand consistency, practical usefulness. Write the evaluation down
-   (this goes in the audit log's `evaluation_notes`).
+   (this goes in the audit log's `evaluation_notes`). See
+   `design-system/concept-comparison-v1.md` for what an honest,
+   non-fabricated-score evaluation looks like.
 3. **Build the chosen direction** using the component library and
    design tokens.
 4. **Run the automated checks**: `node scripts/audit-log.js add
    posters/<file>.html --type <type> --variants "..." --evaluation
-   "..."` — this runs compliance, copy, and layout checks together and
-   records everything.
+   "..." --layout-family "<family-name>"` — this runs compliance, copy,
+   and layout checks together, records everything, and warns if this
+   flyer's family matches the last approved flyer of the same type
+   (family-diversity enforcement, see `design-system/components.md`).
 5. **Visually review the actual rendered screenshot** — a passing
    automated check is not a design review. Read the PNG. Check
    hierarchy at full size and at a shrunk preview size.

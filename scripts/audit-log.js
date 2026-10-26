@@ -9,6 +9,16 @@
 //   node scripts/audit-log.js add <posters/file.html> --type <type>
 //       [--note "..."] [--variants "concept A; concept B; concept C"]
 //       [--evaluation "why this one was chosen"]
+//       [--layout-family "split-stack|icon-rail|timeline|stacked-editorial|..."]
+//
+// --layout-family is how layout-family diversity gets enforced with
+// actual teeth instead of just a line in components.md: "add" checks it
+// against the most recent APPROVED entry of the same --type and prints
+// a visible warning (not a block — see compliance-check.js precedent of
+// flagging, not certifying) if the new flyer reuses the same family as
+// the last approved one of that type. See critique-v1-realtor-flyer.md
+// finding #2 ("the system only had one layout family") for why this
+// exists.
 //   node scripts/audit-log.js approve <posters/file.html> --by "<name>" [--note "..."]
 //   node scripts/audit-log.js list [--file <posters/file.html>]
 //   node scripts/audit-log.js report [--file <posters/file.html>]   (human-readable QA report, latest entry)
@@ -65,6 +75,7 @@ function cmdAdd(args) {
   const note = flagArg(args, "--note") || "";
   const variants = flagArg(args, "--variants") || null;
   const evaluation = flagArg(args, "--evaluation") || null;
+  const layoutFamily = flagArg(args, "--layout-family") || null;
 
   console.log(`Running QA checks on ${file}...`);
   const compliance = runCheck("scripts/compliance-check.js", file);
@@ -91,6 +102,7 @@ function cmdAdd(args) {
     },
     creative_variants_considered: variants ? variants.split(";").map((s) => s.trim()) : null,
     evaluation_notes: evaluation,
+    layout_family: layoutFamily,
     visual_review: "pending_human_review", // automated checks never certify this
     approved_by: null,
     approved_at: null,
@@ -104,6 +116,24 @@ function cmdAdd(args) {
   console.log(`  visual_review: pending_human_review (automated checks cannot certify this — look at the screenshot)`);
   if (compliance.status === "fail" || copy.status === "fail" || layout.status === "fail") {
     console.log(`\n  At least one check FAILED. Fix before requesting approval. Run with --file to see full detail via "report".`);
+  }
+
+  if (layoutFamily) {
+    const sameType = entries
+      .filter((e) => e.type === type && e.file !== file && e.layout_family)
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    const lastApprovedSameType = sameType.find((e) => e.status === "approved");
+    const reused = lastApprovedSameType && lastApprovedSameType.layout_family === layoutFamily;
+    if (reused) {
+      console.log(
+        `\n  LAYOUT-FAMILY WARNING: this flyer reuses the "${layoutFamily}" layout family, same as the most ` +
+        `recently approved "${type}" flyer (${lastApprovedSameType.file}, approved ${lastApprovedSameType.approved_at}). ` +
+        `Not a block — some flyer types legitimately want a consistent family — but confirm this is a deliberate ` +
+        `choice, not a default fallback to the one layout that's easiest to reuse.`
+      );
+    }
+  } else {
+    console.log(`\n  Note: no --layout-family recorded for this entry. Pass one so family-diversity gets tracked across "${type}" flyers.`);
   }
 }
 

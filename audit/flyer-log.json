@@ -34,5 +34,176 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Rebuilt on single-font design system (Outfit), em dashes removed from copy"
+  },
+  {
+    "id": 3,
+    "file": "posters/concept-a-split-stack.html",
+    "type": "diagnostic-test",
+    "content_hash": "5a7b55363079d1f9",
+    "created_at": "2026-10-26T22:40:50.073Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "fail"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-a-split-stack.html\n  OK — no issues found.",
+      "copy": "posters/concept-a-split-stack.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-a-split-stack.html  (816x1056)\n  FAIL [clipping]: <img class=\"\"> \"\" extends outside the page bounds (box: 860,909 69x69; page: 816x1056)\n  FAIL [clipping]: <div class=\"contact-qr-label\"> \"Scan to savemy contact\" extends outside the page bounds (box: 872,982 46x21; page: 816x1056)"
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Diagnostic test composition (split-stack layout family) — demonstrates root-cause fix from critique-v1-realtor-flyer.md. Not approved, not for production use."
+  },
+  {
+    "id": 4,
+    "file": "posters/concept-b-icon-rail.html",
+    "type": "diagnostic-test",
+    "content_hash": "261ec064e350095d",
+    "created_at": "2026-10-26T22:40:51.614Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-b-icon-rail.html\n  OK — no issues found.",
+      "copy": "posters/concept-b-icon-rail.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Diagnostic test composition (icon-rail layout family) — demonstrates root-cause fix from critique-v1-realtor-flyer.md. Not approved, not for production use."
+  },
+  {
+    "id": 5,
+    "file": "posters/concept-c-timeline.html",
+    "type": "diagnostic-test",
+    "content_hash": "b870699e4541a407",
+    "created_at": "2026-10-26T22:40:53.114Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-c-timeline.html\n  OK — no issues found.",
+      "copy": "posters/concept-c-timeline.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-c-timeline.html  (816x1056)\n  WARN [overlap]: <div> \"STRATEGIC\" overlaps <div> \"For Our Real Estate Partners\" by 21% of the smaller element's area"
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Diagnostic test composition (vertical timeline layout family) — demonstrates root-cause fix from critique-v1-realtor-flyer.md. Not approved, not for production use."
+  },
+  {
+    "id": 6,
+    "file": "posters/concept-a-split-stack.html",
+    "type": "diagnostic-test",
+    "content_hash": "d4b1810c814090c3",
+    "created_at": "2026-10-26T22:41:35.394Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-a-split-stack.html\n  OK — no issues found.",
+      "copy": "posters/concept-a-split-stack.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-a-split-stack.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Diagnostic test composition (split-stack layout family), revised: fixed QR-code clipping bug found by layout-check (contact bar component was transplanted from the wider original flyer without resizing for this narrower column). Demonstrates root-cause fix from critique-v1-realtor-flyer.md. Not approved, not for production use."
+  },
+  {
+    "id": 7,
+    "file": "posters/concept-a-split-stack.html",
+    "type": "diagnostic-test",
+    "content_hash": "d4b1810c814090c3",
+    "created_at": "2026-10-26T22:42:38.586Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-a-split-stack.html\n  OK — no issues found.",
+      "copy": "posters/concept-a-split-stack.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-a-split-stack.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "split-stack",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Final revision, QR clipping bug fixed. Test/diagnostic only."
+  },
+  {
+    "id": 8,
+    "file": "posters/concept-b-icon-rail.html",
+    "type": "diagnostic-test",
+    "content_hash": "261ec064e350095d",
+    "created_at": "2026-10-26T22:42:40.046Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-b-icon-rail.html\n  OK — no issues found.",
+      "copy": "posters/concept-b-icon-rail.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-b-icon-rail.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "icon-rail",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Test/diagnostic only."
+  },
+  {
+    "id": 9,
+    "file": "posters/concept-c-timeline.html",
+    "type": "diagnostic-test",
+    "content_hash": "b870699e4541a407",
+    "created_at": "2026-10-26T22:42:41.589Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/concept-c-timeline.html\n  OK — no issues found.",
+      "copy": "posters/concept-c-timeline.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/concept-c-timeline.html  (816x1056)\n  WARN [overlap]: <div> \"STRATEGIC\" overlaps <div> \"For Our Real Estate Partners\" by 21% of the smaller element's area"
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "timeline",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Test/diagnostic only."
   }
 ]
