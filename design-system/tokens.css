@@ -1,0 +1,71 @@
+/*
+  STRATEGIC HOME LOANS — DESIGN TOKENS
+  =====================================
+  This file is the single source of truth for SHL brand values. Poster
+  Maker posters are self-contained HTML files (no external stylesheets
+  by convention — see CLAUDE.md), so this file isn't <link>-ed into
+  posters. Instead: copy the values you need into each poster's inline
+  <style> block, and copy them EXACTLY — don't approximate a hex code
+  or invent a new shade. scripts/compliance-check.js checks posters
+  against the palette below and flags any color it doesn't recognize.
+
+  Rule from the SHL creative standards: two brand colors + black/white,
+  one sans-serif type family per design. Both are enforced here.
+*/
+
+:root {
+  /* ---- Brand colors (the only two) ---- */
+  --shl-red: #c72108;        /* primary brand color — headlines, accents, CTAs */
+  --shl-charcoal: #474747;   /* secondary brand color — headers, supporting UI */
+
+  /* ---- Neutrals (always allowed) ---- */
+  --shl-black: #000000;
+  --shl-near-black: #262626; /* practical "black" for large fills — pure black reads harsh in print */
+  --shl-white: #ffffff;
+  --shl-off-white: #fafafa;  /* page background alternative to pure white */
+
+  /* ---- Tints/shades (derived from the two brand colors — NOT new colors) ----
+     Use these for hierarchy on dark backgrounds (e.g. a label in a dark
+     contact card) instead of inventing an unrelated color. */
+  --shl-red-tint-1: #e8503a;   /* lighter red, for accents on dark charcoal */
+  --shl-red-tint-2: #d9b8b2;   /* muted rose, for secondary text on dark backgrounds */
+  --shl-red-tint-3: #c9a39d;   /* muted rose, for labels on dark backgrounds */
+  --shl-charcoal-tint-1: #9a9a9a; /* for de-emphasized text on dark backgrounds */
+  --shl-charcoal-tint-2: #f4f2f1; /* near-white, for subtle fills (chips, cards) on light backgrounds */
+  --shl-charcoal-tint-3: #e3e1df; /* for hairline borders/dividers on light backgrounds */
+  --shl-body-text: #2a2a2a;    /* near-black for body copy on white — pure black is too harsh for long text */
+  --shl-body-muted: #5a5a5a;   /* secondary/supporting body copy on white */
+
+  /* ---- Typography: ONE family, used at different weights for everything ----
+     Outfit covers 100–900 weight, geometric/humanist sans that reads as
+     clean and professional in both a 60px headline and 13px disclosure
+     text. Do not introduce a second family (e.g. a serif, a script, a
+     separate "headline font") without Cameron's explicit approval — that
+     is the single-family rule in the SHL creative standards. */
+  --shl-font: 'Outfit', sans-serif;
+  --shl-google-fonts-import: "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap";
+
+  /* Weight scale */
+  --shl-weight-light: 300;
+  --shl-weight-regular: 400;
+  --shl-weight-medium: 500;
+  --shl-weight-semibold: 600;
+  --shl-weight-bold: 700;
+  --shl-weight-black: 800;
+
+  /* ---- Spacing scale (inches, for print-format posters) ----
+     Use these instead of arbitrary padding/margin values so spacing
+     stays consistent across flyer types. */
+  --shl-space-xs: 0.08in;
+  --shl-space-sm: 0.15in;
+  --shl-space-md: 0.3in;
+  --shl-space-lg: 0.45in;
+  --shl-space-xl: 0.65in;   /* standard page margin for letter-size flyers */
+
+  /* ---- Radius ----
+     "Avoid excessive rounded rectangles" — keep this small and use it
+     sparingly (chips, cards), never on large blocks or as a design
+     signature. */
+  --shl-radius-sm: 2px;
+  --shl-radius-md: 3px;
+}

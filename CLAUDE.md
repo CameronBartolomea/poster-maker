@@ -19,16 +19,26 @@ scripts/
   remove-bg.py     Background removal (requires rembg)
   make-qr.js       Generate a new QR code PNG into assets/brand/qr/
   compliance-check.js  Lint a flyer for NMLS/Equal Housing/unverified rate numbers
-  audit-log.js     Record/approve flyers in audit/flyer-log.json
+  copy-lint.js     Lint flyer copy for em/en dashes, banned clichés, exclamation points, emoji
+  layout-check.js  Headless-browser check for clipped/overlapping elements and basic contrast
+  visual-diff.js   Pixel-diff current render against the last-approved baseline
+  save-baseline.js Overwrite the visual-regression baseline (called by audit-log.js on approve)
+  audit-log.js     Record/approve flyers; orchestrates all checks above into audit/flyer-log.json
 .claude/commands/
   setup.md         /setup — install dependencies and verify setup
   new-poster.md    /new-poster — generate a poster
   export-poster.md /export-poster — export to PNG/PDF
   remove-bg.md     /remove-bg — remove image background
+design-system/
+  tokens.css             Brand colors, single font family, spacing/radius scale
+  components.md          Reusable layout patterns (headline, value-prop grid, contact footer, QR module, etc.)
+  copywriting-guide.md   Banned phrases, dash rule, SHL language choices ("elevated", monthly-payment framing)
+  business-rules.md      NMLS/DRE table, geographic focus, who's the contact on what
 templates/
-  flyer-schema.md  Required/optional fields per SHL flyer type — read this before building a new flyer
+  flyer-schema.md  Required/optional fields per SHL flyer type, and the process for substantial new flyers (multiple concepts, evaluation, QA, visual review)
 audit/
-  flyer-log.json   Audit trail: every flyer logged, its compliance-check result, and approval status
+  flyer-log.json   Audit trail: every flyer logged, every automated check's result, approval status
+  baselines/       Visual-regression baseline screenshots, one per flyer, refreshed on approval
 ```
 
 ## Strategic Home Loans (SHL) — this repo's actual use
@@ -44,15 +54,33 @@ stock Poster Maker workflow:
   asking Cameron to re-send assets already in the repo.
 - **Content model** — before building a new flyer type, read
   `templates/flyer-schema.md` for the required/optional fields for that
-  flyer type. It also carries the standing compliance rules (below).
+  flyer type and the process to follow (multiple concepts for
+  substantial requests, evaluation, QA, visual review before presenting
+  to Cameron). It also carries the standing compliance rules (below).
+- **Design system** — read `design-system/tokens.css` (colors, the
+  single font family — Outfit, do not introduce a second typeface
+  without Cameron's approval), `design-system/components.md` (reusable
+  layout patterns — extend this file when you build a genuinely new
+  pattern, don't just keep writing one-offs), and
+  `design-system/copywriting-guide.md` (no em/en dashes, no clichés, SHL
+  language choices) before writing a new flyer.
 - **Compliance rule (critical):** never put a rate, APR, or payment
   estimate on a flyer unless it's sourced from that day's actual rate
   sheet Cameron provides in the conversation — never estimate or guess
   one, even for a "hypothetical" example. Every flyer needs at least one
   NMLS number and the Equal Housing Opportunity badge unless it
-  genuinely isn't a loan-product ad. Run
-  `node scripts/compliance-check.js posters/<file>.html` before treating
-  a flyer as finished.
+  genuinely isn't a loan-product ad. Full business rules (NMLS/DRE
+  numbers, geographic focus, who's the contact on what) live in
+  `design-system/business-rules.md`.
+- **QA before calling anything finished:** don't just run
+  `compliance-check.js` in isolation — use `node scripts/audit-log.js
+  add posters/<file>.html --type <type>` (below), which runs
+  compliance, copy-lint, and layout-check together and records all
+  three results. None of these tools can certify legal compliance or
+  design quality on their own — they catch mechanical defects
+  (missing disclosures, banned phrases, clipped/overlapping elements).
+  The screenshot still needs an actual visual read before presenting
+  anything to Cameron.
 - **QR codes:** Cameron's and Robert's static vCard QR codes already
   exist (`assets/brand/qr/qr-cameron-vcard.png`,
   `qr-robert-vcard.png`) — reuse those for contact info. For anything

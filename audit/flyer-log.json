@@ -10,5 +10,29 @@
     "approved_by": null,
     "approved_at": null,
     "note": "First draft, sent to Cameron for review, not yet approved"
+  },
+  {
+    "id": 2,
+    "file": "posters/shl-realtor-partner-flyer.html",
+    "type": "realtor-partner",
+    "content_hash": "115e628a9553e3d3",
+    "created_at": "2026-10-26T22:25:03.695Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/shl-realtor-partner-flyer.html\n  OK — no issues found.",
+      "copy": "posters/shl-realtor-partner-flyer.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/shl-realtor-partner-flyer.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Rebuilt on single-font design system (Outfit), em dashes removed from copy"
   }
 ]

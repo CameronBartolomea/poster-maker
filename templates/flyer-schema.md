@@ -60,12 +60,41 @@ at business-card scale; check with compliance before omitting).
 ## Standing rules (apply to every flyer type)
 1. Never include a rate, APR, or payment estimate unless it's sourced
    from that day's actual rate sheet — flag it with the date, never
-   present it as evergreen.
+   present it as evergreen. See `design-system/business-rules.md`.
 2. Always include at minimum one NMLS number and the Equal Housing
    Opportunity badge, unless the piece genuinely isn't an advertisement
    for loan products (e.g. a pure "thank you" card) — when in doubt,
    include them.
 3. Draft only. Nothing gets sent, posted, printed, or published without
    Cameron's explicit approval — see `audit/flyer-log.json`.
-4. Run `node scripts/compliance-check.js <file>` before logging a flyer
-   as ready for review.
+4. One sans-serif font family per design (`design-system/tokens.css`),
+   two brand colors + black/white, no em/en dashes in copy — see
+   `design-system/copywriting-guide.md`.
+5. Pull layout patterns from `design-system/components.md` instead of
+   rebuilding from scratch — extend the library with genuinely new
+   patterns rather than one-off variations of the same layout.
+
+## Process for a new/substantial flyer request
+
+For anything beyond a trivial tweak to an existing flyer, work through
+this before calling something finished:
+
+1. **Draft 2-3 materially different concepts** (not three nearly
+   identical templates) — vary information architecture, layout family,
+   or typographic hierarchy, not just color. For a simple, well-defined
+   request (e.g. "update the phone number"), skip this — it's for
+   substantial new pieces.
+2. **Evaluate them** against: visual quality, clarity, audience fit,
+   brand consistency, practical usefulness. Write the evaluation down
+   (this goes in the audit log's `evaluation_notes`).
+3. **Build the chosen direction** using the component library and
+   design tokens.
+4. **Run the automated checks**: `node scripts/audit-log.js add
+   posters/<file>.html --type <type> --variants "..." --evaluation
+   "..."` — this runs compliance, copy, and layout checks together and
+   records everything.
+5. **Visually review the actual rendered screenshot** — a passing
+   automated check is not a design review. Read the PNG. Check
+   hierarchy at full size and at a shrunk preview size.
+6. **Fix and re-run** until clean, then present to Cameron. Nothing is
+   "approved" until he says so — see `scripts/audit-log.js approve`.
