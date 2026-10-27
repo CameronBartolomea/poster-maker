@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategic Home Loans — The Three Cs — Back (Realtor Education)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- THREE Cs — BACK. DRAFT, pending Cameron's approval. Practical
+     training content: what each C means, one natural sample
+     conversation, when Contrast is appropriate, a direct reminder to
+     respect exclusive representation agreements (NAR Code of Ethics
+     Article 16, Standards of Practice 16-9 and 16-13 — independently
+     verified against nar.realtor, not taken on the research package's
+     word alone), a short list of other common objections handled the
+     same way, and full contact information.
+     Rendered per person-token via scripts/render-person-flyer.js. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 8.5in 11in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 8.5in; height: 11in; position: relative;
+    background: #ffffff; font-family: 'Outfit', sans-serif; color: #2a2a2a;
+    overflow: hidden;
+  }
+  .draft-tag {
+    position: absolute; top: 0.18in; left: 0.18in; z-index: 10;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
+  }
+
+  .headband { padding: 0.46in 0.6in 0 0.6in; position: relative; }
+  .headband .eyebrow { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: #c72108; font-weight: 600; }
+  .headband h1 { font-weight: 800; font-size: 21px; line-height: 1.2; color: #1c1c1c; margin-top: 6px; letter-spacing: -0.3px; max-width: 6in; }
+  .headband p.sub { font-size: 10.8px; color: #5a5a5a; margin-top: 6px; max-width: 6.1in; line-height: 1.4; }
+  .headband .logo-chip { position: absolute; top: 0.4in; right: 0.6in; }
+  .headband .logo-chip img { width: 1.15in; display: block; }
+
+  .ccols { display: flex; gap: 0.22in; margin: 0.16in 0.6in 0; }
+  .ccard { flex: 1; border-radius: 4px; padding: 0.14in 0.16in; }
+  .ccard .tag { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+  .ccard .line { font-size: 12px; font-weight: 600; margin-top: 5px; line-height: 1.35; font-style: italic; }
+  .ccard p.note { font-size: 9.6px; line-height: 1.38; margin-top: 6px; }
+
+  .ccard.c1 { background: #f4f2f1; }
+  .ccard.c1 .tag { color: #474747; }
+  .ccard.c1 .line, .ccard.c1 p.note { color: #3a3a3a; }
+
+  .ccard.c2 { background: #e3e1df; }
+  .ccard.c2 .tag { color: #262626; }
+  .ccard.c2 .line, .ccard.c2 p.note { color: #333; }
+
+  .ccard.c3 { background: #262626; }
+  .ccard.c3 .tag { color: #e8503a; }
+  .ccard.c3 .line, .ccard.c3 p.note { color: #e9e9e9; }
+  .ccard.c3 p.note b { color: #e8503a; }
+
+  .convo {
+    margin: 0.18in 0.6in 0; background: #ffffff; border: 1px solid #e3e1df; border-radius: 4px;
+    padding: 0.16in 0.22in;
+  }
+  .convo .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-bottom: 8px; }
+  .convo .line { font-size: 11px; line-height: 1.45; margin-bottom: 6px; display: flex; gap: 8px; }
+  .convo .line .who { flex-shrink: 0; width: 0.62in; font-weight: 700; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.5px; padding-top: 1px; }
+  .convo .line.agent .who { color: #c72108; }
+  .convo .line.prospect .who { color: #8a8a8a; }
+  .convo .line p { color: #2a2a2a; }
+
+  .lowrow { display: flex; gap: 0.22in; margin: 0.16in 0.6in 0; }
+  .timing {
+    flex: 1.05; background: #262626; border-radius: 4px; padding: 0.15in 0.2in; color: #fff;
+  }
+  .timing .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #c9a39d; font-weight: 700; }
+  .timing p { font-size: 10.3px; line-height: 1.45; margin-top: 7px; color: #e6e6e6; }
+  .timing p b { color: #ffffff; }
+
+  .objections { flex: 1; }
+  .objections .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-bottom: 7px; }
+  .objections .row { font-size: 9.6px; line-height: 1.4; margin-bottom: 6px; }
+  .objections .row b { color: #1c1c1c; }
+  .objections .row span { color: #5a5a5a; }
+
+  .avoid { margin: 0.14in 0.6in 0; }
+  .avoid .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #c72108; font-weight: 700; margin-bottom: 5px; }
+  .avoid p { font-size: 9.8px; color: #5a5a5a; line-height: 1.4; }
+
+  .legal { margin: 0.12in 0.6in 0; padding-top: 0.08in; border-top: 1px solid #e3e1df; }
+  .legal p { font-size: 8.2px; color: #9a9a9a; line-height: 1.4; }
+
+  .contact {
+    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.56in;
+    background: #f4f2f1; border-radius: 4px; padding: 0.16in 0.24in;
+    display: flex; align-items: center; justify-content: space-between; gap: 0.25in;
+  }
+  .contact-left .name { font-size: 15px; font-weight: 700; color: #1c1c1c; }
+  .contact-left .title { font-size: 10px; color: #8a5a54; margin-top: 2px; }
+  .contact-left .nmls { font-size: 7.8px; color: #8a8a8a; margin-top: 5px; line-height: 1.4; max-width: 4in; }
+  .contact-mid { flex: 1; }
+  .contact-mid .row { font-size: 9.8px; color: #3a3a3a; margin-bottom: 2px; }
+  .contact-mid .row .lbl { color: #c72108; font-size: 8.3px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; font-weight: 600; }
+  .contact-qr { display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; }
+  .contact-qr img { width: 0.72in; height: 0.72in; }
+  .contact-qr-label { font-size: 6.6px; color: #9a9a9a; text-align: center; line-height: 1.2; }
+
+  .footer-note {
+    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.24in;
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    font-size: 7.6px; color: #9a9a9a; text-align: center;
+  }
+  .footer-note .eho-badge { width: 13px; height: 13px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+  <div class="draft-tag">Draft &middot; Pending Approval &middot; Three Cs Back</div>
+
+  <div class="headband">
+    <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></span>
+    <div class="eyebrow">For the Agent, Not the Client</div>
+    <h1>What to say when someone already has an agent</h1>
+    <p class="sub">A short way to keep the conversation open without stepping on anyone's relationship. Three moves, in order, and a reminder on where the line is.</p>
+  </div>
+
+  <div class="ccols">
+    <div class="ccard c1">
+      <div class="tag">01 &middot; Compliment</div>
+      <div class="line">&ldquo;That's great, having someone you trust matters.&rdquo;</div>
+      <p class="note">Costs nothing. Say it and mean it before you ask anything else.</p>
+    </div>
+    <div class="ccard c2">
+      <div class="tag">02 &middot; Clarify</div>
+      <div class="line">&ldquo;Are you working together on a signed agreement, or is that someone you've used before?&rdquo;</div>
+      <p class="note">This is the question that actually matters. It tells you whether the door is open at all.</p>
+    </div>
+    <div class="ccard c3">
+      <div class="tag">03 &middot; Contrast</div>
+      <div class="line">&ldquo;What matters most to you in how an agent works with you?&rdquo;</div>
+      <p class="note"><b>Only if the door is open.</b> Point to one specific, true difference. Keep it short.</p>
+    </div>
+  </div>
+
+  <div class="convo">
+    <div class="label">One Way This Actually Sounds</div>
+    <div class="line agent"><span class="who">Agent</span><p>Hi, thanks for stopping by. Are you working with an agent already?</p></div>
+    <div class="line prospect"><span class="who">Prospect</span><p>Yeah, we've got someone.</p></div>
+    <div class="line agent"><span class="who">Agent</span><p>That's great, glad you've got someone in your corner. Are you two working together officially right now, or is it more that you've used them before?</p></div>
+    <div class="line prospect"><span class="who">Prospect</span><p>We used her to buy our last place. Haven't signed anything for this one.</p></div>
+    <div class="line agent"><span class="who">Agent</span><p>Got it. Mind if I ask what you're hoping goes differently this time?</p></div>
+    <div class="line prospect"><span class="who">Prospect</span><p>Honestly, communication. We felt out of the loop a lot.</p></div>
+    <div class="line agent"><span class="who">Agent</span><p>That's really common. If it would help, I can show you how I keep people updated week to week. Might be useful even if you end up going back to her.</p></div>
+  </div>
+
+  <div class="lowrow">
+    <div class="timing">
+      <div class="label">Respect the Relationship</div>
+      <p><b>If someone is currently under a signed exclusive agreement</b> for this transaction, that relationship comes first. Don't offer competing services, don't go around their agent, and don't treat Contrast as a way to work around it. Per NAR's Code of Ethics (Article 16, Standards of Practice 16-9 and 16-13), ask about an existing agreement before providing substantive services, and route anything involving an exclusively represented party through their agent, unless that agent agrees otherwise or the prospect reaches out to you directly. When in doubt, follow your brokerage's current policy.</p>
+    </div>
+    <div class="objections">
+      <div class="label">Same Idea, Other Objections</div>
+      <div class="row"><b>"We're not ready yet."</b><br><span>"Understood. What would need to change before it felt right to move forward?"</span></div>
+      <div class="row"><b>"We're just looking."</b><br><span>"Of course. What are you hoping to learn while you look?"</span></div>
+      <div class="row"><b>"We're waiting on the market."</b><br><span>"That makes sense. What would you want to see happen before the timing felt right?"</span></div>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <div class="label">What to Avoid</div>
+    <p>Criticizing the other agent. Pressuring for a commitment. Assuming someone is unrepresented just because they did not mention an agreement. Promising a result you cannot guarantee.</p>
+  </div>
+
+  <div class="legal">
+    <p>For real estate agent education. Follow your brokerage's current policies and the representation requirements that apply to you. See NAR Code of Ethics, Article 16, Standards of Practice 16-9 and 16-13.</p>
+  </div>
+
+  <div class="contact">
+    <div class="contact-left">
+      <div class="name">Cameron Bartolomea</div>
+      <div class="title">Mortgage Loan Officer</div>
+      <div class="nmls">NMLS #2777999 &middot; CA DRE #02279518 &middot; Strategic Home Loans, Inc. NMLS #340445 &middot; CA DRE #01311775</div>
+    </div>
+    <div class="contact-mid">
+      <div class="row"><span class="lbl">Cell</span>818.857.9675</div>
+      <div class="row"><span class="lbl">Office</span>805.496.7500</div>
+      <div class="row"><span class="lbl">Email</span>cameron@strategichomeloans.com</div>
+    </div>
+    <div class="contact-qr">
+      <img src="../assets/brand/qr/qr-cameron-vcard.png" alt="Scan to save contact">
+      <div class="contact-qr-label">Scan to save<br>my contact</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    <span>2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &middot; strategichomeloans.com</span>
+  </div>
+
+</body>
+</html>
