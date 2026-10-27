@@ -1005,5 +1005,237 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.58in)."
+  },
+  {
+    "id": 38,
+    "file": "posters/_capability-test-realtor-education-infographic-cameron.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "c673614eea8af388",
+    "created_at": "2026-10-27T00:18:55.083Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "realtor-education-infographic",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added closing-day timeline node"
+  },
+  {
+    "id": 39,
+    "file": "posters/_capability-test-realtor-education-infographic-robert.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "0b7eb60b1ae9fcd2",
+    "created_at": "2026-10-27T00:18:59.629Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "realtor-education-infographic",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added closing-day timeline node"
+  },
+  {
+    "id": 40,
+    "file": "posters/_capability-test-seller-concession-explainer-cameron.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "09a7c5e419f1fc58",
+    "created_at": "2026-10-27T00:19:08.813Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added combo-strip clarifying splittable allocation"
+  },
+  {
+    "id": 41,
+    "file": "posters/_capability-test-seller-concession-explainer-robert.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "5c461d3c7e39b878",
+    "created_at": "2026-10-27T00:19:13.205Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added combo-strip clarifying splittable allocation"
+  },
+  {
+    "id": 42,
+    "file": "posters/_capability-test-premium-listing-flyer-cameron.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "151b0c069dd13d84",
+    "created_at": "2026-10-27T00:19:17.801Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-listing-flyer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added photo-strip placeholders, fixed flexbox height-collapse bug"
+  },
+  {
+    "id": 43,
+    "file": "posters/_capability-test-premium-listing-flyer-robert.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "1a6d7fde98e0da7c",
+    "created_at": "2026-10-27T00:19:22.360Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-listing-flyer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test, post creative-review fixes: added photo-strip placeholders, fixed flexbox height-collapse bug"
+  },
+  {
+    "id": 44,
+    "file": "posters/_capability-test-seller-concession-explainer-cameron.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "fb7407461ec7bf53",
+    "created_at": "2026-10-27T00:22:11.815Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed disclosure-box/contact-footer overlap (text bleeding past box background, contact border cutting through paragraph) found via direct visual inspection + rect measurement, not caught by layout-check.js"
+  },
+  {
+    "id": 45,
+    "file": "posters/_capability-test-seller-concession-explainer-robert.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "48da647ca67080ca",
+    "created_at": "2026-10-27T00:22:16.302Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed disclosure-box/contact-footer overlap, same as Cameron version"
   }
 ]

@@ -56,7 +56,7 @@
   .headband h1 em { font-style: normal; color: #c72108; }
   .headband p.sub { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #5a5a5a; max-width: 6.2in; }
 
-  .diagram { margin: 0.55in 0.65in 0; display: flex; flex-direction: column; align-items: center; }
+  .diagram { margin: 0.28in 0.65in 0; display: flex; flex-direction: column; align-items: center; }
   .diagram .origin {
     display: flex; flex-direction: column; align-items: center; gap: 9px;
     text-align: center;
@@ -69,10 +69,10 @@
   .diagram .origin h3 { font-size: 17px; font-weight: 700; color: #1c1c1c; }
   .diagram .origin p { font-size: 11.5px; color: #8a8a8a; max-width: 3.4in; line-height: 1.45; }
 
-  .branches { display: flex; gap: 0.55in; margin-top: 0.55in; width: 100%; justify-content: center; position: relative; }
-  .branches::before { content: ""; position: absolute; top: -0.3in; left: 50%; width: 1px; height: 0.3in; background: #e3e1df; }
+  .branches { display: flex; gap: 0.55in; margin-top: 0.28in; width: 100%; justify-content: center; position: relative; }
+  .branches::before { content: ""; position: absolute; top: -0.2in; left: 50%; width: 1px; height: 0.2in; background: #e3e1df; }
   .branch { flex: 1; max-width: 2.35in; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
-  .branch::before { content: ""; position: absolute; top: -0.3in; left: 50%; width: 1px; height: 0.3in; background: #e3e1df; }
+  .branch::before { content: ""; position: absolute; top: -0.2in; left: 50%; width: 1px; height: 0.2in; background: #e3e1df; }
   .branch .dot {
     width: 70px; height: 70px; border-radius: 50%; background: #fff; border: 2.5px solid #c72108;
     color: #c72108; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
@@ -81,9 +81,22 @@
   .branch h4 { font-size: 15px; font-weight: 700; color: #1c1c1c; margin-bottom: 7px; }
   .branch p { font-size: 11.8px; line-height: 1.5; color: #5a5a5a; }
 
+  .combo-strip { margin: 0.22in 0.65in 0; }
+  .combo-strip .label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #8a8a8a; font-weight: 600; margin-bottom: 10px; text-align: center; }
+  .combo-strip .combos { display: flex; flex-direction: column; gap: 6px; }
+  .combo-strip .combo {
+    display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 500; color: #3a3a3a;
+    background: #fff; border: 1px solid #e3e1df; border-radius: 3px; padding: 0.09in 0.24in;
+  }
+  .combo-strip .combo .tagnum {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: #262626; color: #fff;
+    font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .combo-strip .combo .plus { color: #c72108; font-weight: 700; margin: 0 2px; }
+
   .disclosure-box {
-    margin: 0.65in 0.65in 0; background: #f4f2f1; border: 1px solid #e3e1df; border-radius: 3px;
-    padding: 0.28in 0.35in;
+    margin: 0.14in 0.65in 0; background: #f4f2f1; border: 1px solid #e3e1df; border-radius: 3px;
+    padding: 0.14in 0.32in;
   }
   .disclosure-box .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 600; margin-bottom: 6px; }
   .disclosure-box p { font-size: 11.3px; line-height: 1.55; color: #4e4e4e; }
@@ -148,14 +161,14 @@
   <div class="headband">
     <div class="eyebrow">Buyer &amp; Agent Education</div>
     <h1>A seller credit isn't <em>just one thing.</em></h1>
-    <p class="sub">When a seller agrees to a concession, that credit can usually be pointed at more than one place. Here's where it can go.</p>
+    <p class="sub">When a seller agrees to a concession, that credit can be split across more than one place at once. Here's where it can go.</p>
   </div>
 
   <div class="diagram">
     <div class="origin">
       <div class="badge"><svg><use href="#icon-credit-split"/></svg></div>
       <h3>Seller Credit</h3>
-      <p>Negotiated as part of the purchase contract, within program and investor limits.</p>
+      <p>Negotiated as part of the purchase contract, within program and investor limits. Can be divided across any combination of the three below, not just one.</p>
     </div>
     <div class="branches">
       <div class="branch">
@@ -173,6 +186,15 @@
         <h4>Prepaid Items</h4>
         <p>Funds the initial property tax and insurance reserves collected at closing.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="combo-strip">
+    <div class="label">A Credit Rarely Goes to Just One Box</div>
+    <div class="combos">
+      <div class="combo"><span class="tagnum">A</span>Closing Costs <span class="plus">+</span> Prepaid Items</div>
+      <div class="combo"><span class="tagnum">B</span>Rate Buydown <span class="plus">+</span> Closing Costs</div>
+      <div class="combo"><span class="tagnum">C</span>All three, split by what the contract allows</div>
     </div>
   </div>
 
