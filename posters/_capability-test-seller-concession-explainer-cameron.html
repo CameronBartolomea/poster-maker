@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — NOT A CLIENT DELIVERABLE — Seller Concession Explainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST — ROUND 4 FINAL VALIDATION. NOT A CLIENT DELIVERABLE.
+     Not the Three Cs Realtor flyer.
+     Rendered per person-token via scripts/render-person-flyer.js —
+     do not hand-edit a rendered output file in posters/, edit this
+     template and re-render both versions.
+     Layout family: new — "Allocation Diagram" (design-system/
+     components.md #7, "Comparison Table", was listed as planned but
+     not yet built; this builds the first real instance of that slot,
+     as a flow/allocation diagram rather than a row-column table,
+     since "where does one credit go" is a branching question, not a
+     side-by-side comparison).
+     DELIBERATE, HARD compliance choice: this piece contains NO rate,
+     APR, dollar amount, or payment figure anywhere. Per CLAUDE.md /
+     design-system/business-rules.md, that can only come from that
+     day's actual rate sheet, and none was provided for this test. The
+     explainer works at the concept level only (what a seller credit
+     CAN be used for) and says so explicitly in its own copy, rather
+     than inventing a "hypothetical" number that the standing rule
+     specifically forbids even for illustration. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 8.5in 11in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 8.5in; height: 11in; position: relative;
+    background: #ffffff; font-family: 'Outfit', sans-serif; color: #2a2a2a;
+    overflow: hidden;
+  }
+  .draft-tag {
+    position: absolute; top: 0.18in; left: 0.18in; z-index: 10;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
+  }
+
+  .wordmark { position: absolute; top: 0.45in; right: 0.65in; text-align: right; }
+  .wordmark .logo-chip { display: inline-block; background: #ffffff; padding: 0.06in 0.1in; border-radius: 3px; }
+  .wordmark .logo-img { width: 1.55in; display: block; }
+
+  .headband { padding: 0.5in 2.1in 0.1in 0.65in; }
+  .headband .eyebrow { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #c72108; font-weight: 600; margin-bottom: 9px; }
+  .headband h1 { font-weight: 800; font-size: 32px; line-height: 1.1; color: #1c1c1c; letter-spacing: -0.5px; max-width: 6in; }
+  .headband h1 em { font-style: normal; color: #c72108; }
+  .headband p.sub { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #5a5a5a; max-width: 6.2in; }
+
+  .diagram { margin: 0.55in 0.65in 0; display: flex; flex-direction: column; align-items: center; }
+  .diagram .origin {
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    text-align: center;
+  }
+  .diagram .origin .badge {
+    width: 88px; height: 88px; border-radius: 50%; background: #262626;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+  }
+  .diagram .origin .badge svg { width: 44px; height: 44px; }
+  .diagram .origin h3 { font-size: 17px; font-weight: 700; color: #1c1c1c; }
+  .diagram .origin p { font-size: 11.5px; color: #8a8a8a; max-width: 3.4in; line-height: 1.45; }
+
+  .branches { display: flex; gap: 0.55in; margin-top: 0.55in; width: 100%; justify-content: center; position: relative; }
+  .branches::before { content: ""; position: absolute; top: -0.3in; left: 50%; width: 1px; height: 0.3in; background: #e3e1df; }
+  .branch { flex: 1; max-width: 2.35in; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+  .branch::before { content: ""; position: absolute; top: -0.3in; left: 50%; width: 1px; height: 0.3in; background: #e3e1df; }
+  .branch .dot {
+    width: 70px; height: 70px; border-radius: 50%; background: #fff; border: 2.5px solid #c72108;
+    color: #c72108; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  }
+  .branch .dot svg { width: 36px; height: 36px; }
+  .branch h4 { font-size: 15px; font-weight: 700; color: #1c1c1c; margin-bottom: 7px; }
+  .branch p { font-size: 11.8px; line-height: 1.5; color: #5a5a5a; }
+
+  .disclosure-box {
+    margin: 0.65in 0.65in 0; background: #f4f2f1; border: 1px solid #e3e1df; border-radius: 3px;
+    padding: 0.28in 0.35in;
+  }
+  .disclosure-box .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 600; margin-bottom: 6px; }
+  .disclosure-box p { font-size: 11.3px; line-height: 1.55; color: #4e4e4e; }
+
+  .contact {
+    position: absolute; left: 0.65in; right: 0.65in; bottom: 0.78in;
+    border-top: 2px solid #1c1c1c; padding-top: 0.18in;
+    display: flex; align-items: center; justify-content: space-between; gap: 0.3in;
+  }
+  .contact-left .name { font-size: 16px; font-weight: 700; color: #1c1c1c; }
+  .contact-left .title { font-size: 10.5px; color: #8a5a54; margin-top: 2px; }
+  .contact-left .nmls { font-size: 8.4px; color: #8a8a8a; margin-top: 6px; line-height: 1.4; max-width: 4in; }
+  .contact-mid { flex: 1; }
+  .contact-mid .row { font-size: 10.3px; color: #3a3a3a; margin-bottom: 3px; }
+  .contact-mid .row .lbl { color: #c72108; font-size: 8.8px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; font-weight: 600; }
+  .contact-qr { display: flex; flex-direction: column; align-items: center; gap: 3px; flex-shrink: 0; }
+  .contact-qr img { width: 0.78in; height: 0.78in; }
+  .contact-qr-label { font-size: 7px; color: #9a9a9a; text-align: center; line-height: 1.25; }
+
+  .footer-note {
+    position: absolute; left: 0.65in; right: 0.65in; bottom: 0.28in;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 8.6px; color: #9a9a9a; text-align: center;
+  }
+  .footer-note .eho-badge { width: 16px; height: 16px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+  <div class="draft-tag">Draft &middot; Capability Test &middot; Not Approved</div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-credit-split" viewBox="0 0 64 64">
+      <line x1="32" y1="6" x2="32" y2="26" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M32 26 C32 26 14 26 14 40 C14 46 14 50 14 54" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="32" y1="26" x2="32" y2="54" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M32 26 C32 26 50 26 50 40 C50 46 50 50 50 54" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="32" cy="26" r="3" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-step-down" viewBox="0 0 64 64">
+      <polyline points="10,16 26,16 26,32 42,32 42,48 54,48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="47,42 54,48 47,54" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-document-check" viewBox="0 0 64 64">
+      <path d="M16 8 H40 L48 16 V56 H16 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="40,8 40,16 48,16" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="23,36 30,43 42,28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-under-roof" viewBox="0 0 64 64">
+      <polyline points="8,30 32,10 56,30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="14" y1="30" x2="14" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="50" y1="30" x2="50" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="10" y1="48" x2="54" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <polyline points="23,39 29,45 42,32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <div class="wordmark">
+    <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans" class="logo-img"></span>
+  </div>
+
+  <div class="headband">
+    <div class="eyebrow">Buyer &amp; Agent Education</div>
+    <h1>A seller credit isn't <em>just one thing.</em></h1>
+    <p class="sub">When a seller agrees to a concession, that credit can usually be pointed at more than one place. Here's where it can go.</p>
+  </div>
+
+  <div class="diagram">
+    <div class="origin">
+      <div class="badge"><svg><use href="#icon-credit-split"/></svg></div>
+      <h3>Seller Credit</h3>
+      <p>Negotiated as part of the purchase contract, within program and investor limits.</p>
+    </div>
+    <div class="branches">
+      <div class="branch">
+        <div class="dot"><svg><use href="#icon-step-down"/></svg></div>
+        <h4>Rate Buydown</h4>
+        <p>Buys down the interest rate for some or all of the loan term, lowering the monthly payment.</p>
+      </div>
+      <div class="branch">
+        <div class="dot"><svg><use href="#icon-document-check"/></svg></div>
+        <h4>Closing Costs</h4>
+        <p>Covers lender and title fees the buyer would otherwise bring to the table at closing.</p>
+      </div>
+      <div class="branch">
+        <div class="dot"><svg><use href="#icon-under-roof"/></svg></div>
+        <h4>Prepaid Items</h4>
+        <p>Funds the initial property tax and insurance reserves collected at closing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclosure-box">
+    <div class="label">About the Numbers</div>
+    <p>This explains the concept only. How much of a credit can be used, and in which of these ways, depends on the loan program, the lender, and the actual numbers in your contract and that day's pricing. We don't publish a hypothetical rate or dollar figure here. Call or text Cameron Bartolomea with the contract details and we'll run the real numbers.</p>
+  </div>
+
+  <div class="contact">
+    <div class="contact-left">
+      <div class="name">Cameron Bartolomea</div>
+      <div class="title">Mortgage Loan Officer</div>
+      <div class="nmls">NMLS #2777999 &middot; CA DRE #02279518 &middot; Strategic Home Loans, Inc. NMLS #340445 &middot; CA DRE #01311775</div>
+    </div>
+    <div class="contact-mid">
+      <div class="row"><span class="lbl">Cell</span>818.857.9675</div>
+      <div class="row"><span class="lbl">Office</span>805.496.7500</div>
+      <div class="row"><span class="lbl">Email</span>cameron@strategichomeloans.com</div>
+    </div>
+    <div class="contact-qr">
+      <img src="../assets/brand/qr/qr-cameron-vcard.png" alt="Scan to save contact">
+      <div class="contact-qr-label">Scan to save<br>my contact</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    <span>2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &middot; strategichomeloans.com</span>
+  </div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

@@ -599,5 +599,411 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Logo fix (re-logged after fixing 3 false-positive classes in artwork-contrast-check.js: QR dense-pattern averaging, intentional low-opacity watermarks, thin-stroke line icons under 72px)."
+  },
+  {
+    "id": 24,
+    "file": "posters/_capability-test-realtor-education-infographic-cameron.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "47723c37368dbcc4",
+    "created_at": "2026-10-27T00:03:08.900Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "timeline",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional/educational process content. Cameron version."
+  },
+  {
+    "id": 25,
+    "file": "posters/_capability-test-realtor-education-infographic-robert.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "6339bf353fb7b06a",
+    "created_at": "2026-10-27T00:03:13.338Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "timeline",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional/educational process content. Robert version."
+  },
+  {
+    "id": 26,
+    "file": "posters/_capability-test-premium-listing-flyer-cameron.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "1b28f3414d4f7330",
+    "created_at": "2026-10-27T00:03:21.602Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "warn",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-cameron.html\n  FLAG: Found 1 em/en dash character(s) in visible text. Rewrite with a period, comma, or \"instead of\" construction.",
+      "layout": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional property/agent, clearly labeled. Cameron version."
+  },
+  {
+    "id": 27,
+    "file": "posters/_capability-test-premium-listing-flyer-robert.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "6861060228e99848",
+    "created_at": "2026-10-27T00:03:25.974Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "warn",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-robert.html\n  FLAG: Found 1 em/en dash character(s) in visible text. Rewrite with a period, comma, or \"instead of\" construction.",
+      "layout": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional property/agent, clearly labeled. Robert version."
+  },
+  {
+    "id": 28,
+    "file": "posters/_capability-test-premium-listing-flyer-cameron.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "d33ec70bfc5d77bc",
+    "created_at": "2026-10-27T00:03:52.928Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional property/agent, clearly labeled. Cameron version. Fixed em-dash from first pass."
+  },
+  {
+    "id": 29,
+    "file": "posters/_capability-test-premium-listing-flyer-robert.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "64accc72a25f402a",
+    "created_at": "2026-10-27T00:03:57.536Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. Fictional property/agent, clearly labeled. Robert version. Fixed em-dash from first pass."
+  },
+  {
+    "id": 30,
+    "file": "posters/_capability-test-seller-concession-explainer-cameron.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "dffe85a202acd122",
+    "created_at": "2026-10-27T00:04:01.942Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "allocation-diagram",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. No rate/APR/payment figures anywhere, concept-only per standing compliance rule. Cameron version."
+  },
+  {
+    "id": 31,
+    "file": "posters/_capability-test-seller-concession-explainer-robert.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "31a80d06af336b81",
+    "created_at": "2026-10-27T00:04:06.639Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "allocation-diagram",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4 capability test. No rate/APR/payment figures anywhere, concept-only per standing compliance rule. Robert version."
+  },
+  {
+    "id": 32,
+    "file": "posters/_capability-test-realtor-education-infographic-cameron.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "bfe24d0b94426698",
+    "created_at": "2026-10-27T00:06:05.852Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "timeline",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.62in)."
+  },
+  {
+    "id": 33,
+    "file": "posters/_capability-test-realtor-education-infographic-robert.html",
+    "type": "realtor-education-infographic",
+    "content_hash": "7d3f9834c6c9f8c2",
+    "created_at": "2026-10-27T00:06:10.299Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-realtor-education-infographic-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 590,49 (154x68) — #e3bcc2 vs #fbfbfb — 1.66:1",
+      "brand": "posters/_capability-test-realtor-education-infographic-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "timeline",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.62in)."
+  },
+  {
+    "id": 34,
+    "file": "posters/_capability-test-premium-listing-flyer-cameron.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "6d1a24a8241e8161",
+    "created_at": "2026-10-27T00:06:14.858Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.62in)."
+  },
+  {
+    "id": 35,
+    "file": "posters/_capability-test-premium-listing-flyer-robert.html",
+    "type": "premium-listing-flyer",
+    "content_hash": "b914d9374769a641",
+    "created_at": "2026-10-27T00:06:19.491Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-premium-listing-flyer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  OK — 1 artwork element(s) checked, all show adequate contrast against their surroundings.\n  info [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 71,43 (130x58) — #e2bcc2 vs #2d2d2d — 8.06:1",
+      "brand": "posters/_capability-test-premium-listing-flyer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Draft · Capability Test · Not \" intrudes into the logo's clear-space margin (14px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "premium-editorial-listing",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.62in)."
+  },
+  {
+    "id": 36,
+    "file": "posters/_capability-test-seller-concession-explainer-cameron.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "4d74c3999acd9dd2",
+    "created_at": "2026-10-27T00:06:23.903Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "allocation-diagram",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.58in)."
+  },
+  {
+    "id": 37,
+    "file": "posters/_capability-test-seller-concession-explainer-robert.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "624240a9a9d6188b",
+    "created_at": "2026-10-27T00:06:28.287Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #fefefe — 1.72:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [brand]: <div> \"Buyer & Agent Education\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <h1> \"A seller credit isn't\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\").\n  WARN [brand]: <p> \"When a seller agrees to a conc\" intrudes into the logo's clear-space margin (17px around \"shl-logo-full-color.png\")."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "allocation-diagram",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 4. QR size bumped to 0.78in per components.md #6 minimum (was 0.58in)."
   }
 ]

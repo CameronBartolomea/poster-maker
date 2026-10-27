@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPABILITY TEST — NOT A CLIENT DELIVERABLE — Realtor Education Infographic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- CAPABILITY TEST — ROUND 4 FINAL VALIDATION. NOT A CLIENT DELIVERABLE.
+     Not the Three Cs Realtor flyer. Realistic but fictional content.
+     Rendered per person-token via scripts/render-person-flyer.js —
+     do not hand-edit a rendered output file in posters/, edit this
+     template and re-render both versions.
+     Layout family: vertical timeline (design-system/components.md #8),
+     chosen per templates/flyer-schema.md's "infographic-first" rule
+     for Realtor education content. Topic is genuinely educational
+     (what happens after an accepted offer), distinct from the existing
+     "what happens when you refer a client" diagnostic piece. -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @media screen {
+    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
+    body { flex-shrink: 0; }
+  }
+  @media print {
+    @page { size: 8.5in 11in; margin: 0; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    width: 8.5in; height: 11in; position: relative;
+    background: #ffffff; font-family: 'Outfit', sans-serif; color: #2a2a2a;
+    overflow: hidden;
+  }
+  .draft-tag {
+    position: absolute; top: 0.18in; left: 0.18in; z-index: 10;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
+  }
+
+  .wordmark { position: absolute; top: 0.45in; right: 0.65in; text-align: right; }
+  .wordmark .logo-chip { display: inline-block; background: #ffffff; padding: 0.06in 0.1in; border-radius: 3px; }
+  .wordmark .logo-img { width: 1.6in; display: block; }
+  .wordmark .tag { font-size: 9px; letter-spacing: 2px; color: #9a9a9a; font-weight: 500; margin-top: 4px; text-transform: uppercase; }
+
+  .headband { padding: 1.6in 0.65in 0.1in 0.65in; }
+  .headband .eyebrow {
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c72108; font-weight: 600; margin-bottom: 9px;
+  }
+  .headband h1 {
+    font-weight: 800; font-size: 27px; line-height: 1.15; color: #1c1c1c;
+    letter-spacing: -0.4px;
+  }
+  .headband h1 em { font-style: normal; color: #c72108; }
+  .headband p.sub { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #5a5a5a; max-width: 6.2in; }
+
+  .timeline { position: relative; margin: 0.22in 0.65in 0; }
+  .timeline::before {
+    content: ""; position: absolute; left: 30px; top: 8px; bottom: 8px;
+    width: 2px; background: #e3e1df;
+  }
+  .node { position: relative; display: flex; gap: 0.26in; padding: 0.16in 0; align-items: flex-start; }
+  .node .dot {
+    flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%;
+    background: #fff; border: 2.5px solid #c72108; color: #c72108;
+    display: flex; align-items: center; justify-content: center; z-index: 1;
+  }
+  .node .dot svg.icon { width: 32px; height: 32px; }
+  .node .ntxt { padding-top: 6px; }
+  .node .ntxt .day { font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: #c72108; font-weight: 600; margin-bottom: 2px; }
+  .node .ntxt h3 { font-size: 15px; font-weight: 700; color: #1c1c1c; margin-bottom: 3px; }
+  .node .ntxt p { font-size: 11.6px; line-height: 1.45; color: #5a5a5a; max-width: 5.3in; }
+
+  .node.final .dot { background: #262626; border-color: #262626; color: #fff; }
+  .node.final .ntxt { width: 100%; }
+  .node.final .contact-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.3in;
+    background: #262626; border-radius: 3px; padding: 0.2in 0.3in; margin-top: 4px;
+  }
+  .node.final .cleft .name { font-size: 17px; font-weight: 700; color: #fff; }
+  .node.final .cleft .title { font-size: 11px; color: #d9b8b2; margin-top: 2px; }
+  .node.final .cleft .nmls { font-size: 8.3px; color: #9a9a9a; margin-top: 7px; max-width: 3.4in; line-height: 1.4; }
+  .node.final .cright { text-align: right; flex-shrink: 0; }
+  .node.final .cright .r { font-size: 10px; color: #e3e1df; margin-bottom: 4px; }
+  .node.final .cright .r .lbl { color: #c9a39d; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; }
+  .node.final .cqr { flex-shrink: 0; margin-left: 0.15in; }
+  .node.final .cqr img { width: 0.78in; height: 0.78in; }
+
+  .note-strip { margin: 0.06in 0.65in 0; padding-left: 90px; }
+  .note-strip p { font-size: 10.3px; line-height: 1.5; color: #8a8a8a; max-width: 5.6in; }
+
+  .footer-note {
+    position: absolute; left: 0.65in; right: 0.65in; bottom: 0.28in;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 8.8px; color: #9a9a9a; text-align: center;
+  }
+  .footer-note .eho-badge { width: 17px; height: 17px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+  <div class="draft-tag">Draft &middot; Capability Test &middot; Not Approved</div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-document-check" viewBox="0 0 64 64">
+      <path d="M16 8 H40 L48 16 V56 H16 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="40,8 40,16 48,16" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="23,36 30,43 42,28" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-fast-response" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <line x1="32" y1="32" x2="32" y2="17" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="32" y1="32" x2="43" y2="38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="2.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-verified-shield" viewBox="0 0 64 64">
+      <path d="M32 7 L54 15 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V15 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <polyline points="21,31 29,39 44,22" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-under-roof" viewBox="0 0 64 64">
+      <polyline points="8,30 32,10 56,30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="14" y1="30" x2="14" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="50" y1="30" x2="50" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="10" y1="48" x2="54" y2="48" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <polyline points="23,39 29,45 42,32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-partnership" viewBox="0 0 64 64">
+      <circle cx="24" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <circle cx="40" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <path d="M32 16.6 C36.6 20.8 39.4 26.1 39.4 32 C39.4 37.9 36.6 43.2 32 47.4 C27.4 43.2 24.6 37.9 24.6 32 C24.6 26.1 27.4 20.8 32 16.6 Z" fill="currentColor" stroke="none"/>
+    </symbol>
+  </svg>
+
+  <div class="wordmark">
+    <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans" class="logo-img"></span>
+    <div class="tag">For Our Real Estate Partners</div>
+  </div>
+
+  <div class="headband">
+    <div class="eyebrow">Realtor Education</div>
+    <h1>What happens between <em>accepted offer</em> and closing day.</h1>
+    <p class="sub">A typical conventional purchase, so you can set your client's expectations before they ask you.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-document-check"/></svg></div>
+      <div class="ntxt">
+        <div class="day">Day 1-3</div>
+        <h3>Application &amp; Disclosures</h3>
+        <p>Buyer signs initial disclosures and uploads income, asset, and ID documents. The clock on required timelines starts here.</p>
+      </div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-fast-response"/></svg></div>
+      <div class="ntxt">
+        <div class="day">Day 3-10</div>
+        <h3>Processing &amp; Verification</h3>
+        <p>Income, assets, and employment are verified directly with the source. This is also when the appraisal is ordered, so it runs in parallel instead of adding time later.</p>
+      </div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-under-roof"/></svg></div>
+      <div class="ntxt">
+        <div class="day">Day 10-18</div>
+        <h3>Appraisal &amp; Underwriting</h3>
+        <p>The appraisal comes back and the file goes to underwriting. Most conditions get issued here. Quick responses from the buyer at this stage keep the file moving.</p>
+      </div>
+    </div>
+    <div class="node">
+      <div class="dot"><svg class="icon"><use href="#icon-verified-shield"/></svg></div>
+      <div class="ntxt">
+        <div class="day">Day 18-25</div>
+        <h3>Conditions Cleared</h3>
+        <p>Remaining conditions are satisfied and the file is reviewed a final time. Title and escrow prepare closing figures once this step is done.</p>
+      </div>
+    </div>
+    <div class="node final">
+      <div class="dot"><svg class="icon"><use href="#icon-partnership"/></svg></div>
+      <div class="ntxt">
+        <h3>Questions on a specific file</h3>
+        <div class="contact-row">
+          <div class="cleft">
+            <div class="name">Robert Bartolomea</div>
+            <div class="title">President | Mortgage Consultant</div>
+            <div class="nmls">NMLS #275047 &middot; CA DRE #00987918 &middot; Strategic Home Loans, Inc. NMLS #340445 &middot; CA DRE #01311775</div>
+          </div>
+          <div class="cright">
+            <div class="r"><span class="lbl">Cell</span>818.917.5839</div>
+            <div class="r"><span class="lbl">Office</span>805.496.7500</div>
+            <div class="r"><span class="lbl">Email</span>robert@strategichomeloans.com</div>
+          </div>
+          <div class="cqr"><img src="../assets/brand/qr/qr-robert-vcard.png" alt="Scan to save contact"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-strip">
+    <p>Timeline shown is typical, not guaranteed. Individual files vary by loan program, appraisal turnaround, and how quickly conditions are returned.</p>
+  </div>
+
+  <div class="footer-note">
+    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    <span>2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361 &middot; strategichomeloans.com</span>
+  </div>
+
+  <script>
+    (function() {
+      const rect = document.body.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      function fit() {
+        const s = Math.min(window.innerWidth / w, window.innerHeight / h, 1);
+        document.body.style.transform = 'scale(' + s + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.position = 'absolute';
+        document.body.style.left = ((window.innerWidth - w * s) / 2) + 'px';
+        document.body.style.top = ((window.innerHeight - h * s) / 2) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>
