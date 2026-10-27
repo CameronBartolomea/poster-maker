@@ -1846,5 +1846,121 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Fixed em-dash copy-lint warnings, Robert"
+  },
+  {
+    "id": 67,
+    "file": "posters/_three-cs-front-cameron.html",
+    "type": "three-cs-front",
+    "content_hash": "aa19552ad965b2b9",
+    "created_at": "2026-10-27T19:55:54.854Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-cameron.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front-v3",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3 redesign: decision-pathway flowchart, selected after comparing 3 reference-driven concepts"
+  },
+  {
+    "id": 68,
+    "file": "posters/_three-cs-front-robert.html",
+    "type": "three-cs-front",
+    "content_hash": "95f3b73111b5dd7e",
+    "created_at": "2026-10-27T19:56:04.970Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-robert.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front-v3",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3 redesign, Robert version"
+  },
+  {
+    "id": 69,
+    "file": "posters/_three-cs-back-cameron.html",
+    "type": "three-cs-back",
+    "content_hash": "b44a535a6efdbda6",
+    "created_at": "2026-10-27T19:56:10.525Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back-v3",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3 back: realigned language to decision-pathway vocabulary, fixed flagged convo phrasing"
+  },
+  {
+    "id": 70,
+    "file": "posters/_three-cs-back-robert.html",
+    "type": "three-cs-back",
+    "content_hash": "5c00b1f498f8a3fd",
+    "created_at": "2026-10-27T19:56:16.067Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back-v3",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 3 back, Robert version"
   }
 ]

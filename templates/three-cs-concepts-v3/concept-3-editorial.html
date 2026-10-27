@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Cs v3 — Concept 3: Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --red:#c72108; --charcoal:#474747; --near-black:#262626; --gray-1:#f4f2f1; --gray-2:#e3e1df; --gray-3:#b3b3b3; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:#fff; color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; right:0.14in; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:var(--red); padding:3px 8px; border-radius:3px; font-weight:700; z-index:50; }
+
+  .header{ padding:0.5in 0.62in 0.1in 0.62in; }
+  .eyebrow{ font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gray-3); font-weight:700; margin-bottom:0.14in; }
+  .struck{ font-size:30px; font-weight:700; color:var(--gray-3); line-height:1.1; position:relative; display:inline-block; font-style:italic; }
+  .struck::after{ content:""; position:absolute; left:-2%; right:-2%; top:52%; height:3px; background:var(--gray-3); transform:rotate(-2deg); }
+  .reframe{ font-size:44px; font-weight:900; color:var(--red); line-height:1.02; letter-spacing:-1px; margin-top:0.08in; }
+
+  .rows{ flex:1; display:flex; flex-direction:column; padding:0.22in 0.62in 0; min-height:0; }
+  .row{ flex:1; display:flex; align-items:center; gap:0.3in; border-top:1px solid var(--gray-2); padding:0.1in 0; }
+  .row:first-child{ border-top:none; }
+  .row .num{ flex-shrink:0; width:0.9in; font-size:46px; font-weight:900; line-height:1; font-variant-numeric:tabular-nums; }
+  .row .bar{ flex-shrink:0; width:4px; align-self:stretch; border-radius:2px; }
+  .row .content{ flex:1; min-width:0; }
+  .row .steplabel{ font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.04in; }
+  .row .quote{ font-size:25px; font-weight:700; font-style:italic; line-height:1.22; }
+  .row .why{ font-size:12px; margin-top:0.06in; line-height:1.38; }
+
+  .row.r1 .num{ color:var(--gray-3); }
+  .row.r1 .bar{ background:var(--gray-3); }
+  .row.r1 .steplabel{ color:var(--gray-3); }
+  .row.r1 .why{ color:var(--charcoal); }
+
+  .row.r2 .num{ color:var(--charcoal); }
+  .row.r2 .bar{ background:var(--charcoal); }
+  .row.r2 .steplabel{ color:var(--charcoal); }
+  .row.r2 .why{ color:#4a4a4a; }
+
+  .row.r3 .num{ color:var(--red); }
+  .row.r3 .bar{ background:var(--red); }
+  .row.r3 .steplabel{ color:var(--red); }
+  .row.r3 .why{ color:#333; }
+
+  .stop-tag{
+    margin-top:0.08in; border-left:3px solid var(--red); padding:0.04in 0 0.04in 0.14in;
+  }
+  .stop-tag span{ font-size:10px; font-weight:900; letter-spacing:0.06em; color:var(--red); }
+  .stop-tag p{ font-size:10.8px; line-height:1.36; color:#4a4a4a; margin:2px 0 0 0; }
+
+  .footer{ flex-shrink:0; padding:0.14in 0.62in 0.4in 0.62in; display:flex; flex-direction:column; gap:0.1in; }
+  .footer-line{ font-size:12px; color:var(--charcoal); font-weight:500; border-top:1px solid var(--gray-2); padding-top:0.12in; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .logo-chip img{ height:0.28in; display:block; }
+  .brand .presented{ font-size:9.5px; color:#9a9a9a; }
+  .micro-disclosure{ display:flex; align-items:center; gap:6px; }
+  .micro-disclosure .eho-badge{ width:10px; height:10px; flex-shrink:0; }
+  .micro-disclosure span{ font-size:7.6px; color:#b3b3b3; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Concept 3 — Not Final</div>
+
+  <div class="header">
+    <div class="eyebrow">When They Say</div>
+    <div class="struck">&ldquo;I already have an agent.&rdquo;</div>
+    <div class="reframe">Good. That's where you start.</div>
+  </div>
+
+  <div class="rows">
+    <div class="row r1">
+      <div class="num">01</div>
+      <div class="bar"></div>
+      <div class="content">
+        <div class="steplabel">Compliment &middot; Always</div>
+        <div class="quote">&ldquo;That's great, sounds like you're in good hands.&rdquo;</div>
+        <p class="why">Costs nothing. Mean it, before you ask anything else.</p>
+      </div>
+    </div>
+    <div class="row r2">
+      <div class="num">02</div>
+      <div class="bar"></div>
+      <div class="content">
+        <div class="steplabel">Clarify &middot; Always</div>
+        <div class="quote">&ldquo;Are you under a signed agreement, or is that someone you've used before?&rdquo;</div>
+        <p class="why">The only question that matters. It tells you what you're allowed to do next.</p>
+      </div>
+    </div>
+    <div class="row r3">
+      <div class="num">03</div>
+      <div class="bar"></div>
+      <div class="content">
+        <div class="steplabel">Contrast &middot; Only If Not Signed</div>
+        <div class="quote">&ldquo;What's one thing you'd want to go differently this time?&rdquo;</div>
+        <p class="why">Let them answer first, then offer one specific, true difference.</p>
+        <div class="stop-tag">
+          <span>STOP IF</span>
+          <p>They're under a signed, exclusive agreement. Compliment, then step back. Per NAR Code of Ethics, Article 16 (16-9, 16-13).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">Compliment. Clarify. Contrast, only if the door is open.</div>
+    <div class="brand">
+      <span class="logo-chip"><img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></span>
+      <span class="presented">Courtesy of Cameron Bartolomea, Strategic Home Loans, Inc. &middot; see reverse for how to use this</span>
+    </div>
+    <div class="micro-disclosure">
+      <img class="eho-badge" src="../../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+      <span>Cameron Bartolomea NMLS #2777999 &middot; Strategic Home Loans, Inc. NMLS #340445</span>
+    </div>
+  </div>
+</body>
+</html>
