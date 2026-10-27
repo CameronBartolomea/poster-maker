@@ -1237,5 +1237,63 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Fixed disclosure-box/contact-footer overlap, same as Cameron version"
+  },
+  {
+    "id": 46,
+    "file": "posters/_capability-test-seller-concession-explainer-cameron.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "da88f5e4881e4591",
+    "created_at": "2026-10-27T04:39:07.026Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #ffffff — 1.73:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed logo clear-space intrusion flagged by brand-check.js (headband right padding was too narrow)"
+  },
+  {
+    "id": 47,
+    "file": "posters/_capability-test-seller-concession-explainer-robert.html",
+    "type": "seller-concession-explainer",
+    "content_hash": "da0996c40a1b04fa",
+    "created_at": "2026-10-27T04:39:11.161Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no issues found.",
+      "copy": "posters/_capability-test-seller-concession-explainer-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img class=\"logo-img\" src=\"shl-logo-full-color.png\"> at 595,49 (149x66) — #e1bcc1 vs #ffffff — 1.73:1",
+      "brand": "posters/_capability-test-seller-concession-explainer-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "seller-concession-explainer",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed logo clear-space intrusion, same as Cameron version"
   }
 ]
