@@ -1527,5 +1527,121 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Three Cs project: back, Robert version"
+  },
+  {
+    "id": 56,
+    "file": "posters/_three-cs-front-cameron.html",
+    "type": "three-cs-front",
+    "content_hash": "8dfbe83e4b36b344",
+    "created_at": "2026-10-27T04:52:33.105Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-cameron.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Post creative-review fixes: accent bars now escalate by width+weight on one color story, tightened headline-panel gap"
+  },
+  {
+    "id": 57,
+    "file": "posters/_three-cs-front-robert.html",
+    "type": "three-cs-front",
+    "content_hash": "1688db6b0c56e055",
+    "created_at": "2026-10-27T04:52:37.083Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-robert.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Post creative-review fixes, same as Cameron version"
+  },
+  {
+    "id": 58,
+    "file": "posters/_three-cs-back-cameron.html",
+    "type": "three-cs-back",
+    "content_hash": "d13de970e1e17be1",
+    "created_at": "2026-10-27T04:52:41.152Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Post creative-review fixes: panel 2 contrast increased, compliance box rewritten as scannable bolded lines, fixed eyebrow bounding-box false-positive overlap"
+  },
+  {
+    "id": 59,
+    "file": "posters/_three-cs-back-robert.html",
+    "type": "three-cs-back",
+    "content_hash": "6a0bdcf3c435a5c8",
+    "created_at": "2026-10-27T04:52:45.343Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Post creative-review fixes, same as Cameron version"
   }
 ]

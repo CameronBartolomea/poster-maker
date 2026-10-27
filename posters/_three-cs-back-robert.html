@@ -37,7 +37,7 @@
   }
 
   .headband { padding: 0.46in 0.6in 0 0.6in; position: relative; }
-  .headband .eyebrow { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: #c72108; font-weight: 600; }
+  .headband .eyebrow { display: inline-block; font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: #c72108; font-weight: 600; }
   .headband h1 { font-weight: 800; font-size: 21px; line-height: 1.2; color: #1c1c1c; margin-top: 6px; letter-spacing: -0.3px; max-width: 6in; }
   .headband p.sub { font-size: 10.8px; color: #5a5a5a; margin-top: 6px; max-width: 6.1in; line-height: 1.4; }
   .headband .logo-chip { position: absolute; top: 0.4in; right: 0.6in; }
@@ -53,9 +53,10 @@
   .ccard.c1 .tag { color: #474747; }
   .ccard.c1 .line, .ccard.c1 p.note { color: #3a3a3a; }
 
-  .ccard.c2 { background: #e3e1df; }
-  .ccard.c2 .tag { color: #262626; }
-  .ccard.c2 .line, .ccard.c2 p.note { color: #333; }
+  .ccard.c2 { background: #474747; }
+  .ccard.c2 .tag { color: #e2bcc2; }
+  .ccard.c2 .line { color: #ffffff; }
+  .ccard.c2 p.note { color: #d6d6d6; }
 
   .ccard.c3 { background: #262626; }
   .ccard.c3 .tag { color: #e8503a; }
@@ -78,8 +79,10 @@
     flex: 1.05; background: #262626; border-radius: 4px; padding: 0.15in 0.2in; color: #fff;
   }
   .timing .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #c9a39d; font-weight: 700; }
-  .timing p { font-size: 10.3px; line-height: 1.45; margin-top: 7px; color: #e6e6e6; }
-  .timing p b { color: #ffffff; }
+  .timing .rule { font-size: 10.6px; line-height: 1.4; margin-top: 8px; color: #ffffff; font-weight: 700; }
+  .timing .rule span { color: #e2bcc2; font-weight: 400; }
+  .timing p { font-size: 9.4px; line-height: 1.4; margin-top: 8px; color: #b8b8b8; }
+  .timing p b { color: #e6e6e6; }
 
   .objections { flex: 1; }
   .objections .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-bottom: 7px; }
@@ -160,7 +163,10 @@
   <div class="lowrow">
     <div class="timing">
       <div class="label">Respect the Relationship</div>
-      <p><b>If someone is currently under a signed exclusive agreement</b> for this transaction, that relationship comes first. Don't offer competing services, don't go around their agent, and don't treat Contrast as a way to work around it. Per NAR's Code of Ethics (Article 16, Standards of Practice 16-9 and 16-13), ask about an existing agreement before providing substantive services, and route anything involving an exclusively represented party through their agent, unless that agent agrees otherwise or the prospect reaches out to you directly. When in doubt, follow your brokerage's current policy.</p>
+      <div class="rule">Signed exclusive agreement? <span>That relationship comes first.</span></div>
+      <p>Don't offer competing services. Don't go around their agent. Don't treat Contrast as a way to work around it.</p>
+      <p><b>Per NAR Code of Ethics, Article 16 (16-9, 16-13):</b> ask about an existing agreement before providing substantive services, and route anything involving a represented party through their agent, unless that agent agrees otherwise or the prospect reaches out to you directly.</p>
+      <p>When in doubt, follow your brokerage's current policy.</p>
     </div>
     <div class="objections">
       <div class="label">Same Idea, Other Objections</div>

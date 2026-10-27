@@ -41,7 +41,7 @@
     color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
   }
 
-  .top { flex-shrink: 0; padding: 0.7in 0.75in 0.4in 0.75in; }
+  .top { flex-shrink: 0; padding: 0.7in 0.75in 0.18in 0.75in; }
   .eyebrow { font-size: 12.5px; letter-spacing: 4px; text-transform: uppercase; color: #c72108; font-weight: 600; }
   .hero { font-weight: 800; font-size: 46px; line-height: 1.04; margin-top: 14px; letter-spacing: -1.2px; max-width: 7in; }
   .hero span { color: #c72108; }
@@ -56,25 +56,30 @@
     font-size: 64px; font-weight: 900; font-variant-numeric: tabular-nums;
     width: 1.3in; flex-shrink: 0; line-height: 1;
   }
-  .band .accent { width: 44px; border-radius: 2px; margin-bottom: 10px; }
+  .band .accent { border-radius: 2px; margin-bottom: 10px; }
   .band .text h3 { font-weight: 800; letter-spacing: -0.6px; }
   .band .text p.tagline { font-weight: 500; margin-top: 6px; }
 
+  /* The accent bar grows in both width and weight across the three
+     bands, on a single color story moving toward the brand red (not
+     three unrelated hues) — the growth itself is the point, reread
+     after the first creative review flagged the colors as looking
+     like an oversight rather than a deliberate progression. */
   .band.b1 { background: #f4f2f1; }
   .band.b1 .num { color: #474747; }
-  .band.b1 .accent { background: #c9a39d; height: 4px; }
+  .band.b1 .accent { background: #9a9a9a; height: 4px; width: 32px; }
   .band.b1 .text h3 { font-size: 34px; color: #1c1c1c; }
   .band.b1 .text p.tagline { font-size: 16px; color: #5a5a5a; }
 
   .band.b2 { background: #e3e1df; }
   .band.b2 .num { color: #262626; }
-  .band.b2 .accent { background: #8a8a8a; height: 6px; }
+  .band.b2 .accent { background: #474747; height: 6px; width: 48px; }
   .band.b2 .text h3 { font-size: 36px; color: #1c1c1c; }
   .band.b2 .text p.tagline { font-size: 16.5px; color: #4a4a4a; }
 
   .band.b3 { background: #262626; }
   .band.b3 .num { color: #e8503a; }
-  .band.b3 .accent { background: #c72108; height: 8px; }
+  .band.b3 .accent { background: #c72108; height: 8px; width: 64px; }
   .band.b3 .text h3 { font-size: 38px; color: #ffffff; }
   .band.b3 .text p.tagline { font-size: 17px; color: #e2bcc2; }
 
