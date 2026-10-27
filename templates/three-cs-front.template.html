@@ -6,21 +6,46 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- THREE Cs — FRONT. DRAFT, pending Cameron's approval. Not sent,
-     posted, or printed until he signs off.
+<!-- THREE Cs — FRONT, redesign round 2. DRAFT, pending Cameron's
+     approval. Not sent, posted, or printed until he signs off.
      Rendered per person-token via scripts/render-person-flyer.js —
      edit this template and re-render both versions, never hand-edit
      a rendered output in posters/.
-     Concept selected after comparing 3 distinct directions (ascending
-     intensity bands / a single flowing path / an editorial triptych).
-     This one won because the escalating weight and color from band to
-     band visually IS the point being taught (start quiet and
-     respectful, only grow bolder once it's actually welcome) rather
-     than a diagram illustrating it from the outside, and because it
-     scales to real poster size without diagram clutter or boxes and
-     arrows. The three concept drafts are kept in
-     templates/three-cs-concepts/ as the record of that comparison. -->
+
+     Round 1 (templates/three-cs-concepts/, now templates/three-cs-front.template.html's
+     prior version) used three escalating color-block bands. Cameron
+     rejected it: "three enormous horizontal bands... a typography
+     exercise, not the visually compelling, professional,
+     artwork-driven resource I originally requested... the artwork
+     must actively explain the three-step progression."
+
+     Round 2 built 3 genuinely illustration-driven directions, each
+     ONE continuous piece of artwork rather than 3 discrete boxes
+     (templates/three-cs-concepts-v2/): a door opening in stages
+     (concept-d), a single house whose roof/window/door activate in
+     sequence (concept-f), and an abstract trust-line that gains
+     energy top to bottom (concept-g). "One House" (F) was selected:
+     it reads instantly (unmistakably a house, no caption needed),
+     the progression is literal and self-explanatory (quiet roofline
+     -> one window gets a look inside -> the door opens, with a
+     warm walkway), and it extends Strategic Home Loans' own
+     house-roofline logo motif instead of an unrelated metaphor.
+     Refined from the first F draft by enlarging the illustration,
+     tightening the composition, and adding thin leader lines from
+     each marker to its label so the piece reads as one annotated
+     drawing, not two separate columns. See
+     templates/three-cs-concepts-v2/ for the compared directions and
+     deliverables/three-cs-draft-v1/docs/concept-comparison.md (being
+     updated) for the full writeup.
+
+     Front copy was also rewritten per Cameron's note that "Contrast:
+     only once it's welcome" wasn't actionable on its own — each
+     step now pairs the principle with something to actually do. -->
 <style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626;
+    --gray-1:#f4f2f1; --gray-2:#e3e1df; --gray-3:#b3b3b3;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   @media screen {
     html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
@@ -32,7 +57,7 @@
   }
   body {
     width: 8.5in; height: 11in; position: relative;
-    background: #ffffff; font-family: 'Outfit', sans-serif; color: #1c1c1c;
+    background: #ffffff; font-family: 'Outfit', sans-serif; color: var(--near-black);
     overflow: hidden; display: flex; flex-direction: column;
   }
   .draft-tag {
@@ -41,54 +66,35 @@
     color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
   }
 
-  .top { flex-shrink: 0; padding: 0.7in 0.75in 0.18in 0.75in; }
-  .eyebrow { font-size: 12.5px; letter-spacing: 4px; text-transform: uppercase; color: #c72108; font-weight: 600; }
-  .hero { font-weight: 800; font-size: 46px; line-height: 1.04; margin-top: 14px; letter-spacing: -1.2px; max-width: 7in; }
-  .hero span { color: #c72108; }
-  .response { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-top: 18px; }
+  .header { flex: 0 0 auto; padding: 0.5in 0.65in 0.08in 0.65in; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 0.1in; }
+  .hero { font-size: 29px; font-weight: 800; line-height: 1.15; margin: 0 0 0.05in 0; letter-spacing: -0.4px; }
+  .hero span { color: var(--red); }
+  .response-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--charcoal); font-weight: 700; margin-top: 0.08in; }
 
-  .terrace { flex: 1; display: flex; flex-direction: column; }
-  .band {
-    flex: 1; display: flex; align-items: center; gap: 0.5in;
-    padding: 0 0.75in; position: relative;
-  }
-  .band .num {
-    font-size: 64px; font-weight: 900; font-variant-numeric: tabular-nums;
-    width: 1.3in; flex-shrink: 0; line-height: 1;
-  }
-  .band .accent { border-radius: 2px; margin-bottom: 10px; }
-  .band .text h3 { font-weight: 800; letter-spacing: -0.6px; }
-  .band .text p.tagline { font-weight: 500; margin-top: 6px; }
+  .stage { flex: 1 1 auto; display: flex; padding: 0 0.5in 0 0.65in; min-height: 0; align-items: stretch; }
+  .art { flex: 0 0 58%; display: flex; align-items: center; justify-content: center; }
+  .art svg { width: 100%; height: 100%; max-height: 7.1in; }
 
-  /* The accent bar grows in both width and weight across the three
-     bands, on a single color story moving toward the brand red (not
-     three unrelated hues) — the growth itself is the point, reread
-     after the first creative review flagged the colors as looking
-     like an oversight rather than a deliberate progression. */
-  .band.b1 { background: #f4f2f1; }
-  .band.b1 .num { color: #474747; }
-  .band.b1 .accent { background: #9a9a9a; height: 4px; width: 32px; }
-  .band.b1 .text h3 { font-size: 34px; color: #1c1c1c; }
-  .band.b1 .text p.tagline { font-size: 16px; color: #5a5a5a; }
+  .labels { flex: 1 1 42%; position: relative; padding-left: 0.05in; }
+  .label-block { position: absolute; left: 0.05in; right: 0; max-width: 3in; }
+  .lb1 { top: 8%; }
+  .lb2 { top: 40%; }
+  .lb3 { top: 67%; }
+  .label-num { font-size: 12.5px; font-weight: 800; letter-spacing: 0.02em; margin-bottom: 0.04in; }
+  .lb1 .label-num { color: var(--gray-3); }
+  .lb2 .label-num { color: var(--charcoal); }
+  .lb3 .label-num { color: var(--red); }
+  .label-title { font-size: 21px; font-weight: 800; margin-bottom: 0.05in; color: var(--near-black); line-height: 1.15; }
+  .label-tag { font-size: 14.5px; font-weight: 500; color: var(--charcoal); line-height: 1.3; }
+  .lb3 .label-tag { color: var(--near-black); font-weight: 600; }
 
-  .band.b2 { background: #e3e1df; }
-  .band.b2 .num { color: #262626; }
-  .band.b2 .accent { background: #474747; height: 6px; width: 48px; }
-  .band.b2 .text h3 { font-size: 36px; color: #1c1c1c; }
-  .band.b2 .text p.tagline { font-size: 16.5px; color: #4a4a4a; }
-
-  .band.b3 { background: #262626; }
-  .band.b3 .num { color: #e8503a; }
-  .band.b3 .accent { background: #c72108; height: 8px; width: 64px; }
-  .band.b3 .text h3 { font-size: 38px; color: #ffffff; }
-  .band.b3 .text p.tagline { font-size: 17px; color: #e2bcc2; }
-
-  .bottom { flex-shrink: 0; padding: 0.35in 0.75in 0.45in; text-align: center; }
-  .footer-line { font-size: 13.5px; color: #4a4a4a; letter-spacing: 0.2px; font-weight: 600; }
-  .brand { margin-top: 0.2in; display: flex; align-items: center; justify-content: center; gap: 10px; }
-  .brand .logo-chip img { height: 0.34in; display: block; }
-  .brand .presented { font-size: 10px; color: #9a9a9a; letter-spacing: 0.4px; }
-  .micro-disclosure { margin-top: 0.1in; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .footer { flex: 0 0 auto; padding: 0.12in 0.65in 0.48in 0.65in; display: flex; flex-direction: column; gap: 0.12in; }
+  .footer-line { font-size: 13px; color: var(--charcoal); font-weight: 500; border-top: 1px solid var(--gray-2); padding-top: 0.14in; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand .logo-chip img { height: 0.3in; display: block; }
+  .brand .presented { font-size: 10px; color: #9a9a9a; letter-spacing: 0.3px; }
+  .micro-disclosure { display: flex; align-items: center; gap: 6px; }
   .micro-disclosure .eho-badge { width: 11px; height: 11px; flex-shrink: 0; }
   .micro-disclosure span { font-size: 8px; color: #b3b3b3; letter-spacing: 0.3px; }
 </style>
@@ -97,40 +103,80 @@
 
   <div class="draft-tag">Draft &middot; Pending Approval &middot; Three Cs Front</div>
 
-  <div class="top">
+  <div class="header">
     <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
     <h1 class="hero">&ldquo;I already have <span>an agent.</span>&rdquo;</h1>
-    <div class="response">The Three Cs</div>
+    <div class="response-label">The Three Cs</div>
   </div>
 
-  <div class="terrace">
-    <div class="band b1">
-      <div class="num">01</div>
-      <div class="text">
-        <div class="accent"></div>
-        <h3>Compliment</h3>
-        <p class="tagline">Respect the relationship first.</p>
-      </div>
+  <div class="stage">
+    <div class="art">
+      <svg viewBox="0 0 440 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An illustrated house. The roofline carries a quiet marker for Compliment, one window softly lights for Clarify, and the door swings open with a warm path for Contrast.">
+        <!-- roof -->
+        <polyline points="80,250 220,78 360,250" fill="none" stroke="#262626" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- compliment marker: quiet halo at the roof peak -->
+        <circle cx="220" cy="92" r="17" fill="none" stroke="#b3b3b3" stroke-width="3" opacity="0.65"/>
+        <circle cx="220" cy="92" r="5.5" fill="#b3b3b3"/>
+        <line x1="237" y1="92" x2="400" y2="92" stroke="#d8d8d8" stroke-width="1.5"/>
+        <circle cx="400" cy="92" r="3" fill="none" stroke="#b3b3b3" stroke-width="1.5"/>
+
+        <!-- chimney -->
+        <rect x="272" y="112" width="26" height="72" fill="none" stroke="#262626" stroke-width="5.5" stroke-linejoin="round"/>
+
+        <!-- walls -->
+        <rect x="100" y="250" width="240" height="420" fill="none" stroke="#262626" stroke-width="6.5" stroke-linejoin="round"/>
+
+        <!-- window 1 (left) — clarify: softly filled -->
+        <rect x="138" y="312" width="62" height="72" fill="#474747" opacity="0.17" stroke="#474747" stroke-width="4.5"/>
+        <line x1="169" y1="312" x2="169" y2="384" stroke="#474747" stroke-width="3"/>
+        <line x1="138" y1="348" x2="200" y2="348" stroke="#474747" stroke-width="3"/>
+        <line x1="207" y1="340" x2="330" y2="340" stroke="#d8d8d8" stroke-width="1.5"/>
+        <circle cx="330" cy="340" r="3" fill="none" stroke="#474747" stroke-width="1.5"/>
+
+        <!-- window 2 (right) — stays quiet, unlit -->
+        <rect x="240" y="312" width="62" height="72" fill="none" stroke="#262626" stroke-width="4" opacity="0.5"/>
+        <line x1="271" y1="312" x2="271" y2="384" stroke="#262626" stroke-width="3" opacity="0.5"/>
+        <line x1="240" y1="348" x2="302" y2="348" stroke="#262626" stroke-width="3" opacity="0.5"/>
+
+        <!-- contrast: door swung open, warm, with a path of light -->
+        <circle cx="222" cy="605" r="105" fill="#c72108" opacity="0.11"/>
+        <!-- door frame (outline, closed position reference) -->
+        <path d="M190,670 L190,538 L254,538 L254,670" fill="none" stroke="#262626" stroke-width="4.5" opacity="0.42" stroke-linejoin="round"/>
+        <!-- open leaf -->
+        <line x1="190" y1="538" x2="272" y2="582" stroke="#c72108" stroke-width="8.5" stroke-linecap="round"/>
+        <circle cx="190" cy="538" r="6.5" fill="#c72108"/>
+        <line x1="309" y1="538" x2="400" y2="538" stroke="#d8d8d8" stroke-width="1.5"/>
+        <circle cx="400" cy="538" r="3" fill="none" stroke="#c72108" stroke-width="1.5"/>
+
+        <!-- walkway / light rays -->
+        <line x1="222" y1="670" x2="158" y2="762" stroke="#c72108" stroke-width="3.5" opacity="0.45" stroke-linecap="round"/>
+        <line x1="222" y1="670" x2="222" y2="774" stroke="#c72108" stroke-width="3.5" opacity="0.45" stroke-linecap="round"/>
+        <line x1="222" y1="670" x2="286" y2="762" stroke="#c72108" stroke-width="3.5" opacity="0.45" stroke-linecap="round"/>
+
+        <!-- ground line -->
+        <line x1="40" y1="670" x2="400" y2="670" stroke="#262626" stroke-width="2" opacity="0.18"/>
+      </svg>
     </div>
-    <div class="band b2">
-      <div class="num">02</div>
-      <div class="text">
-        <div class="accent"></div>
-        <h3>Clarify</h3>
-        <p class="tagline">Understand before you offer anything.</p>
+    <div class="labels">
+      <div class="label-block lb1">
+        <div class="label-num">01 &middot; COMPLIMENT</div>
+        <div class="label-title">The roof over the relationship.</div>
+        <div class="label-tag">Mean it. It costs you nothing.</div>
       </div>
-    </div>
-    <div class="band b3">
-      <div class="num">03</div>
-      <div class="text">
-        <div class="accent"></div>
-        <h3>Contrast</h3>
-        <p class="tagline">Only once it's welcome.</p>
+      <div class="label-block lb2">
+        <div class="label-num">02 &middot; CLARIFY</div>
+        <div class="label-title">One window gets a look inside.</div>
+        <div class="label-tag">Ask the one question that matters.</div>
+      </div>
+      <div class="label-block lb3">
+        <div class="label-num">03 &middot; CONTRAST</div>
+        <div class="label-title">The door, once it opens.</div>
+        <div class="label-tag">Offer one real difference. Nothing more.</div>
       </div>
     </div>
   </div>
 
-  <div class="bottom">
+  <div class="footer">
     <div class="footer-line">Acknowledge. Ask. Offer perspective when it's welcome.</div>
     <div class="brand">
       <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></span>

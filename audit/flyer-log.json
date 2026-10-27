@@ -1643,5 +1643,208 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Post creative-review fixes, same as Cameron version"
+  },
+  {
+    "id": 60,
+    "file": "posters/_three-cs-front-cameron.html",
+    "type": "three-cs-front",
+    "content_hash": "e1a659bc12294d84",
+    "created_at": "2026-10-27T05:18:48.179Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "warn",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-cameron.html\n  FLAG: Found 3 em/en dash character(s) in visible text. Rewrite with a period, comma, or \"instead of\" construction.",
+      "layout": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-cameron.html  (816x1056)\n  FAIL [artwork-contrast]: <svg> at 62,178 (409x682) — #f4f0ef vs #fbfbfa — 1.09:1",
+      "brand": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 2 redesign: illustration-driven 'One House' concept replacing rejected typography bands"
+  },
+  {
+    "id": 61,
+    "file": "posters/_three-cs-front-cameron.html",
+    "type": "three-cs-front",
+    "content_hash": "017c74f66793423b",
+    "created_at": "2026-10-27T05:19:30.278Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-cameron.html  (816x1056)\n  FAIL [artwork-contrast]: <svg> at 62,178 (409x682) — #f4f0ef vs #fbfbfb — 1.09:1",
+      "brand": "posters/_three-cs-front-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 2 redesign: illustration-driven One House concept, fixed em-dash copy-lint"
+  },
+  {
+    "id": 62,
+    "file": "posters/_three-cs-front-robert.html",
+    "type": "three-cs-front",
+    "content_hash": "958fde8d19026622",
+    "created_at": "2026-10-27T05:19:55.432Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "fail",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-front-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-front-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-front-robert.html  (816x1056)\n  FAIL [artwork-contrast]: <svg> at 62,178 (409x682) — #f4f0ef vs #fbfbfb — 1.09:1",
+      "brand": "posters/_three-cs-front-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-front",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 2 redesign, Robert version"
+  },
+  {
+    "id": 63,
+    "file": "posters/_three-cs-back-cameron.html",
+    "type": "three-cs-back",
+    "content_hash": "5b5a5fd4601c4d4b",
+    "created_at": "2026-10-27T05:19:59.666Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "warn",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-cameron.html\n  FLAG: Found 3 em/en dash character(s) in visible text. Rewrite with a period, comma, or \"instead of\" construction.",
+      "layout": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Back refined: natural conversation rewrite, scannable compliance box, more breathing room"
+  },
+  {
+    "id": 64,
+    "file": "posters/_three-cs-back-robert.html",
+    "type": "three-cs-back",
+    "content_hash": "1f5b9d6b2fa7fa2b",
+    "created_at": "2026-10-27T05:20:04.066Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "warn",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-robert.html\n  FLAG: Found 3 em/en dash character(s) in visible text. Rewrite with a period, comma, or \"instead of\" construction.",
+      "layout": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Back refined, Robert version"
+  },
+  {
+    "id": 65,
+    "file": "posters/_three-cs-back-cameron.html",
+    "type": "three-cs-back",
+    "content_hash": "b7a4bf35115fbe1c",
+    "created_at": "2026-10-27T05:20:26.672Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-cameron.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-cameron.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-cameron.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-cameron.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed em-dash copy-lint warnings"
+  },
+  {
+    "id": 66,
+    "file": "posters/_three-cs-back-robert.html",
+    "type": "three-cs-back",
+    "content_hash": "bdd86f0111ea5234",
+    "created_at": "2026-10-27T05:20:30.901Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "posters/_three-cs-back-robert.html\n  OK — no issues found.",
+      "copy": "posters/_three-cs-back-robert.html\n  OK — no mechanical copy issues found.",
+      "layout": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "posters/_three-cs-back-robert.html  (816x1056)\n  WARN [artwork-contrast]: <img src=\"shl-logo-full-color.png\"> at 648,38 (110x49) — #e0bbc1 vs #ffffff — 1.74:1",
+      "brand": "posters/_three-cs-back-robert.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs-back",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Fixed em-dash copy-lint warnings, Robert"
   }
 ]
