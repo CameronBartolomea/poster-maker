@@ -10,7 +10,18 @@
 //      behind the contact card" class of bug.
 //   2. Overlap — any two unrelated elements with visible content whose
 //      boxes significantly intersect. Catches the "email text touching
-//      the QR code" class of bug.
+//      the QR code" class of bug. This also treats a positioned
+//      (absolute/fixed) element with a visible border or background as
+//      "visible content" in its own right, even if its own text lives
+//      only in its children — otherwise a footer bar whose border/fill
+//      visually sits on top of normal-flow content that grew into it
+//      (e.g. a disclosure box that got taller than expected) goes
+//      undetected, because neither the footer's own border nor its
+//      background is text or an <img>. (Found the hard way: a
+//      seller-concession-explainer disclosure box overflowed into the
+//      contact footer's top border, cutting a sentence in half, and
+//      this checker reported OK because it was only comparing
+//      text/img-owning elements against each other.)
 //   3. Contrast (basic) — text color vs its background, flagged if the
 //      computed contrast ratio is below WCAG AA (4.5:1) for body-sized
 //      text. Heuristic, not a full WCAG audit.
@@ -66,6 +77,14 @@ async function main() {
   });
 
   const data = await page.evaluate(() => {
+    // Local copy of parseRgb — page.evaluate() runs in the browser
+    // context, which can't see the Node-side function of the same name.
+    function parseRgb(str) {
+      const m = str && str.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/);
+      if (!m) return null;
+      return { rgb: [parseFloat(m[1]), parseFloat(m[2]), parseFloat(m[3])], a: m[4] !== undefined ? parseFloat(m[4]) : 1 };
+    }
+
     const pageRect = document.body.getBoundingClientRect();
     const els = Array.from(document.body.querySelectorAll("*"));
     const nodes = [];
@@ -82,7 +101,49 @@ async function main() {
         .join("")
         .trim();
       const isImg = el.tagName === "IMG";
-      if (!ownText && !isImg) continue;
+
+      // A positioned (absolute/fixed) element with a filled (non-
+      // transparent) background counts as "visible content" even with
+      // no own text — it's a drawn box that can visually collide with
+      // flow content, independent of whatever text its children carry.
+      // A border-only element (no fill) is handled separately below:
+      // its bounding box is NOT solid content (a hairline frame around
+      // a whole card legitimately "contains" the text inside it), so
+      // only the thin strip each drawn border edge actually occupies
+      // counts, not the full rect.
+      let hasFilledBg = false;
+      if (style.position === "absolute" || style.position === "fixed") {
+        const bg = parseRgb(style.backgroundColor);
+        hasFilledBg = !!(bg && bg.a > 0);
+
+        const borderStrips = ["Top", "Right", "Bottom", "Left"].reduce((strips, side) => {
+          const width = parseFloat(style[`border${side}Width`]);
+          const borderStyle = style[`border${side}Style`];
+          const color = parseRgb(style[`border${side}Color`]);
+          if (width > 0 && borderStyle !== "none" && (!color || color.a > 0)) strips.push(side);
+          return strips;
+        }, []);
+        if (!hasFilledBg && borderStrips.length && !ownText && !isImg) {
+          const full = el.getBoundingClientRect();
+          if (full.width > 0 && full.height > 0) {
+            for (const side of borderStrips) {
+              const w = parseFloat(style[`border${side}Width`]);
+              let stripRect;
+              if (side === "Top") stripRect = { x: full.x, y: full.y, width: full.width, height: w, right: full.right, bottom: full.y + w };
+              else if (side === "Bottom") stripRect = { x: full.x, y: full.bottom - w, width: full.width, height: w, right: full.right, bottom: full.bottom };
+              else if (side === "Left") stripRect = { x: full.x, y: full.y, width: w, height: full.height, right: full.x + w, bottom: full.bottom };
+              else stripRect = { x: full.right - w, y: full.y, width: w, height: full.height, right: full.right, bottom: full.bottom };
+              nodes.push({
+                el, tag: el.tagName, cls: el.className && typeof el.className === "string" ? el.className : "",
+                text: `[border-${side.toLowerCase()} of class="${el.className}"]`,
+                rect: stripRect, color: style.color, bgColor: style.backgroundColor, fontSize: 0, isDecoOnly: true,
+              });
+            }
+          }
+        }
+      }
+
+      if (!ownText && !isImg && !hasFilledBg) continue;
 
       const rect = el.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) continue;
@@ -91,11 +152,12 @@ async function main() {
         el,
         tag: el.tagName,
         cls: el.className && typeof el.className === "string" ? el.className : "",
-        text: ownText.slice(0, 40),
+        text: ownText.slice(0, 40) || (hasFilledBg && !isImg ? `[filled box, class="${el.className}"]` : ""),
         rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom },
         color: style.color,
         bgColor: style.backgroundColor,
         fontSize: parseFloat(style.fontSize),
+        isDecoOnly: hasFilledBg && !ownText && !isImg,
       });
     }
 
@@ -112,6 +174,12 @@ async function main() {
       for (let j = i + 1; j < nodes.length; j++) {
         const a = nodes[i], b = nodes[j];
         if (a.el.contains(b.el) || b.el.contains(a.el)) continue; // ancestor/descendant — not a real overlap
+        // Two decoration-only pseudo-nodes overlapping each other is a
+        // common deliberate pattern (fanned/stacked decorative cards,
+        // layered watermarks) — only flag when at least one side is
+        // real content (text/img), which is the bug class this
+        // decoration-awareness was added to catch.
+        if (a.isDecoOnly && b.isDecoOnly) continue;
         const area = intersectArea(a.rect, b.rect);
         if (area <= 0) continue;
         const smaller = Math.min(a.rect.width * a.rect.height, b.rect.width * b.rect.height);
@@ -156,9 +224,11 @@ async function main() {
     });
   }
 
-  // 3. Basic contrast check (text elements only, skip near-empty backgrounds we can't resolve)
+  // 3. Basic contrast check (real text elements only — skip the
+  // decoration-only pseudo-nodes added above for overlap detection,
+  // and near-empty backgrounds we can't resolve)
   for (const el of data.els) {
-    if (!el.text || el.fontSize === 0) continue;
+    if (!el.text || el.fontSize === 0 || el.isDecoOnly) continue;
     const fg = parseRgb(el.color);
     const bg = parseRgb(el.bgColor);
     if (!fg || !bg || bg.a === 0) continue; // transparent bg — can't check without compositing ancestors, skip
