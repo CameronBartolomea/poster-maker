@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategic Home Loans: The Three Cs Front</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#faf6f0;
+    --amber:#c98a2e; --amber-wash:#f7ecd9; --amber-deep:#875a16;
+    --teal:#1c7a6c; --teal-wash:#deeeea;
+    --red-wash:#f7e1dc;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; left:0.14in; z-index:50; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 9px; border-radius:2px; }
+
+  .header{ padding:0.3in 0.5in 0.08in 0.5in; text-align:center; }
+  .eyebrow{ font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--charcoal); font-weight:700; }
+  .mega{ font-size:52px; font-weight:900; letter-spacing:-1px; line-height:1; margin-top:0.07in; color:var(--near-black); }
+  .mega .cs{ color:var(--red); }
+  .threewords{ margin-top:0.1in; font-size:22px; font-weight:800; letter-spacing:0.01em; }
+  .threewords span{ margin:0 0.02in; }
+  .threewords .w1{ color:var(--amber); }
+  .threewords .dot{ color:#c7bfae; font-weight:400; }
+  .threewords .w2{ color:var(--teal); }
+  .threewords .w3{ color:var(--red); }
+  .memline{ font-size:11.5px; color:#8a8278; font-style:italic; margin-top:0.07in; }
+
+  .sections{ flex:1; display:flex; flex-direction:column; min-height:0; }
+  .sec{ flex:1; display:flex; align-items:center; padding:0.1in 0.5in; gap:0.34in; position:relative; }
+  .sec.amber{ background:var(--amber-wash); }
+  .sec.teal{ background:var(--teal-wash); }
+  .sec.red{ background:var(--near-black); }
+
+  .secnum{ font-size:15px; font-weight:800; color:#fff; width:0.5in; height:0.5in; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .sec.amber .secnum{ background:var(--amber-deep); }
+  .sec.teal .secnum{ background:var(--teal); }
+  .sec.red .secnum{ background:var(--red); }
+
+  .secword{ font-size:43px; font-weight:900; letter-spacing:-0.5px; line-height:0.95; flex-shrink:0; width:3.05in; }
+  .sec.amber .secword{ color:var(--amber); }
+  .sec.teal .secword{ color:var(--teal); }
+  .sec.red .secword{ color:var(--red); }
+  .secword .what{ display:block; font-size:13px; font-weight:600; color:var(--charcoal); letter-spacing:0; margin-top:0.12in; line-height:1.4; }
+  .sec.red .secword .what{ color:#c9c9c9; }
+
+  .secart{ flex:1; min-width:0; }
+
+  /* Compliment artwork: one large quoted line as a speech panel */
+  .quotepanel{ background:#fff; border-radius:13px; padding:0.22in 0.28in; position:relative; }
+  .quotepanel::before{ content:""; position:absolute; left:0.34in; bottom:-11px; width:0; height:0; border-left:11px solid transparent; border-right:11px solid transparent; border-top:13px solid #fff; }
+  .quotepanel .q{ font-size:23px; font-weight:700; font-style:italic; line-height:1.28; color:var(--near-black); }
+  .quotepanel .tag{ margin-top:0.12in; display:inline-block; font-size:11px; font-weight:700; color:var(--amber-deep); background:var(--amber-wash); padding:4px 12px; border-radius:20px; }
+  .quotepanel .sub2{ margin-top:0.12in; font-size:11.5px; color:#7a7268; line-height:1.4; max-width:4.4in; }
+
+  /* Compare artwork: question + annotated answer */
+  .comparewrap .question{ font-size:18.5px; font-weight:700; font-style:italic; color:var(--near-black); margin-bottom:0.13in; }
+  .answerline{ background:#fff; border-radius:13px; padding:0.2in 0.24in; font-size:15.5px; line-height:1.55; color:var(--near-black); }
+  .hl-keep{ background:#cfe9e0; border-radius:4px; padding:1px 5px; font-weight:700; }
+  .hl-open{ background:#f6d9ad; border-radius:4px; padding:1px 5px; font-weight:700; }
+  .annrow{ display:flex; gap:0.35in; margin-top:0.12in; }
+  .ann{ font-size:10.5px; font-weight:700; letter-spacing:0.01em; line-height:1.32; max-width:2.6in; }
+  .ann.keep{ color:#2a7d61; }
+  .ann.open{ color:#b2791a; }
+
+  /* Contrast artwork: instruction + conditional example */
+  .instruct{ font-size:19px; font-weight:700; color:#fff; line-height:1.36; }
+  .examplebox{ margin-top:0.16in; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); border-radius:11px; padding:0.16in 0.2in; }
+  .examplebox .lbl{ font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#ff8669; }
+  .examplebox p{ font-size:13.5px; font-style:italic; color:#e6e6e6; margin-top:0.07in; line-height:1.42; }
+
+  .bracket{ position:absolute; left:0.5in; top:-0.18in; font-size:9.5px; color:#8a8278; font-weight:700; }
+
+  .footer{ flex-shrink:0; padding:0.1in 0.5in 0.26in 0.5in; display:flex; flex-direction:column; gap:0.06in; }
+  .footer-line{ font-size:10px; color:var(--charcoal); font-weight:500; border-top:1px solid #e3ded0; padding-top:0.08in; text-align:center; }
+  .brand{ display:flex; align-items:center; justify-content:center; gap:9px; }
+  .brand img{ height:0.22in; display:block; }
+  .brand span{ font-size:8.5px; color:#9a9a9a; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Draft &middot; Pending Approval &middot; Three Cs Front</div>
+
+  <div class="header">
+    <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+    <div class="mega">THE THREE <span class="cs">Cs</span></div>
+    <div class="threewords">
+      <span class="w1">COMPLIMENT</span><span class="dot">&middot;</span><span class="w2">COMPARE</span><span class="dot">&middot;</span><span class="w3">CONTRAST</span>
+    </div>
+    <div class="memline">Start positive. Learn what matters. Show your difference.</div>
+  </div>
+
+  <div class="sections">
+
+    <div class="sec amber">
+      <div class="secnum">01</div>
+      <div class="secword">COMPLIMENT<span class="what">Respect the relationship they already have.</span></div>
+      <div class="secart">
+        <div class="quotepanel">
+          <div class="q">&ldquo;That's great. Sounds like you're in good hands.&rdquo;</div>
+          <div class="tag">Said warmly, not defensively</div>
+          <div class="sub2">This is the whole step. Not an opener to a pitch, the full move. Mean it, then stop talking.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec teal">
+      <div class="secnum">02</div>
+      <div class="secword">COMPARE<span class="what">Ask what their agent does well. Then listen for both halves of the answer.</span></div>
+      <div class="secart comparewrap">
+        <div class="question">&ldquo;What do they do that you really like?&rdquo;</div>
+        <div class="answerline"><span class="hl-keep">&ldquo;She knows the neighborhood really well.&rdquo;</span><br>Sometimes <span class="hl-open">we have to chase her for updates</span>, though.</div>
+        <div class="annrow">
+          <div class="ann keep">The strength. Acknowledge it, don't compete with it.</div>
+          <div class="ann open">The opening. This is what Contrast answers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec red">
+      <div class="secnum">03</div>
+      <div class="secword">CONTRAST<span class="what">Answer the specific thing they just told you.</span></div>
+      <div class="secart">
+        <div class="instruct">Acknowledge the strength. Then name one specific, true thing you actually do differently.</div>
+        <div class="examplebox">
+          <div class="lbl">Example &middot; only if true for you</div>
+          <p>&ldquo;That makes sense, she sounds great. I'm particular about keeping people posted. Happy to show you what that looks like.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">The Three Cs. Compliment, Compare, Contrast, in that order.</div>
+    <div class="brand">
+      <img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <span>A Realtor education piece from Strategic Home Loans, Inc.</span>
+    </div>
+  </div>
+</body>
+</html>
