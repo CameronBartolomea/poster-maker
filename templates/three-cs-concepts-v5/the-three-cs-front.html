@@ -23,17 +23,23 @@
   @media print{ body{ width:8.5in; height:11in; } }
   .draft-tag{ position:absolute; top:0.14in; left:0.14in; z-index:50; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 9px; border-radius:2px; }
 
-  .header{ padding:0.3in 0.5in 0.08in 0.5in; text-align:center; }
+  .header{ padding:0.34in 0.5in 0.1in 0.5in; text-align:center; }
   .eyebrow{ font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--charcoal); font-weight:700; }
-  .mega{ font-size:52px; font-weight:900; letter-spacing:-1px; line-height:1; margin-top:0.07in; color:var(--near-black); }
-  .mega .cs{ color:var(--red); }
-  .threewords{ margin-top:0.1in; font-size:22px; font-weight:800; letter-spacing:0.01em; }
+
+  /* Big "3Cs" mark: the single thing a reader should remember at a glance */
+  .markrow{ display:flex; align-items:center; justify-content:center; gap:0.14in; margin-top:0.1in; }
+  .bignum{ font-size:108px; font-weight:900; line-height:0.78; color:var(--near-black); letter-spacing:-2px; position:relative; }
+  .bigcs{ font-size:60px; font-weight:900; line-height:0.78; color:var(--red); align-self:flex-end; margin-bottom:0.06in; }
+  .spell{ font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--charcoal); margin-top:0.02in; }
+  .spell b{ color:var(--near-black); }
+
+  .threewords{ margin-top:0.14in; font-size:23px; font-weight:800; letter-spacing:0.01em; }
   .threewords span{ margin:0 0.02in; }
-  .threewords .w1{ color:var(--amber); }
+  .threewords .w1{ color:var(--amber-deep); }
   .threewords .dot{ color:#c7bfae; font-weight:400; }
   .threewords .w2{ color:var(--teal); }
   .threewords .w3{ color:var(--red); }
-  .memline{ font-size:11.5px; color:#8a8278; font-style:italic; margin-top:0.07in; }
+  .memline{ font-size:11.5px; color:#8a8278; font-style:italic; margin-top:0.08in; }
 
   .sections{ flex:1; display:flex; flex-direction:column; min-height:0; }
   .sec{ flex:1; display:flex; align-items:center; padding:0.1in 0.5in; gap:0.34in; position:relative; }
@@ -84,6 +90,7 @@
   .footer-line{ font-size:10px; color:var(--charcoal); font-weight:500; border-top:1px solid #e3ded0; padding-top:0.08in; text-align:center; }
   .brand{ display:flex; align-items:center; justify-content:center; gap:9px; }
   .brand img{ height:0.22in; display:block; }
+  .brand img.eho{ height:0.2in; }
   .brand span{ font-size:8.5px; color:#9a9a9a; }
 </style>
 </head>
@@ -92,7 +99,11 @@
 
   <div class="header">
     <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
-    <div class="mega">THE THREE <span class="cs">Cs</span></div>
+    <div class="markrow">
+      <div class="bignum">3</div>
+      <div class="bigcs">Cs</div>
+    </div>
+    <div class="spell">The <b>Three Cs</b></div>
     <div class="threewords">
       <span class="w1">COMPLIMENT</span><span class="dot">&middot;</span><span class="w2">COMPARE</span><span class="dot">&middot;</span><span class="w3">CONTRAST</span>
     </div>
@@ -144,7 +155,8 @@
     <div class="footer-line">The Three Cs. Compliment, Compare, Contrast, in that order.</div>
     <div class="brand">
       <img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
-      <span>A Realtor education piece from Strategic Home Loans, Inc.</span>
+      <span>A Realtor education piece from Strategic Home Loans, Inc. &middot; NMLS #340445</span>
+      <img class="eho" src="../../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
     </div>
   </div>
 </body>

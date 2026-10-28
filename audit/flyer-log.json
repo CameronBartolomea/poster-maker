@@ -2136,5 +2136,63 @@
     "approved_by": null,
     "approved_at": null,
     "note": "Round 7: Three Cs back, Robert version. Same template, rendered from data/people.json."
+  },
+  {
+    "id": 77,
+    "file": "templates/three-cs-concepts-v5/the-three-cs-front.html",
+    "type": "realtor-education",
+    "content_hash": "1152e9a618f181e2",
+    "created_at": "2026-10-28T22:18:20.302Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "fail",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  FAIL: No NMLS number found anywhere on the flyer.\n  FAIL: No Equal Housing Opportunity badge/reference found.",
+      "copy": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  OK — no mechanical copy issues found.",
+      "layout": "templates/three-cs-concepts-v5/the-three-cs-front.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "templates/three-cs-concepts-v5/the-three-cs-front.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 8: added a big '3 Cs' numeral lockup as the dominant memorable mark per Cameron's request, plus header spacing fix for the draft-tag overlap."
+  },
+  {
+    "id": 78,
+    "file": "templates/three-cs-concepts-v5/the-three-cs-front.html",
+    "type": "realtor-education",
+    "content_hash": "6b6c8da1c0164fdb",
+    "created_at": "2026-10-28T22:18:44.370Z",
+    "status": "draft",
+    "qa": {
+      "compliance": "pass",
+      "copy": "pass",
+      "layout": "pass",
+      "artwork_contrast": "pass",
+      "brand": "pass"
+    },
+    "qa_detail": {
+      "compliance": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  OK — no issues found.",
+      "copy": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  OK — no mechanical copy issues found.",
+      "layout": "templates/three-cs-concepts-v5/the-three-cs-front.html  (816x1056)\n  OK — no clipping, overlap, or contrast issues detected.",
+      "artwork_contrast": "templates/three-cs-concepts-v5/the-three-cs-front.html\n  No artwork elements (img/svg) at or above the size threshold found — nothing to check.",
+      "brand": "templates/three-cs-concepts-v5/the-three-cs-front.html  (816x1056)\n  OK — 1 real logo asset(s) found, proportions and clear space look correct."
+    },
+    "creative_variants_considered": null,
+    "evaluation_notes": null,
+    "layout_family": "three-cs",
+    "visual_review": "pending_human_review",
+    "approved_by": null,
+    "approved_at": null,
+    "note": "Round 8: big '3 Cs' numeral lockup, header spacing fix, added company NMLS + Equal Housing badge to footer for compliance."
   }
 ]
