@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Cs v4 — Concept A: The Conversation Scene</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#f7f1e7;
+    --coral:#e2654a; --amber:#d9952c; --teal:#1f7a6c; --blue:#2f6690; --rose:#c04e72;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; right:0.14in; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 8px; border-radius:3px; font-weight:700; z-index:50; }
+
+  .header{ padding:0.34in 0.55in 0.1in 0.55in; text-align:center; }
+  .eyebrow{ font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:0.06in; }
+  .headline{ font-size:25px; font-weight:800; line-height:1.14; letter-spacing:-0.3px; }
+  .sub{ font-size:11px; color:var(--charcoal); margin-top:0.06in; font-weight:500; }
+
+  .scene{ margin:0.12in 0.5in 0; height:5.3in; border-radius:16px; position:relative; overflow:hidden; background:linear-gradient(160deg,#fbeedd 0%,#f3dccb 55%,#ecd6c8 100%); }
+  .scene svg{ position:absolute; inset:0; width:100%; height:100%; }
+
+  .labels{ display:flex; gap:0.2in; margin:0.18in 0.5in 0; }
+  .lab{ flex:1; border-radius:10px; padding:0.14in 0.16in; }
+  .lab .n{ font-size:9.5px; font-weight:800; letter-spacing:0.09em; text-transform:uppercase; }
+  .lab .t{ font-size:12px; font-weight:700; line-height:1.3; margin-top:0.04in; }
+  .lab.c1{ background:#f7e3dd; } .lab.c1 .n{ color:var(--coral); }
+  .lab.c2{ background:#f8ecd8; } .lab.c2 .n{ color:var(--amber); }
+  .lab.c3{ background:var(--near-black); } .lab.c3 .n{ color:#ff8669; } .lab.c3 .t{ color:#fff; }
+
+  .lesson{ margin:0.22in 0.5in 0; background:#fff; border:1.5px solid #e9ddc9; border-radius:10px; padding:0.26in 0.3in; display:flex; gap:0.28in; align-items:flex-start; }
+  .lesson svg{ width:0.6in; height:0.6in; flex-shrink:0; }
+  .lesson .t{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); }
+  .lesson p{ font-size:14px; line-height:1.48; margin-top:0.07in; color:#333; }
+  .lesson p b{ color:var(--near-black); }
+  .lesson .safeguard{ font-size:10.5px; color:#9a9a9a; margin-top:0.12in; border-top:1px solid #eee2cc; padding-top:0.1in; }
+
+  .footer{ flex:1; display:flex; flex-direction:column; justify-content:flex-end; padding:0.14in 0.55in 0.3in 0.55in; gap:0.08in; }
+  .footer-line{ font-size:10.5px; color:var(--charcoal); font-weight:500; border-top:1px solid #e3ded0; padding-top:0.09in; text-align:center; }
+  .brand{ display:flex; align-items:center; justify-content:center; gap:10px; }
+  .brand img{ height:0.24in; display:block; }
+  .brand span{ font-size:9px; color:#9a9a9a; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Concept A — Not Final</div>
+
+  <div class="header">
+    <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+    <h1 class="headline">One conversation. Three moves. Here's how it actually goes.</h1>
+    <div class="sub">Compliment, Compare, Contrast, in order.</div>
+  </div>
+
+  <div class="scene">
+    <svg viewBox="0 0 850 530" preserveAspectRatio="xMidYMid slice">
+      <circle cx="120" cy="420" r="230" fill="#f0c9a8" opacity="0.4"/>
+      <circle cx="760" cy="60" r="190" fill="#9ecfc3" opacity="0.35"/>
+
+      <!-- table -->
+      <rect x="120" y="330" width="610" height="22" rx="8" fill="#c9a876"/>
+      <rect x="150" y="352" width="20" height="40" fill="#b8975f"/>
+      <rect x="660" y="352" width="20" height="40" fill="#b8975f"/>
+
+      <!-- realtor figure (left) -->
+      <rect x="150" y="190" width="150" height="150" rx="40" fill="#474747"/>
+      <circle cx="225" cy="150" r="58" fill="#2a2a2a"/>
+      <path d="M150 230 q75 -40 150 0" fill="none" stroke="#c72108" stroke-width="10" stroke-linecap="round"/>
+
+      <!-- client figure (right) -->
+      <rect x="560" y="190" width="150" height="150" rx="40" fill="#1f7a6c"/>
+      <circle cx="635" cy="150" r="58" fill="#15584e"/>
+
+      <!-- compliment bubble -->
+      <g>
+        <rect x="270" y="40" width="290" height="88" rx="18" fill="#ffffff" stroke="#e2654a" stroke-width="3"/>
+        <path d="M330 128 L310 158 L365 128 Z" fill="#ffffff" stroke="#e2654a" stroke-width="3"/>
+        <text x="300" y="75" font-family="Outfit" font-size="15" font-weight="700" fill="#262626">&#8220;That's great, sounds</text>
+        <text x="300" y="100" font-family="Outfit" font-size="15" font-weight="700" fill="#262626">like you're in good hands.&#8221;</text>
+      </g>
+
+      <!-- compare bubble, from client -->
+      <g>
+        <rect x="460" y="190" width="300" height="90" rx="18" fill="#ffffff" stroke="#d9952c" stroke-width="3"/>
+        <path d="M560 188 L540 158 L600 188 Z" fill="#ffffff" stroke="#d9952c" stroke-width="3"/>
+        <text x="490" y="222" font-family="Outfit" font-size="14.5" font-weight="700" fill="#262626">&#8220;She's always quick to</text>
+        <text x="490" y="246" font-family="Outfit" font-size="14.5" font-weight="700" fill="#262626">reply, even late at night.</text>
+        <text x="490" y="267" font-family="Outfit" font-size="14.5" font-weight="700" fill="#262626">That matters to us.&#8221;</text>
+      </g>
+
+      <!-- insight connector -->
+      <circle cx="425" cy="235" r="30" fill="#ffffff" stroke="#1f7a6c" stroke-width="3"/>
+      <circle cx="417" cy="228" r="9" fill="none" stroke="#1f7a6c" stroke-width="3.2"/>
+      <line x1="424" y1="235" x2="438" y2="249" stroke="#1f7a6c" stroke-width="3.2" stroke-linecap="round"/>
+
+      <!-- contrast response card, full width beneath the table -->
+      <g>
+        <rect x="120" y="412" width="610" height="90" rx="16" fill="#262626"/>
+        <text x="148" y="442" font-family="Outfit" font-size="11" font-weight="800" fill="#ff8669" letter-spacing="1.5">THE RESPONSE</text>
+        <text x="148" y="468" font-family="Outfit" font-size="16" font-weight="700" fill="#ffffff">&#8220;I'm the same way. You'll never wonder if I got</text>
+        <text x="148" y="490" font-family="Outfit" font-size="16" font-weight="700" fill="#ffffff">your message, day or night.&#8221;</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="labels">
+    <div class="lab c1"><div class="n">01 &middot; Compliment</div><div class="t">Respect the relationship first.</div></div>
+    <div class="lab c2"><div class="n">02 &middot; Compare</div><div class="t">Ask what they value. Listen for it.</div></div>
+    <div class="lab c3"><div class="n">03 &middot; Contrast</div><div class="t">Answer the specific thing they said.</div></div>
+  </div>
+
+  <div class="lesson">
+    <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21" fill="none" stroke="#1f7a6c" stroke-width="3"/><path d="M24 14 a9 9 0 0 1 9 9 c0 5 -5 6 -5 10" fill="none" stroke="#1f7a6c" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="36" r="1.6" fill="#1f7a6c"/></svg>
+    <div>
+      <div class="t">Why This Works</div>
+      <p>Compare is the only step that gathers information. Whatever they volunteer, <b>fast replies, feeling informed, a personal touch,</b> that's the one thing your Contrast line has to answer. Don't reach for a different selling point. Respond to what they actually said.</p>
+      <div class="safeguard">Exception: if they're under a signed, exclusive agreement, skip Contrast and respect it. Per NAR Code of Ethics, Article 16.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">One conversation. Three moves, in order.</div>
+    <div class="brand">
+      <img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <span>A Realtor education piece from Strategic Home Loans, Inc.</span>
+    </div>
+  </div>
+</body>
+</html>

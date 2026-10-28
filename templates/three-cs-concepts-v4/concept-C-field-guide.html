@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Cs v4 — Concept C: The Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#faf7f2;
+    --coral:#e2654a; --amber:#d9952c; --teal:#1f7a6c; --blue:#2f6690; --rose:#c04e72; --plum:#6a4c93;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; right:0.14in; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 8px; border-radius:3px; font-weight:700; z-index:50; }
+
+  .header{ padding:0.34in 0.55in 0.14in 0.55in; }
+  .eyebrow{ font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:0.06in; }
+  .headline{ font-size:25px; font-weight:800; line-height:1.14; letter-spacing:-0.3px; max-width:6.8in; }
+  .sub{ font-size:11px; color:var(--charcoal); margin-top:0.06in; font-weight:500; }
+
+  .body-row{ flex:1; display:flex; gap:0.24in; padding:0.05in 0.55in 0; min-height:0; align-items:stretch; }
+
+  .steps-col{ width:2.05in; flex-shrink:0; display:flex; flex-direction:column; gap:0.2in; }
+  .step-chip{ border-radius:13px; padding:0.3in 0.26in; color:#fff; flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .step-chip .n{ font-size:10.5px; font-weight:800; letter-spacing:0.09em; text-transform:uppercase; opacity:0.85; }
+  .step-chip svg{ width:0.56in; height:0.56in; margin:0.14in 0; display:block; }
+  .step-chip .t{ font-size:16.5px; font-weight:700; line-height:1.32; }
+  .step-chip.c1{ background:var(--coral); }
+  .step-chip.c2{ background:var(--amber); }
+  .step-chip.c3{ background:var(--near-black); }
+  .step-chip.c3 .n{ color:#ff8669; opacity:1; }
+
+  .guide-col{ flex:1; display:flex; flex-direction:column; min-width:0; }
+  .guide-title{ font-size:12.5px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--near-black); margin-bottom:0.12in; }
+  .guide-sub{ font-size:11.5px; color:var(--charcoal); margin-bottom:0.2in; max-width:5.4in; }
+
+  table.guide{ width:100%; border-collapse:separate; border-spacing:0 0.14in; flex:1; }
+  table.guide th{ text-align:left; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:#9a9a9a; font-weight:700; padding:0 0.16in 0.05in; }
+  table.guide td{ background:#fff; padding:0.19in 0.18in; font-size:13px; line-height:1.4; vertical-align:top; }
+  table.guide tr td:first-child{ border-top-left-radius:9px; border-bottom-left-radius:9px; border-left:6px solid; }
+  table.guide tr td:last-child{ border-top-right-radius:9px; border-bottom-right-radius:9px; }
+  table.guide .what{ font-weight:700; width:1.85in; }
+  table.guide .resp{ font-style:italic; font-weight:600; color:#333; }
+  tr.r1 td:first-child{ border-color:var(--blue); }
+  tr.r2 td:first-child{ border-color:var(--teal); }
+  tr.r3 td:first-child{ border-color:var(--rose); }
+  tr.r4 td:first-child{ border-color:var(--plum); }
+  tr.r5 td:first-child{ border-color:var(--amber); }
+
+  .safeguard-box{ margin-top:0.2in; background:var(--near-black); border-radius:11px; padding:0.22in 0.26in; display:flex; gap:0.2in; align-items:center; }
+  .safeguard-box svg{ width:0.46in; height:0.46in; flex-shrink:0; }
+  .safeguard-box p{ font-size:12px; color:#d8d8d8; line-height:1.45; margin:0; }
+  .safeguard-box p b{ color:#ff8669; }
+
+  .footer{ flex-shrink:0; padding:0.14in 0.55in 0.3in 0.55in; display:flex; flex-direction:column; gap:0.07in; }
+  .footer-line{ font-size:10.5px; color:var(--charcoal); font-weight:500; border-top:1px solid #e3ded0; padding-top:0.09in; text-align:center; }
+  .brand{ display:flex; align-items:center; justify-content:center; gap:10px; }
+  .brand img{ height:0.24in; display:block; }
+  .brand span{ font-size:9px; color:#9a9a9a; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Concept C — Not Final</div>
+
+  <div class="header">
+    <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+    <h1 class="headline">Compliment. Compare. Contrast. A field guide for whatever they say back.</h1>
+    <div class="sub">The framework on the left. What to actually say, matched to what they value, on the right.</div>
+  </div>
+
+  <div class="body-row">
+    <div class="steps-col">
+      <div class="step-chip c1">
+        <div class="n">01</div>
+        <svg viewBox="0 0 48 48"><path d="M24 38 C10 29 6 21 10 15.5 C13.5 10.5 21 10.5 24 17 C27 10.5 34.5 10.5 38 15.5 C42 21 38 29 24 38 Z" fill="#fff"/></svg>
+        <div class="t">Compliment<br>Respect the relationship.</div>
+      </div>
+      <div class="step-chip c2">
+        <div class="n">02</div>
+        <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="12" fill="none" stroke="#fff" stroke-width="3.6"/><line x1="29" y1="29" x2="39" y2="39" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/></svg>
+        <div class="t">Compare<br>Ask what they like. Listen.</div>
+      </div>
+      <div class="step-chip c3">
+        <div class="n">03</div>
+        <svg viewBox="0 0 48 48"><rect x="7" y="9" width="28" height="19" rx="5" fill="none" stroke="#fff" stroke-width="2.8"/><path d="M15 28 L15 36 L23 28 Z" fill="none" stroke="#fff" stroke-width="2.8"/><rect x="17" y="16" width="12" height="2.6" rx="1.3" fill="#fff"/><rect x="17" y="21" width="18" height="2.6" rx="1.3" fill="#fff"/></svg>
+        <div class="t">Contrast<br>Answer what they said. Truthfully.</div>
+      </div>
+    </div>
+
+    <div class="guide-col">
+      <div class="guide-title">If they say they value&hellip;</div>
+      <div class="guide-sub">Match the row to what they actually told you during Compare. Never offer a difference that isn't real.</div>
+      <table class="guide">
+        <tr><th class="what">What they value</th><th>Your Contrast response</th></tr>
+        <tr class="r1"><td class="what">Fast communication</td><td class="resp">&ldquo;Text me anytime, you'll hear back same day, usually within the hour.&rdquo;</td></tr>
+        <tr class="r2"><td class="what">Feeling kept in the loop</td><td class="resp">&ldquo;I check in after every showing, even when there's nothing new to report.&rdquo;</td></tr>
+        <tr class="r3"><td class="what">Feeling like a priority</td><td class="resp">&ldquo;You get my direct line, not a call center. I walk every client through it myself.&rdquo;</td></tr>
+        <tr class="r4"><td class="what">Market or pricing expertise</td><td class="resp">&ldquo;I'll show you the comps myself and explain exactly how I got there.&rdquo;</td></tr>
+        <tr class="r5"><td class="what">Feeling heard, not sold to</td><td class="resp">&ldquo;Tell me what you actually need. I'll tell you honestly if I'm the right fit.&rdquo;</td></tr>
+      </table>
+
+      <div class="safeguard-box">
+        <svg viewBox="0 0 48 48"><path d="M24 4 L42 12 V22 C42 33 35 41 24 44 C13 41 6 33 6 22 V12 Z" fill="none" stroke="#ff8669" stroke-width="2.6"/><path d="M17 24 L22 29 L32 18" fill="none" stroke="#ff8669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p><b>Before any of this:</b> if they're under a signed, exclusive agreement, skip Contrast and respect it. Don't solicit. Per NAR Code of Ethics, Article 16.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">One framework. Whatever they say, you have a real answer.</div>
+    <div class="brand">
+      <img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <span>A Realtor education piece from Strategic Home Loans, Inc.</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Cs v4 — Concept B: The Listening Branch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#faf6f1;
+    --coral:#e2654a; --coral-tint:#f7e3dd;
+    --amber:#d9952c; --amber-tint:#f8ecd8;
+    --blue:#2f6690; --blue-tint:#dde7ee;
+    --teal:#1f7a6c; --teal-tint:#dcede8;
+    --rose:#c04e72; --rose-tint:#f3dfe6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; right:0.14in; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 8px; border-radius:3px; font-weight:700; z-index:50; }
+
+  .header{ padding:0.4in 0.55in 0.06in 0.55in; display:flex; align-items:center; gap:0.3in; }
+  .header .htext{ flex:1; }
+  .eyebrow{ font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:0.08in; }
+  .headline{ font-size:29px; font-weight:800; line-height:1.12; letter-spacing:-0.4px; }
+  .sub{ font-size:12px; color:var(--charcoal); margin-top:0.09in; font-weight:500; }
+  .hero{ width:1.7in; height:1.4in; flex-shrink:0; }
+
+  .avatars{ display:flex; align-items:center; gap:0.12in; }
+  .avatar{ width:0.56in; height:0.56in; border-radius:50%; flex-shrink:0; }
+  .avatar.realtor{ background:var(--near-black); }
+  .avatar.client{ background:var(--teal); }
+
+  .panel{ margin:0.16in 0.55in 0; border-radius:12px; padding:0.26in 0.32in; position:relative; overflow:hidden; }
+  .panel .blob{ position:absolute; border-radius:50%; opacity:0.35; z-index:0; }
+  .panel .content{ position:relative; z-index:1; }
+  .panel .taglabel{ font-size:10.5px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .bubblewrap{ display:flex; align-items:flex-start; gap:0.2in; margin-top:0.13in; }
+  .bubble{ background:#fff; border-radius:16px; padding:0.18in 0.24in; font-size:19px; font-weight:700; font-style:italic; line-height:1.32; flex:1; position:relative; box-shadow:0 1px 0 rgba(0,0,0,0.04); }
+  .bubble::before{ content:""; position:absolute; left:-10px; top:0.24in; width:0; height:0; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:10px solid #fff; }
+  .micro{ font-size:11.5px; color:var(--charcoal); margin-top:0.1in; font-weight:500; max-width:5.8in; }
+
+  .p1{ background:var(--coral-tint); }
+  .p1 .taglabel{ color:var(--coral); }
+  .p1 .blob{ width:2.2in; height:2.2in; background:var(--coral); right:-0.9in; top:-0.9in; }
+
+  .p2{ background:var(--amber-tint); }
+  .p2 .taglabel{ color:var(--amber); }
+  .p2 .blob{ width:2.4in; height:2.4in; background:var(--amber); left:-1in; bottom:-1.2in; }
+
+  .branchrow{ display:flex; gap:0.22in; margin-top:0.22in; position:relative; z-index:1; }
+  .branch{ flex:1; border-radius:10px; padding:0.22in 0.14in; text-align:center; }
+  .branch .icon{ width:0.52in; height:0.52in; margin:0 auto 0.09in auto; }
+  .branch .name{ font-size:13px; font-weight:800; line-height:1.28; }
+  .branch.blue{ background:var(--blue-tint); }
+  .branch.blue .name{ color:var(--blue); }
+  .branch.teal{ background:var(--teal-tint); }
+  .branch.teal .name{ color:var(--teal); }
+  .branch.rose{ background:var(--rose-tint); }
+  .branch.rose .name{ color:var(--rose); }
+
+  .connectors{ display:flex; justify-content:space-around; margin:0.03in 0.95in 0; position:relative; z-index:1; }
+  .connectors svg{ width:3px; height:0.22in; }
+
+  .p3{ background:var(--near-black); color:#fff; }
+  .p3 .taglabel{ color:#ff8669; }
+  .p3 .note{ font-size:11px; color:#cfcfcf; margin-top:0.16in; font-weight:500; }
+  .p3 .note b{ color:#ff8669; }
+  .p3 .safeguard{ font-size:9.8px; color:#9a9a9a; margin-top:0.12in; font-weight:500; border-top:1px solid #3c3c3c; padding-top:0.1in; }
+
+  .respondrow{ display:flex; gap:0.22in; margin-top:0.18in; position:relative; z-index:1; }
+  .respond{ flex:1; border-radius:10px; padding:0.2in 0.18in; }
+  .respond .icon{ width:0.4in; height:0.4in; margin-bottom:0.08in; }
+  .respond .line{ font-size:13.5px; font-weight:600; line-height:1.36; color:#fff; }
+  .respond.blue{ background:rgba(79,138,181,0.28); border:1.5px solid #6fa8cc; }
+  .respond.teal{ background:rgba(60,163,142,0.25); border:1.5px solid #4fb09a; }
+  .respond.rose{ background:rgba(201,105,140,0.25); border:1.5px solid #e089ab; }
+
+  .footer{ flex:1; display:flex; flex-direction:column; justify-content:flex-end; padding:0.12in 0.55in 0.3in 0.55in; gap:0.07in; }
+  .footer-line{ font-size:10.5px; color:var(--charcoal); font-weight:500; border-top:1px solid #e3ded6; padding-top:0.09in; text-align:center; }
+  .brand{ display:flex; align-items:center; justify-content:center; gap:10px; }
+  .brand img{ height:0.24in; display:block; }
+  .brand span{ font-size:9px; color:#9a9a9a; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Concept B — Not Final</div>
+
+  <div class="header">
+    <div class="htext">
+      <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+      <h1 class="headline">Someone already has an agent? Don't argue. Listen, then be specific.</h1>
+      <div class="sub">Compliment, Compare, Contrast. The whole lesson is in what they say during Compare.</div>
+    </div>
+    <svg class="hero" viewBox="0 0 170 140">
+      <circle cx="40" cy="55" r="26" fill="var(--near-black)"/>
+      <circle cx="130" cy="55" r="26" fill="var(--teal)"/>
+      <path d="M68 50 Q85 30 102 50" fill="none" stroke="#d9952c" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <circle cx="85" cy="24" r="12" fill="#fff" stroke="#d9952c" stroke-width="2.4"/>
+      <rect x="80" y="18" width="10" height="10" rx="2" fill="#d9952c"/>
+      <path d="M22 110 Q85 92 148 110" fill="none" stroke="#e2654a" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="panel p1">
+    <div class="blob"></div>
+    <div class="content">
+      <div class="taglabel">01 &middot; Compliment</div>
+      <div class="bubblewrap">
+        <div class="avatars"><div class="avatar realtor"></div><div class="avatar client"></div></div>
+        <div class="bubble">&ldquo;That's great, sounds like you're in good hands.&rdquo;</div>
+      </div>
+      <div class="micro">Mean it. This is a relationship you're respecting, not an objection you're defeating.</div>
+    </div>
+  </div>
+
+  <div class="panel p2">
+    <div class="blob"></div>
+    <div class="content">
+      <div class="taglabel">02 &middot; Compare</div>
+      <div class="bubblewrap">
+        <div class="avatars"><div class="avatar realtor"></div><div class="avatar client"></div></div>
+        <div class="bubble">&ldquo;What do you like most about working with them?&rdquo;</div>
+      </div>
+      <div class="micro">You're not fishing for a complaint. You're finding out what actually matters to them.</div>
+
+      <div class="branchrow">
+        <div class="branch blue">
+          <svg class="icon" viewBox="0 0 48 48"><rect x="6" y="9" width="28" height="19" rx="5" fill="#2f6690"/><path d="M14 28 L14 36 L22 28 Z" fill="#2f6690"/><rect x="16" y="16" width="12" height="2.6" rx="1.3" fill="#fff"/><rect x="16" y="21" width="18" height="2.6" rx="1.3" fill="#fff"/></svg>
+          <div class="name">Kept in the loop</div>
+        </div>
+        <div class="branch teal">
+          <svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#1f7a6c" stroke-width="3.2"/><path d="M24 15 V24 L31 29" fill="none" stroke="#1f7a6c" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="name">Fast responses</div>
+        </div>
+        <div class="branch rose">
+          <svg class="icon" viewBox="0 0 48 48"><path d="M24 38 C10 29 6 21 10 15.5 C13.5 10.5 21 10.5 24 17 C27 10.5 34.5 10.5 38 15.5 C42 21 38 29 24 38 Z" fill="#c04e72"/></svg>
+          <div class="name">Felt like a priority</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connectors">
+    <svg><rect width="3" height="100%" fill="#2f6690"/></svg>
+    <svg><rect width="3" height="100%" fill="#1f7a6c"/></svg>
+    <svg><rect width="3" height="100%" fill="#c04e72"/></svg>
+  </div>
+
+  <div class="panel p3">
+    <div class="content">
+      <div class="taglabel">03 &middot; Contrast</div>
+      <div class="respondrow">
+        <div class="respond blue">
+          <svg class="icon" viewBox="0 0 48 48"><rect x="6" y="9" width="28" height="19" rx="5" fill="none" stroke="#9cc3dd" stroke-width="2.6"/><path d="M14 28 L14 36 L22 28 Z" fill="none" stroke="#9cc3dd" stroke-width="2.6"/></svg>
+          <div class="line">&ldquo;I check in after every showing, even when there's nothing new.&rdquo;</div>
+        </div>
+        <div class="respond teal">
+          <svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#8fd4c4" stroke-width="2.6"/><path d="M24 15 V24 L31 29" fill="none" stroke="#8fd4c4" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <div class="line">&ldquo;Text me anytime. You'll hear back same day.&rdquo;</div>
+        </div>
+        <div class="respond rose">
+          <svg class="icon" viewBox="0 0 48 48"><path d="M24 38 C10 29 6 21 10 15.5 C13.5 10.5 21 10.5 24 17 C27 10.5 34.5 10.5 38 15.5 C42 21 38 29 24 38 Z" fill="none" stroke="#edb0c6" stroke-width="2.6"/></svg>
+          <div class="line">&ldquo;You get my direct line, not a call center.&rdquo;</div>
+        </div>
+      </div>
+      <div class="note">Match the branch to <b>what they actually said</b>, not a script. Never offer a difference that isn't real.</div>
+      <div class="safeguard">Exception: if they're under a signed, exclusive agreement, skip Contrast and respect it. Per NAR Code of Ethics, Article 16.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">Three moves. One real difference, matched to what they told you.</div>
+    <div class="brand">
+      <img src="../../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <span>A Realtor education piece from Strategic Home Loans, Inc.</span>
+    </div>
+  </div>
+</body>
+</html>
