@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategic Home Loans: The Three Cs Back</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#faf6f0;
+    --amber:#c98a2e; --amber-wash:#f7ecd9; --amber-deep:#875a16;
+    --teal:#1c7a6c; --teal-wash:#deeeea;
+    --red-wash:#f7e1dc;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; left:0.14in; z-index:50; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 9px; border-radius:2px; }
+
+  .header{ padding:0.3in 0.55in 0.1in 0.55in; text-align:center; }
+  .eyebrow{ font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--charcoal); font-weight:700; }
+  .headline{ font-size:27px; font-weight:800; line-height:1.14; letter-spacing:-0.3px; margin-top:0.07in; }
+  .headline em{ font-style:normal; color:var(--red); }
+  .sub{ font-size:12.5px; color:var(--charcoal); margin-top:0.07in; font-weight:600; }
+
+  /* Conversation scene */
+  .scene{ margin:0.14in 0.55in 0; background:#fff; border-radius:14px; padding:0.22in 0.3in; position:relative; }
+  .exchange{ display:flex; flex-direction:column; gap:0.1in; }
+  .line{ display:flex; gap:0.14in; align-items:flex-start; }
+  .line .who{ flex-shrink:0; width:0.72in; font-size:9.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding-top:0.09in; }
+  .line.prospect .who{ color:#9a9a9a; }
+  .line.c1 .who{ color:var(--amber-deep); }
+  .line.c2 .who{ color:var(--teal); }
+  .line.c3 .who{ color:var(--red); }
+  .bub{ flex:1; border-radius:11px; padding:0.1in 0.16in; font-size:13.5px; line-height:1.42; font-weight:600; }
+  .line.prospect .bub{ background:#f1f1f1; color:var(--near-black); font-weight:500; font-style:italic; }
+  .line.c1 .bub{ background:var(--amber-wash); color:var(--near-black); }
+  .line.c2 .bub{ background:var(--teal-wash); color:var(--near-black); }
+  .line.c3 .bub{ background:var(--near-black); color:#fff; }
+  .line.c3 .bub .lbl{ display:block; font-size:9.5px; font-weight:800; letter-spacing:0.08em; color:#ff9d7a; margin-bottom:0.05in; }
+  .finishnote{ margin-top:0.14in; padding-top:0.12in; border-top:1px solid #ece6d8; font-size:11.5px; color:var(--charcoal); font-weight:600; }
+  .finishnote b{ color:var(--near-black); }
+
+  /* Listen for what matters row */
+  .valuesrow-title{ margin:0.2in 0.55in 0; font-size:12.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--near-black); }
+  .valuesrow-sub{ margin:0.03in 0.55in 0; font-size:11px; color:#8a8278; font-weight:500; max-width:6.6in; }
+  .valuesrow{ display:flex; gap:0.18in; margin:0.12in 0.55in 0; }
+  .vchip{ flex:1; background:#fff; border-radius:11px; padding:0.17in 0.16in; border:1.5px solid #ece6d8; }
+  .vchip .ic{ width:0.4in; height:0.4in; }
+  .vchip .t{ font-size:13px; font-weight:800; margin-top:0.08in; }
+  .vchip .d{ font-size:10.5px; color:var(--charcoal); font-weight:500; margin-top:0.04in; line-height:1.4; }
+
+  /* Respect row */
+  .respectrow{ margin:0.18in 0.55in 0; display:flex; gap:0.2in; align-items:center; background:var(--near-black); border-radius:12px; padding:0.18in 0.24in; }
+  .respectrow svg{ width:0.5in; height:0.5in; flex-shrink:0; }
+  .respectrow p{ font-size:11.5px; color:#d8d8d8; line-height:1.46; margin:0; }
+  .respectrow p b{ color:#ff9d7a; }
+
+  .spacer{ flex:1; min-height:0.08in; }
+
+  /* Bio / contact footer */
+  .biocard{ margin:0.14in 0.55in 0.28in; background:#fff; border:1.5px solid #ece6d8; border-radius:14px; padding:0.2in 0.26in; display:flex; align-items:center; gap:0.22in; }
+  .biocard .photo{ width:0.95in; height:0.95in; border-radius:50%; object-fit:cover; flex-shrink:0; border:3px solid var(--cream); box-shadow:0 0 0 2px #ece6d8; }
+  .biocard .info{ flex:1; min-width:0; }
+  .biocard .name{ font-size:16.5px; font-weight:800; }
+  .biocard .role{ font-size:11px; color:var(--charcoal); font-weight:600; margin-top:0.01in; }
+  .biocard .contactline{ font-size:10.5px; color:var(--charcoal); font-weight:500; margin-top:0.08in; line-height:1.5; }
+  .biocard .licrow{ font-size:9px; color:#9a9a9a; font-weight:500; margin-top:0.06in; }
+  .biocard .qrcol{ flex-shrink:0; text-align:center; }
+  .biocard .qrcol img{ width:0.82in; height:0.82in; display:block; }
+  .biocard .qrcol .qrlabel{ font-size:8.5px; color:#9a9a9a; font-weight:700; margin-top:0.04in; text-transform:uppercase; letter-spacing:0.04em; }
+  .biocard .brandcol{ flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:0.07in; padding-left:0.2in; border-left:1px solid #ece6d8; }
+  .biocard .brandcol img.logo{ height:0.3in; display:block; }
+  .biocard .brandcol img.eho{ height:0.26in; display:block; }
+</style>
+</head>
+<body>
+  <div class="draft-tag">Draft &middot; Pending Approval &middot; Three Cs Back</div>
+
+  <div class="header">
+    <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+    <div class="headline">Put <em>the Three Cs</em> into conversation.</div>
+    <div class="sub">Ask about the positive. Listen for what matters. Explain a relevant difference.</div>
+  </div>
+
+  <div class="scene">
+    <div class="exchange">
+      <div class="line prospect"><div class="who">Prospect</div><div class="bub">&ldquo;I already have an agent.&rdquo;</div></div>
+      <div class="line c1"><div class="who">01 Compliment</div><div class="bub">&ldquo;That's great. Sounds like you're in good hands.&rdquo;</div></div>
+      <div class="line c2"><div class="who">02 Compare</div><div class="bub">&ldquo;What do they do that you really like?&rdquo;</div></div>
+      <div class="line prospect"><div class="who">Prospect</div><div class="bub">&ldquo;She knows the neighborhood really well. Sometimes we have to chase her for updates, though.&rdquo;</div></div>
+      <div class="line c3"><div class="who">03 Contrast</div><div class="bub"><span class="lbl">Example &middot; only if true for you</span>&ldquo;That makes sense, she sounds great. I'm particular about keeping people posted. Happy to show you what that looks like.&rdquo;</div></div>
+    </div>
+    <div class="finishnote">Finish with a specific practice you actually follow, not a promise you're making up on the spot. <b>If they describe a fully positive experience, don't force a difference. Just leave it at Compliment.</b></div>
+  </div>
+
+  <div class="valuesrow-title">Listen for what matters.</div>
+  <div class="valuesrow-sub">Whatever they bring up in Compare, it usually falls into one of these. Answer the one they actually named.</div>
+  <div class="valuesrow">
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><rect x="5" y="11" width="38" height="24" rx="6" fill="none" stroke="#1c7a6c" stroke-width="3"/><path d="M14 35 L14 42 L22 35 Z" fill="#1c7a6c"/><line x1="13" y1="20" x2="35" y2="20" stroke="#1c7a6c" stroke-width="3" stroke-linecap="round"/><line x1="13" y1="27" x2="28" y2="27" stroke="#1c7a6c" stroke-width="3" stroke-linecap="round"/></svg>
+      <div class="t">Communication</div>
+      <div class="d">If they mention being hard to reach, tell them how you actually keep people posted.</div>
+    </div>
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><path d="M24 4 C13 4 6 13 6 22 C6 33 24 44 24 44 C24 44 42 33 42 22 C42 13 35 4 24 4 Z" fill="none" stroke="#875a16" stroke-width="3"/><circle cx="24" cy="21" r="6.5" fill="none" stroke="#875a16" stroke-width="3"/></svg>
+      <div class="t">Local Knowledge</div>
+      <div class="d">If they value expertise, point to a specific way you back that up with real information.</div>
+    </div>
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><circle cx="18" cy="17" r="8" fill="none" stroke="#c72108" stroke-width="3"/><path d="M6 42 C6 32 11 27 18 27 C25 27 30 32 30 42" fill="none" stroke="#c72108" stroke-width="3" stroke-linecap="round"/><circle cx="36" cy="14" r="3.4" fill="#c72108"/></svg>
+      <div class="t">Personal Attention</div>
+      <div class="d">If they value being a priority, describe how you make clients feel like one, specifically.</div>
+    </div>
+  </div>
+
+  <div class="respectrow">
+    <svg viewBox="0 0 48 48"><path d="M4 24 L14 24 L19 14 L24 30 L29 18 L33 24 L44 24" fill="none" stroke="#ff9d7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p><b>If they are happy with their agent, respect that.</b> Do not manufacture dissatisfaction or force a difference. Respect existing representation and follow your brokerage's guidance before discussing next steps. Per NAR Code of Ethics, Article 16.</p>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="biocard">
+    <img class="photo" src="../assets/people/robert/robert-headshot-2-transparent.png" alt="Robert Bartolomea">
+    <div class="info">
+      <div class="name">Robert Bartolomea</div>
+      <div class="role">President | Mortgage Consultant</div>
+      <div class="contactline">818.917.5839 &middot; robert@strategichomeloans.com</div>
+      <div class="licrow">NMLS #275047 &middot; CA DRE #00987918 &middot; 2555 Townsgate Rd, Suite 200, Westlake Village, CA 91361</div>
+    </div>
+    <div class="qrcol">
+      <img src="../assets/brand/qr/qr-robert-vcard.png" alt="Connect with Robert Bartolomea">
+      <div class="qrlabel">Scan to connect</div>
+    </div>
+    <div class="brandcol">
+      <img class="logo" src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <img class="eho" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
+    </div>
+  </div>
+</body>
+</html>

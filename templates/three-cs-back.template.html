@@ -2,215 +2,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Strategic Home Loans — The Three Cs — Back (Realtor Education)</title>
+<title>Strategic Home Loans: The Three Cs Back</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- THREE Cs — BACK, redesign round 3. DRAFT, pending Cameron's
-     approval. Practical training content: what each C means, one
-     natural sample conversation, when Contrast is appropriate, a
-     direct reminder to respect exclusive representation agreements
-     (NAR Code of Ethics Article 16, Standards of Practice 16-9 and
-     16-13 — independently re-verified against nar.realtor a third
-     time this round, quoted verbatim in
-     deliverables/three-cs-draft-v1/docs/round2-audit-against-references.md's
-     companion research), a short list of other common objections
-     handled the same way, and full contact information.
-     Round 4: language realigned to the front's rebuilt rail/checkpoint
-     design and to Cameron's corrected sequence, Compliment, then
-     Clarify (the representation question itself), then the
-     Representation Checkpoint, then Contrast, gated on confirmed
-     unrepresented and receptive.
-     Rendered per person-token via scripts/render-person-flyer.js. -->
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  @media screen {
-    html { height: 100vh; display: flex; justify-content: center; align-items: center; background: #ddd; }
-    body { flex-shrink: 0; }
+  :root{
+    --red:#c72108; --charcoal:#474747; --near-black:#262626; --cream:#faf6f0;
+    --amber:#c98a2e; --amber-wash:#f7ecd9; --amber-deep:#875a16;
+    --teal:#1c7a6c; --teal-wash:#deeeea;
+    --red-wash:#f7e1dc;
   }
-  @media print {
-    @page { size: 8.5in 11in; margin: 0; }
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:8.5in; height:11in; font-family:'Outfit',sans-serif; background:var(--cream); color:var(--near-black);
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
   }
-  body {
-    width: 8.5in; height: 11in; position: relative;
-    background: #ffffff; font-family: 'Outfit', sans-serif; color: #2a2a2a;
-    overflow: hidden;
-  }
-  .draft-tag {
-    position: absolute; top: 0.18in; left: 0.18in; z-index: 10;
-    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: #ffffff; background: #262626; padding: 3px 9px; border-radius: 2px;
-  }
+  @media print{ body{ width:8.5in; height:11in; } }
+  .draft-tag{ position:absolute; top:0.14in; left:0.14in; z-index:50; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:var(--near-black); padding:3px 9px; border-radius:2px; }
 
-  .headband { padding: 0.46in 0.6in 0 0.6in; position: relative; }
-  .headband .eyebrow { display: inline-block; font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: #c72108; font-weight: 600; }
-  .headband h1 { font-weight: 800; font-size: 21px; line-height: 1.2; color: #1c1c1c; margin-top: 6px; letter-spacing: -0.3px; max-width: 6in; }
-  .headband p.sub { font-size: 10.8px; color: #5a5a5a; margin-top: 6px; max-width: 6.1in; line-height: 1.4; }
-  .headband .logo-chip { position: absolute; top: 0.4in; right: 0.6in; }
-  .headband .logo-chip img { width: 1.15in; display: block; }
+  .header{ padding:0.3in 0.55in 0.1in 0.55in; text-align:center; }
+  .eyebrow{ font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--charcoal); font-weight:700; }
+  .headline{ font-size:27px; font-weight:800; line-height:1.14; letter-spacing:-0.3px; margin-top:0.07in; }
+  .headline em{ font-style:normal; color:var(--red); }
+  .sub{ font-size:12.5px; color:var(--charcoal); margin-top:0.07in; font-weight:600; }
 
-  .ccols { display: flex; gap: 0.22in; margin: 0.2in 0.6in 0; }
-  .ccard { flex: 1; border-radius: 4px; padding: 0.14in 0.16in; }
-  .ccard .tag { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-  .ccard .line { font-size: 12px; font-weight: 600; margin-top: 5px; line-height: 1.35; font-style: italic; }
-  .ccard p.note { font-size: 9.6px; line-height: 1.38; margin-top: 6px; }
+  /* Conversation scene */
+  .scene{ margin:0.14in 0.55in 0; background:#fff; border-radius:14px; padding:0.22in 0.3in; position:relative; }
+  .exchange{ display:flex; flex-direction:column; gap:0.1in; }
+  .line{ display:flex; gap:0.14in; align-items:flex-start; }
+  .line .who{ flex-shrink:0; width:0.72in; font-size:9.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding-top:0.09in; }
+  .line.prospect .who{ color:#9a9a9a; }
+  .line.c1 .who{ color:var(--amber-deep); }
+  .line.c2 .who{ color:var(--teal); }
+  .line.c3 .who{ color:var(--red); }
+  .bub{ flex:1; border-radius:11px; padding:0.1in 0.16in; font-size:13.5px; line-height:1.42; font-weight:600; }
+  .line.prospect .bub{ background:#f1f1f1; color:var(--near-black); font-weight:500; font-style:italic; }
+  .line.c1 .bub{ background:var(--amber-wash); color:var(--near-black); }
+  .line.c2 .bub{ background:var(--teal-wash); color:var(--near-black); }
+  .line.c3 .bub{ background:var(--near-black); color:#fff; }
+  .line.c3 .bub .lbl{ display:block; font-size:9.5px; font-weight:800; letter-spacing:0.08em; color:#ff9d7a; margin-bottom:0.05in; }
+  .finishnote{ margin-top:0.14in; padding-top:0.12in; border-top:1px solid #ece6d8; font-size:11.5px; color:var(--charcoal); font-weight:600; }
+  .finishnote b{ color:var(--near-black); }
 
-  .ccard.c1 { background: #f4f2f1; }
-  .ccard.c1 .tag { color: #474747; }
-  .ccard.c1 .line, .ccard.c1 p.note { color: #3a3a3a; }
+  /* Listen for what matters row */
+  .valuesrow-title{ margin:0.2in 0.55in 0; font-size:12.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--near-black); }
+  .valuesrow-sub{ margin:0.03in 0.55in 0; font-size:11px; color:#8a8278; font-weight:500; max-width:6.6in; }
+  .valuesrow{ display:flex; gap:0.18in; margin:0.12in 0.55in 0; }
+  .vchip{ flex:1; background:#fff; border-radius:11px; padding:0.17in 0.16in; border:1.5px solid #ece6d8; }
+  .vchip .ic{ width:0.4in; height:0.4in; }
+  .vchip .t{ font-size:13px; font-weight:800; margin-top:0.08in; }
+  .vchip .d{ font-size:10.5px; color:var(--charcoal); font-weight:500; margin-top:0.04in; line-height:1.4; }
 
-  .ccard.c2 { background: #474747; }
-  .ccard.c2 .tag { color: #e2bcc2; }
-  .ccard.c2 .line { color: #ffffff; }
-  .ccard.c2 p.note { color: #d6d6d6; }
+  /* Respect row */
+  .respectrow{ margin:0.18in 0.55in 0; display:flex; gap:0.2in; align-items:center; background:var(--near-black); border-radius:12px; padding:0.18in 0.24in; }
+  .respectrow svg{ width:0.5in; height:0.5in; flex-shrink:0; }
+  .respectrow p{ font-size:11.5px; color:#d8d8d8; line-height:1.46; margin:0; }
+  .respectrow p b{ color:#ff9d7a; }
 
-  .ccard.c3 { background: #262626; }
-  .ccard.c3 .tag { color: #e8503a; }
-  .ccard.c3 .line, .ccard.c3 p.note { color: #e9e9e9; }
-  .ccard.c3 p.note b { color: #e8503a; }
+  .spacer{ flex:1; min-height:0.08in; }
 
-  .convo {
-    margin: 0.2in 0.6in 0; background: #ffffff; border: 1px solid #e3e1df; border-radius: 4px;
-    padding: 0.18in 0.28in;
-  }
-  .convo .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-bottom: 7px; }
-  .convo .line { font-size: 11px; line-height: 1.42; margin-bottom: 7px; display: flex; gap: 8px; }
-  .convo .line .who { flex-shrink: 0; width: 0.62in; font-weight: 700; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.5px; padding-top: 1px; }
-  .convo .line.agent .who { color: #c72108; }
-  .convo .line.prospect .who { color: #8a8a8a; }
-  .convo .line p { color: #2a2a2a; }
-
-  .lowrow { display: flex; gap: 0.22in; margin: 0.18in 0.6in 0; }
-  .timing {
-    flex: 1.05; background: #262626; border-radius: 4px; padding: 0.16in 0.24in; color: #fff;
-  }
-  .timing .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #c9a39d; font-weight: 700; }
-  .timing .rule { font-size: 10.6px; line-height: 1.4; margin-top: 8px; color: #ffffff; font-weight: 700; }
-  .timing .rule span { color: #e2bcc2; font-weight: 400; }
-  .timing p { font-size: 9.4px; line-height: 1.4; margin-top: 8px; color: #b8b8b8; }
-  .timing p b { color: #e6e6e6; }
-
-  .objections { flex: 1; }
-  .objections .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; font-weight: 700; margin-bottom: 7px; }
-  .objections .row { font-size: 9.6px; line-height: 1.4; margin-bottom: 6px; }
-  .objections .row b { color: #1c1c1c; }
-  .objections .row span { color: #5a5a5a; }
-
-  .avoid { margin: 0.16in 0.6in 0; }
-  .avoid .label { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: #c72108; font-weight: 700; margin-bottom: 5px; }
-  .avoid p { font-size: 9.6px; color: #5a5a5a; line-height: 1.35; }
-
-  .legal { margin: 0.14in 0.6in 0; padding-top: 0.08in; border-top: 1px solid #e3e1df; }
-  .legal p { font-size: 7.8px; color: #9a9a9a; line-height: 1.35; }
-
-  .contact {
-    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.56in;
-    background: #f4f2f1; border-radius: 4px; padding: 0.14in 0.24in;
-    display: flex; align-items: center; justify-content: space-between; gap: 0.25in;
-  }
-  .contact-left .name { font-size: 15px; font-weight: 700; color: #1c1c1c; }
-  .contact-left .title { font-size: 10px; color: #8a5a54; margin-top: 2px; }
-  .contact-left .nmls { font-size: 7.8px; color: #8a8a8a; margin-top: 5px; line-height: 1.4; max-width: 4in; }
-  .contact-mid { flex: 1; }
-  .contact-mid .row { font-size: 9.8px; color: #3a3a3a; margin-bottom: 2px; }
-  .contact-mid .row .lbl { color: #c72108; font-size: 8.3px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; font-weight: 600; }
-  .contact-qr { display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; }
-  .contact-qr img { width: 0.72in; height: 0.72in; }
-  .contact-qr-label { font-size: 6.6px; color: #9a9a9a; text-align: center; line-height: 1.2; }
-
-  .footer-note {
-    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.24in;
-    display: flex; align-items: center; justify-content: center; gap: 7px;
-    font-size: 7.6px; color: #9a9a9a; text-align: center;
-  }
-  .footer-note .eho-badge { width: 13px; height: 13px; flex-shrink: 0; }
+  /* Bio / contact footer */
+  .biocard{ margin:0.14in 0.55in 0.28in; background:#fff; border:1.5px solid #ece6d8; border-radius:14px; padding:0.2in 0.26in; display:flex; align-items:center; gap:0.22in; }
+  .biocard .photo{ width:0.95in; height:0.95in; border-radius:50%; object-fit:cover; flex-shrink:0; border:3px solid var(--cream); box-shadow:0 0 0 2px #ece6d8; }
+  .biocard .info{ flex:1; min-width:0; }
+  .biocard .name{ font-size:16.5px; font-weight:800; }
+  .biocard .role{ font-size:11px; color:var(--charcoal); font-weight:600; margin-top:0.01in; }
+  .biocard .contactline{ font-size:10.5px; color:var(--charcoal); font-weight:500; margin-top:0.08in; line-height:1.5; }
+  .biocard .licrow{ font-size:9px; color:#9a9a9a; font-weight:500; margin-top:0.06in; }
+  .biocard .qrcol{ flex-shrink:0; text-align:center; }
+  .biocard .qrcol img{ width:0.82in; height:0.82in; display:block; }
+  .biocard .qrcol .qrlabel{ font-size:8.5px; color:#9a9a9a; font-weight:700; margin-top:0.04in; text-transform:uppercase; letter-spacing:0.04em; }
+  .biocard .brandcol{ flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:0.07in; padding-left:0.2in; border-left:1px solid #ece6d8; }
+  .biocard .brandcol img.logo{ height:0.3in; display:block; }
+  .biocard .brandcol img.eho{ height:0.26in; display:block; }
 </style>
 </head>
 <body>
-
   <div class="draft-tag">Draft &middot; Pending Approval &middot; Three Cs Back</div>
 
-  <div class="headband">
-    <span class="logo-chip"><img src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans"></span>
-    <div class="eyebrow">For the Agent, Not the Client</div>
-    <h1>What to say when someone already has an agent</h1>
-    <p class="sub">A short way to keep the conversation open without stepping on anyone's relationship. Three moves, in order, and a reminder on where the line is.</p>
+  <div class="header">
+    <div class="eyebrow">A Quick Reference for Real Estate Agents</div>
+    <div class="headline">Put <em>the Three Cs</em> into conversation.</div>
+    <div class="sub">Ask about the positive. Listen for what matters. Explain a relevant difference.</div>
   </div>
 
-  <div class="ccols">
-    <div class="ccard c1">
-      <div class="tag">01 &middot; Compliment</div>
-      <div class="line">&ldquo;That's great, having someone you trust matters.&rdquo;</div>
-      <p class="note">Costs nothing. Mean it before you ask anything else.</p>
+  <div class="scene">
+    <div class="exchange">
+      <div class="line prospect"><div class="who">Prospect</div><div class="bub">&ldquo;I already have an agent.&rdquo;</div></div>
+      <div class="line c1"><div class="who">01 Compliment</div><div class="bub">&ldquo;That's great. Sounds like you're in good hands.&rdquo;</div></div>
+      <div class="line c2"><div class="who">02 Compare</div><div class="bub">&ldquo;What do they do that you really like?&rdquo;</div></div>
+      <div class="line prospect"><div class="who">Prospect</div><div class="bub">&ldquo;She knows the neighborhood really well. Sometimes we have to chase her for updates, though.&rdquo;</div></div>
+      <div class="line c3"><div class="who">03 Contrast</div><div class="bub"><span class="lbl">Example &middot; only if true for you</span>&ldquo;That makes sense, she sounds great. I'm particular about keeping people posted. Happy to show you what that looks like.&rdquo;</div></div>
     </div>
-    <div class="ccard c2">
-      <div class="tag">02 &middot; Clarify</div>
-      <div class="line">&ldquo;Is that signed and exclusive, or someone you've just worked with before?&rdquo;</div>
-      <p class="note">This is the Representation Checkpoint question. The answer decides what you're allowed to do next.</p>
-    </div>
-    <div class="ccard c3">
-      <div class="tag">03 &middot; Contrast</div>
-      <div class="line">&ldquo;What's one thing you'd want to go differently this time?&rdquo;</div>
-      <p class="note"><b>Only once they're confirmed unrepresented and want to talk.</b> One real difference. Keep it short.</p>
-    </div>
+    <div class="finishnote">Finish with a specific practice you actually follow, not a promise you're making up on the spot. <b>If they describe a fully positive experience, don't force a difference. Just leave it at Compliment.</b></div>
   </div>
 
-  <div class="convo">
-    <div class="label">One Way This Actually Sounds</div>
-    <div class="line agent"><span class="who">Agent</span><p>Hey, thanks for coming by! Are you already working with someone?</p></div>
-    <div class="line prospect"><span class="who">Prospect</span><p>Yeah, we've got someone.</p></div>
-    <div class="line agent"><span class="who">Agent</span><p>Good, nice having someone in your corner. Is that signed and exclusive, or someone you've just worked with before?</p></div>
-    <div class="line prospect"><span class="who">Prospect</span><p>We bought our last place with her. Nothing signed yet for this one.</p></div>
-    <div class="line agent"><span class="who">Agent</span><p>Makes sense. Can I ask what you'd want to go differently this time?</p></div>
-    <div class="line prospect"><span class="who">Prospect</span><p>Honestly? We felt kind of out of the loop last time.</p></div>
-    <div class="line agent"><span class="who">Agent</span><p>Yeah, I hear that a lot. Staying in touch is something I take seriously. Happy to show you what that actually looks like, even if you end up sticking with her.</p></div>
-  </div>
-
-  <div class="lowrow">
-    <div class="timing">
-      <div class="label">Representation Checkpoint</div>
-      <div class="rule">Signed and exclusive? <span>That relationship comes first. Stop there.</span></div>
-      <p>No competing offers, no going around their agent. Contrast only applies once they're confirmed unrepresented, per the citation below.</p>
+  <div class="valuesrow-title">Listen for what matters.</div>
+  <div class="valuesrow-sub">Whatever they bring up in Compare, it usually falls into one of these. Answer the one they actually named.</div>
+  <div class="valuesrow">
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><rect x="5" y="11" width="38" height="24" rx="6" fill="none" stroke="#1c7a6c" stroke-width="3"/><path d="M14 35 L14 42 L22 35 Z" fill="#1c7a6c"/><line x1="13" y1="20" x2="35" y2="20" stroke="#1c7a6c" stroke-width="3" stroke-linecap="round"/><line x1="13" y1="27" x2="28" y2="27" stroke="#1c7a6c" stroke-width="3" stroke-linecap="round"/></svg>
+      <div class="t">Communication</div>
+      <div class="d">If they mention being hard to reach, tell them how you actually keep people posted.</div>
     </div>
-    <div class="objections">
-      <div class="label">Same Idea, Other Objections</div>
-      <div class="row"><b>"We're not ready yet."</b><br><span>"Understood. What would need to change before it felt right to move forward?"</span></div>
-      <div class="row"><b>"We're just looking."</b><br><span>"Of course. What are you hoping to learn while you look?"</span></div>
-      <div class="row"><b>"We're waiting on the market."</b><br><span>"That makes sense. What would you want to see happen before the timing felt right?"</span></div>
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><path d="M24 4 C13 4 6 13 6 22 C6 33 24 44 24 44 C24 44 42 33 42 22 C42 13 35 4 24 4 Z" fill="none" stroke="#875a16" stroke-width="3"/><circle cx="24" cy="21" r="6.5" fill="none" stroke="#875a16" stroke-width="3"/></svg>
+      <div class="t">Local Knowledge</div>
+      <div class="d">If they value expertise, point to a specific way you back that up with real information.</div>
+    </div>
+    <div class="vchip">
+      <svg class="ic" viewBox="0 0 48 48"><circle cx="18" cy="17" r="8" fill="none" stroke="#c72108" stroke-width="3"/><path d="M6 42 C6 32 11 27 18 27 C25 27 30 32 30 42" fill="none" stroke="#c72108" stroke-width="3" stroke-linecap="round"/><circle cx="36" cy="14" r="3.4" fill="#c72108"/></svg>
+      <div class="t">Personal Attention</div>
+      <div class="d">If they value being a priority, describe how you make clients feel like one, specifically.</div>
     </div>
   </div>
 
-  <div class="avoid">
-    <div class="label">What to Avoid</div>
-    <p>Criticizing the other agent. Pressuring for a commitment. Assuming someone is unrepresented just because they did not mention an agreement. Promising a result you cannot guarantee.</p>
+  <div class="respectrow">
+    <svg viewBox="0 0 48 48"><path d="M4 24 L14 24 L19 14 L24 30 L29 18 L33 24 L44 24" fill="none" stroke="#ff9d7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p><b>If they are happy with their agent, respect that.</b> Do not manufacture dissatisfaction or force a difference. Respect existing representation and follow your brokerage's guidance before discussing next steps. Per NAR Code of Ethics, Article 16.</p>
   </div>
 
-  <div class="legal">
-    <p>For real estate agent education. Per NAR Code of Ethics, Article 16 (Standards of Practice 16-9, 16-13): confirm representation before providing substantive services, and route anything involving a represented party through their agent, unless that agent agrees otherwise or the prospect reaches out directly. Follow your brokerage's current policy.</p>
-  </div>
+  <div class="spacer"></div>
 
-  <div class="contact">
-    <div class="contact-left">
+  <div class="biocard">
+    <img class="photo" src="{{person.headshot.cutout}}" alt="{{person.full_name}}">
+    <div class="info">
       <div class="name">{{person.full_name}}</div>
-      <div class="title">{{person.title}}</div>
-      <div class="nmls">NMLS #{{person.nmls}} &middot; CA DRE #{{person.dre}} &middot; {{company.legal_name}} NMLS #{{company.nmls}} &middot; CA DRE #{{company.dre}}</div>
+      <div class="role">{{person.title}}</div>
+      <div class="contactline">{{person.cell}} &middot; {{person.email}}</div>
+      <div class="licrow">NMLS #{{person.nmls}} &middot; CA DRE #{{person.dre}} &middot; {{company.office_address}}</div>
     </div>
-    <div class="contact-mid">
-      <div class="row"><span class="lbl">Cell</span>{{person.cell}}</div>
-      <div class="row"><span class="lbl">Office</span>{{person.office}}</div>
-      <div class="row"><span class="lbl">Email</span>{{person.email}}</div>
+    <div class="qrcol">
+      <img src="{{person.qr}}" alt="Connect with {{person.full_name}}">
+      <div class="qrlabel">Scan to connect</div>
     </div>
-    <div class="contact-qr">
-      <img src="{{person.qr}}" alt="Scan to save contact">
-      <div class="contact-qr-label">Scan to save<br>my contact</div>
+    <div class="brandcol">
+      <img class="logo" src="../assets/brand/logo/shl-logo-full-color.png" alt="Strategic Home Loans">
+      <img class="eho" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
     </div>
   </div>
-
-  <div class="footer-note">
-    <img class="eho-badge" src="../assets/brand/badges/equal-housing-opportunity.png" alt="Equal Housing Opportunity">
-    <span>{{company.office_address}} &middot; {{company.web}}</span>
-  </div>
-
 </body>
 </html>
